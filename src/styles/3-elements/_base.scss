@@ -7,6 +7,6 @@ body{
     font-family: $general-font;
 }
 
-a{
-    text-decoration: none;
-}
+a{&:hover{text-decoration: none;}}
+
+.container-fluid{max-width: 1600px;}

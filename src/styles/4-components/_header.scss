@@ -1,0 +1,28 @@
+#header{
+    z-index: 99;
+    width: 100vw;
+
+    .logo{
+        font-size: 3rem;
+        color: $white;
+    }
+
+    .navbar-nav{align-self: center;}
+
+    .main-nav{margin-left: 10%;}
+
+    .nav-item{
+        margin: 0 1.5rem;
+        .nav-link{
+            font-size: 1.5rem;
+            color: $white;
+            font-weight: 600;
+        }
+    }
+
+    .header-icon{
+        font-size: 2rem;
+        margin: 0 20px;
+        color: $general-color;
+    }
+}

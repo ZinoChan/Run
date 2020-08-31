@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from '../../components/ui/Header'
 
 export default function Home() {
     return (
+        <>
+        <Header/>
         <section className="home relative d-flex align-items-center">
             <div className="home-overlay">
                 <h1>Nike</h1>
@@ -22,5 +25,6 @@ export default function Home() {
                 <p>TWITTER</p>
             </div>
         </section>
+        </>
     )
 }
