@@ -1,0 +1,106 @@
+.home{
+    min-height: 100vh;
+    height: auto;
+    background-color: $home-bg;
+    width: 100vw;
+    .home-overlay{
+        background-color: $overlay-color;
+        width: 60%;
+        height: 100%;
+        min-height: 100vh;
+        background: linear-gradient($overlay-color, $overlay-color), url('../../../assets/overlay-bg.jpg');
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        overflow-y:hidden ;
+        h1{
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            font-size: 15rem;
+            color: $white;
+            opacity: .4;
+            text-transform: uppercase;
+        }
+
+        h2{
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            font-size: 15rem;
+            color: $white;
+            opacity: .4;
+            text-transform: uppercase;
+            margin-bottom: 0;            
+        }
+    }
+
+    .shoe{
+        position: absolute;
+        top: 50%;
+        left: 17%;
+        transform: translateY(-50%) rotate(-16deg);
+        height: 640px;
+        width: 50%;
+        background-image: url('../../../assets/home-bg.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .home-text{
+        width: 40%;
+        padding-left: 10rem;
+        padding-right: 2rem;
+        
+        h1{
+            font-size: 7rem;
+            margin-bottom: 2rem;
+        }
+
+        p{
+            color: $home-general;
+            font-size: 1.6rem;
+            margin-bottom: 3.5rem;;
+        }
+
+        .home-btn{
+            background-color: $home-btn-color;
+            color: $white;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 6rem;
+        }
+
+        a{
+            display: block;
+            font-size: 1.6rem;
+            color: $home-general;
+            font-weight: 700;
+
+            .arrow{
+                display: inline-block;
+                width: 100px;
+                height: 22px;
+                background: url('../../../assets/arrow.svg');
+                background-size: cover;
+                margin-left: .5rem;
+            }
+            
+        }
+    }
+
+    .social{
+        transform: rotate(-90deg) ;
+        transform-origin: right;
+        position: absolute;
+        bottom: 80%;
+        right: 2rem;
+        
+
+        p{
+            letter-spacing: 5px;
+            font-weight: 700;
+            margin: 0 3rem;
+        }
+    }
+}
