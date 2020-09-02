@@ -4,7 +4,7 @@ import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-ic
 
 export default function Header() {
     return (
-        <header id="header" class="position-fixed">
+        <header id="header" className="position-fixed">
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg">
                     <h1 className="logo">NIKE</h1>

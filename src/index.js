@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './views/home/Home';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
+import NewArrivals from './views/shop/NewArrivals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <NewArrivals />
   </React.StrictMode>,
   document.getElementById('root')
 );

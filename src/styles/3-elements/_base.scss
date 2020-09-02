@@ -9,4 +9,10 @@ body{
 
 a{&:hover{text-decoration: none;}}
 
-.container-fluid{max-width: 1600px;}
+p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: $general-color;
+}
+
+.container-fluid{max-width: 1600px; min-height: 100%;}

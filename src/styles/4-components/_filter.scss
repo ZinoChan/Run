@@ -1,0 +1,17 @@
+.filter{
+    padding: 5rem 0;
+    .form-control{
+        height: 50px;
+        width: 400px;
+    }
+
+    .main-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $white;
+       
+    }
+}
