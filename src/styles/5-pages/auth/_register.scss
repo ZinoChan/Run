@@ -1,0 +1,22 @@
+.register{
+    min-height: 100vh;
+    padding-top: 10rem;
+    .auth-img{
+        position: relative;
+        width: 100%;
+        min-height: 750px;
+        background-image: url('../../../assets/register.jpg');
+        background-repeat: no-repeat;
+
+        h2{
+            position: absolute;
+            top: 0;
+            color: $white;
+            left: 2rem;
+            font-size: 8rem;
+        }
+    }
+    .social-auth{
+        border-bottom: 1px solid #eee;
+    }
+}
