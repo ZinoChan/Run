@@ -1,0 +1,23 @@
+.boys-collection{
+    .banner{
+        background-color: $boys-primary;
+        &::after{
+            content: "";
+            display: block;
+            width: 500px;
+            height: 700px;
+            top: -18rem;
+            right: 18%;
+            position: absolute;
+            background-image: url('../../../assets/boys.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .main-btn{background-color:$boys-secondary;}
+
+    .add{color: $boys-secondary!important;}
+
+    .item-view{color: $boys-primary!important;}
+}

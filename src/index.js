@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
-import NewArrivals from './views/shop/NewArrivals';
+import Girls from './views/shop/Girls';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NewArrivals />
+    <Girls/>
   </React.StrictMode>,
   document.getElementById('root')
 );

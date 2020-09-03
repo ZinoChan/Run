@@ -7,6 +7,7 @@
 
 
 @import '3-elements/base';
+@import '3-elements/main-btn';
 
 @import '4-components/header';
 @import '4-components/filter';
@@ -14,5 +15,10 @@
 @import '4-components/news-letter';
 @import '4-components/banner';
 
+
 @import '5-pages/home/home';
 @import '5-pages/shop/new-arrivals';
+@import '5-pages/shop/men-collection';
+@import '5-pages/shop/women-collection';
+@import '5-pages/shop/boys-collection';
+@import '5-pages/shop/girls-collection';
