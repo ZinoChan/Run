@@ -8,12 +8,14 @@
 
 @import '3-elements/base';
 @import '3-elements/main-btn';
+@import '3-elements/cart-btn';
 
 @import '4-components/header';
 @import '4-components/filter';
 @import '4-components/product-item';
 @import '4-components/news-letter';
 @import '4-components/banner';
+@import '4-components/cart-item';
 
 
 @import '5-pages/home/home';
@@ -24,3 +26,4 @@
 @import '5-pages/shop/girls-collection';
 @import '5-pages/auth/login';
 @import '5-pages/auth/register';
+@import '5-pages/cart/cart';

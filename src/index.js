@@ -4,11 +4,12 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
-import Register from './views/auth/Register';
+
+import Cart from './views/cart/Cart';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Register/>
+    <Cart/>
   </React.StrictMode>,
   document.getElementById('root')
 );

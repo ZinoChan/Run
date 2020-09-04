@@ -1,0 +1,32 @@
+.cart-item{
+    padding: 2rem 0;
+    border-bottom: 1px solid $light-gray;
+
+    .cart-item-info{
+        text-align: left;
+        h3{
+            color: $light-black;
+            font-size: 2.3rem;
+        }
+
+        .cart-item-details{
+            font-size: 1.4rem;
+            color: $light-black;
+            font-weight: 600;
+        }
+
+    }
+
+    .price, .cart-item-total{
+        font-size: 2rem;
+        font-weight: 700;
+        color: $black;
+    }
+
+    .qty{
+        font-size: 1.6rem;
+        color: $black;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}
