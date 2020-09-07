@@ -5,11 +5,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
 
-import Cart from './views/cart/Cart';
+
+
+import BillingDetails from './views/checkout/BillingDetails';
+import Payment from './views/checkout/Payment';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Cart/>
+    <Payment/>
   </React.StrictMode>,
   document.getElementById('root')
 );

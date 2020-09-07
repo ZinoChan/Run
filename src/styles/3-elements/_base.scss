@@ -15,7 +15,16 @@ p {
     color: $general-color;
 }
 
-input {height: 50px!important;}
+input {
+    height: 50px!important; 
+    background-color:$light-gray!important;
+    &:focus{
+        box-shadow: none!important;
+        border-color: $black!important;
+    }
+}
+
+label{font-weight: 600;}
 
 .container-fluid{max-width: 1600px; min-height: 100%;}
 

@@ -1,25 +1,15 @@
 import React from 'react';
 import Banner from '../../components/ui/Banner';
-import CartItem from '../../components/cart/CartItem';
+import Header from '../../components/ui/Header';
+import CartList from '../../components/cart/CartList';
 
 export default function Cart() {
     return (
         <main className="cart">
+            <Header/>
             <Banner title="My Cart"/>
             <div className="container-fluid">
-                <div className="cart-items">
-                    <div className="cart-header text-center">
-                        <div className="row">
-                            <div className="col-xl-6"><h4>Product</h4></div>
-                            <div className="col-xl-2"><h4>Price</h4></div>
-                            <div className="col-xl-2"><h4>Qty</h4></div>
-                            <div className="col-xl-2"><h4>Total</h4></div>
-                        </div>
-                    </div>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                </div>
+                <CartList/>
                 <div className="row align-items-center">
                     <div className="col-xl-8">
                         <button className="btn btn-danger mx-3">Clear Cart</button>

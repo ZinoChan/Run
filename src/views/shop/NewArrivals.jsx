@@ -10,7 +10,7 @@ export default function NewArrivals() {
         <>
         <Header/>
         <main id="new-arrivals">
-            <Banner title="New  Arrivals"/>
+            <Banner title="New Arrivals"/>
             <Filter/>
             <ProductsList/>
             <NewsLetter/>
