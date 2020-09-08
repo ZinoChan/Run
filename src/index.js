@@ -4,15 +4,11 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
-
-
-
-import BillingDetails from './views/checkout/BillingDetails';
-import Payment from './views/checkout/Payment';
+import AppRoute from './routes/AppRoute';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Payment/>
+    <AppRoute/>
   </React.StrictMode>,
   document.getElementById('root')
 );

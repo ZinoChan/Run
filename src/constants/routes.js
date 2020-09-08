@@ -1,4 +1,5 @@
-export const HOME = '/home';
+export const HOME = '/';
+export const NEW_ARRIVALS = '/new-arrivals';
 export const MEN = '/men-collection';
 export const WOMEN = '/women-collection';
 export const BOYS = '/boys-collection';
