@@ -3,6 +3,11 @@
         position: relative; 
         overflow: hidden;
         
+        img.main-img{
+            max-height: 700px;
+            min-height: 700px;
+        }
+        
     }
     .sub-imgs{
         padding: 2px 1rem;

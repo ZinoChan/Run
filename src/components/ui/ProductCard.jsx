@@ -28,12 +28,11 @@ export default function ProductCard() {
             ],
             sizes: [{id: "kki", size: 39}, {id: "kli", size: 36}, {id: "lki", size: 45}, {id: "ski", size: 40}]
         }
-    
+
+    const imgRef = useRef();
 
     const [currentProduct, setCurrentProduct] = useState(db.colors[0]); 
 
-    const imgRef = useRef();
-    
     const [currentSize, setCurrentSize] = useState(db.sizes[0].id);
 
     const [currentColor, setCurrentColor] = useState(db.colors[0].id);
@@ -59,8 +58,8 @@ export default function ProductCard() {
    
 
     return (
-       <div className="d-flex align-items-center justify-content-center vh-100" style={{backgroundColor: "#ddd"}}>
-           <div className="product-card w-75 h-75 d-flex">
+       <>
+           <div className="product-card d-flex align-items-center">
                 <div className="product-card-img w-50">
                     <div className="sub-imgs">
                         {
@@ -75,7 +74,7 @@ export default function ProductCard() {
                             ))
                         }
                     </div>
-                    <img ref={imgRef} src={currentProduct.imgs[0].img} alt="shoe" className="current-img"/>
+                    <img ref={imgRef} src={currentProduct.imgs[0].img} alt="shoe" className="main-img"/>
                 </div>
                 <div className="product-card-info w-50">
                     <div className="product-price">$99.99</div>
@@ -126,6 +125,6 @@ export default function ProductCard() {
                 </div>
                 
            </div>
-       </div>
+       </>
     )
 }

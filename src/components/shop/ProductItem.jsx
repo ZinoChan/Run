@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function ProductItem() {
+export default function ProductItem({openModal}) {
+
+    const handleClick = () => openModal();
+
     return (
-        <div className="col-xl-4 mb-4">
+        <div className="col-xl-4 mb-4" onClick={handleClick}>
             <div className="product-item text-center">
                 <div class="card position-relative">
                     <div className="item-view"><FontAwesomeIcon icon={faEye}/></div>

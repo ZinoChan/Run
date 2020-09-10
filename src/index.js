@@ -4,11 +4,11 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
-import ProductCard from './components/ui/ProductCard';
+import AppRoute from './routes/AppRoute';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductCard/>
+    <AppRoute/>
   </React.StrictMode>,
   document.getElementById('root')
 );
