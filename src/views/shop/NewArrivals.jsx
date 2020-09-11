@@ -8,6 +8,9 @@ import ProductCard from '../../components/ui/ProductCard';
 
 export default function NewArrivals() {
     const [isOpenModal, setOpenModal] = useState(false);
+    const [isSelectedProduct, setSelectedProduct] = useState(null);
+
+    const selectedProduct = product => setSelectedProduct(product);
 
     const openModal = () => setOpenModal(true);
 
@@ -15,16 +18,16 @@ export default function NewArrivals() {
 
     return (
         <main id="new-arrivals">
-            <Banner title="New Arrivals"/>
             <Filter/>
             <ProductsList
                 openModal={openModal}
+                selectedProduct={selectedProduct}
             />
             <Modal
                 isOpen={isOpenModal}
                 closeModal={closeModal}
             >
-                <ProductCard/>
+                <ProductCard product={isSelectedProduct}/>
                 <button 
                     className="btn btn-dark position-absolute modal-btn" 
                     onClick={closeModal}

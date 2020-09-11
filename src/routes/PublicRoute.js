@@ -1,14 +1,23 @@
 import React from 'react'
 import { Route } from 'react-router-dom';
 import Header from '../components/ui/Header';
+import { HOME } from '../constants/routes';
 
-export default function PublicRoute({component: Component, ...rest}) {
+export default function PublicRoute({component: Component,path, ...rest}) {
     return (
         <Route {...rest} render={props => (
-            <>
-                <Header/>
-                <Component {...props}/>
-            </>
+                
+                    path === HOME ?
+                    <> 
+                        <Header theme="dark"/>
+                        <Component {...props}/>
+                    </>  
+                     : 
+                    <>  
+                        <Header theme="light"/>
+                        <Component {...props}/>
+                    </>
+        
         )}
        
        />

@@ -59,14 +59,35 @@ import w5_01 from './assets/shoes/w5_01.jpg';
 import w5_02 from './assets/shoes/w5_02.jpg';
 import w5_03 from './assets/shoes/w5_03.jpg';
 import w5_04 from './assets/shoes/w5_04.jpg';
-import w6_01 from './assets/shoes/w5_01.jpg';
-import w6_02 from './assets/shoes/w5_02.jpg';
-import w6_03 from './assets/shoes/w5_03.jpg';
-import w6_04 from './assets/shoes/w5_04.jpg';
-import w7_01 from './assets/shoes/w5_01.jpg';
-import w7_02 from './assets/shoes/w5_02.jpg';
-import w7_03 from './assets/shoes/w5_03.jpg';
-import w7_04 from './assets/shoes/w5_04.jpg';
+import w6_01 from './assets/shoes/w6_01.jpg';
+import w6_02 from './assets/shoes/w6_02.jpg';
+import w6_03 from './assets/shoes/w6_03.jpg';
+import w6_04 from './assets/shoes/w6_04.jpg';
+import w7_01 from './assets/shoes/w7_01.jpg';
+import w7_02 from './assets/shoes/w7_02.jpg';
+import w7_03 from './assets/shoes/w7_03.jpg';
+
+import k1_01 from './assets/shoes/k1_01.jpg';
+import k1_02 from './assets/shoes/k1_02.jpg';
+import k1_03 from './assets/shoes/k1_03.jpg';
+import k2_01 from './assets/shoes/k2_01.jpg';
+import k2_02 from './assets/shoes/k2_02.jpg';
+import k2_03 from './assets/shoes/k2_03.jpg';
+import k3_01 from './assets/shoes/k3_01.jpg';
+import k3_02 from './assets/shoes/k3_02.jpg';
+import k3_03 from './assets/shoes/k3_03.jpg';
+import k4_01 from './assets/shoes/k4_01.jpg';
+import k4_02 from './assets/shoes/k4_02.jpg';
+import k4_03 from './assets/shoes/k4_03.jpg';
+import k4_04 from './assets/shoes/k4_04.jpg';
+import k5_01 from './assets/shoes/k5_01.jpg';
+import k5_02 from './assets/shoes/k5_02.jpg';
+import k5_03 from './assets/shoes/k5_03.jpg';
+import k5_04 from './assets/shoes/k5_04.jpg';
+
+
+
+
 
 
 
@@ -79,7 +100,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#000', 
                 imgs: [
                     {id: uuidv4(), img: m1_01}, 
                     {id: uuidv4(), img: m1_02}, 
@@ -89,7 +110,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#BA0B1E', 
                 imgs: [
                     {id: uuidv4(), img: m2_01}, 
                     {id: uuidv4(), img: m2_02}, 
@@ -114,7 +135,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#A4A3A9', 
                 imgs: [
                     {id: uuidv4(), img: m4_01}, 
                     {id: uuidv4(), img: m4_02}, 
@@ -124,7 +145,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#E5E9F0', 
                 imgs: [
                     {id: uuidv4(), img: m5_01}, 
                     {id: uuidv4(), img: m5_02}, 
@@ -134,7 +155,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#000', 
                 imgs: [
                     {id: uuidv4(), img: m6_01}, 
                     {id: uuidv4(), img: m6_02}
@@ -150,13 +171,13 @@ export const db = [
     },
     {
         id: uuidv4(),
-        title: "nike  react infinite",
+        title: "nike  infinity sport",
         price: 99.99,
         collection: "men",
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#000', 
                 imgs: [
                     {id: uuidv4(), img: m7_01}, 
                     {id: uuidv4(), img: m7_02}, 
@@ -166,7 +187,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#CCCCD0', 
                 imgs: [
                     {id: uuidv4(), img: m8_01}, 
                     {id: uuidv4(), img: m8_02}, 
@@ -176,7 +197,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#E2A60E', 
                 imgs: [
                     {id: uuidv4(), img: m9_01}, 
                     {id: uuidv4(), img: m9_02}, 
@@ -186,7 +207,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#0082C4', 
                 imgs: [
                     {id: uuidv4(), img: m10_01}, 
                     {id: uuidv4(), img: m10_02}, 
@@ -211,7 +232,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#fafafa', 
                 imgs: [
                     {id: uuidv4(), img: w1_01}, 
                     {id: uuidv4(), img: w1_02}, 
@@ -229,13 +250,13 @@ export const db = [
     },
     {
         id: uuidv4(),
-        title: "nike infinity",
+        title: "nike sport",
         price: 99.99,
         collection: "women",
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#000', 
                 imgs: [
                     {id: uuidv4(), img: w2_01}, 
                     {id: uuidv4(), img: w2_02}, 
@@ -245,7 +266,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#D7D1C6', 
                 imgs: [
                     {id: uuidv4(), img: w8_01}, 
                     {id: uuidv4(), img: w8_02}, 
@@ -270,7 +291,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#00B0AE', 
                 imgs: [
                     {id: uuidv4(), img: w3_01}, 
                     {id: uuidv4(), img: w3_02}, 
@@ -280,7 +301,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#000', 
                 imgs: [
                     {id: uuidv4(), img: w4_01}, 
                     {id: uuidv4(), img: w4_02}, 
@@ -290,7 +311,7 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#BE7234', 
                 imgs: [
                     {id: uuidv4(), img: w5_01}, 
                     {id: uuidv4(), img: w5_02}, 
@@ -315,7 +336,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#827979', 
                 imgs: [
                     {id: uuidv4(), img: w6_01}, 
                     {id: uuidv4(), img: w6_02}, 
@@ -325,12 +346,11 @@ export const db = [
             },
             {
                 id: uuidv4(), 
-                color: '#ddd', 
+                color: '#76355B', 
                 imgs: [
                     {id: uuidv4(), img: w7_01}, 
                     {id: uuidv4(), img: w7_02}, 
                     {id: uuidv4(), img: w7_03}, 
-                    {id: uuidv4(), img: w7_04}
                 ]
             }
             
@@ -340,6 +360,83 @@ export const db = [
             {id: uuidv4(), size: 36}, 
             {id: uuidv4(), size: 45}, 
             {id: uuidv4(), size: 40}
+        ]
+    },
+    {
+        id: uuidv4(),
+        title: "nike sport react",
+        price: 99.99,
+        collection: "kids",
+        availableColors: [
+            {
+                id: uuidv4(), 
+                color: '#000', 
+                imgs: [
+                    {id: uuidv4(), img: k1_01}, 
+                    {id: uuidv4(), img: k1_02}, 
+                    {id: uuidv4(), img: k1_03}, 
+                ]
+            },
+            {
+                id: uuidv4(), 
+                color: '#0B97B1', 
+                imgs: [
+                    {id: uuidv4(), img: k2_01}, 
+                    {id: uuidv4(), img: k2_02}, 
+                    {id: uuidv4(), img: k2_03}, 
+                ]
+            },
+            {
+                id: uuidv4(), 
+                color: '#CFCAC5', 
+                imgs: [
+                    {id: uuidv4(), img: k3_01}, 
+                    {id: uuidv4(), img: k3_02}, 
+                    {id: uuidv4(), img: k3_03}, 
+                ]
+            }
+            
+        ],
+        availableSizes: [
+            {id: uuidv4(), size: 25}, 
+            {id: uuidv4(), size: 30}, 
+            {id: uuidv4(), size: 26}, 
+            {id: uuidv4(), size: 35}
+        ]
+    },
+    {
+        id: uuidv4(),
+        title: "nike sport react",
+        price: 99.99,
+        collection: "kids",
+        availableColors: [
+            {
+                id: uuidv4(), 
+                color: '#00B0AE', 
+                imgs: [
+                    {id: uuidv4(), img: k4_01}, 
+                    {id: uuidv4(), img: k4_02}, 
+                    {id: uuidv4(), img: k4_03}, 
+                    {id: uuidv4(), img: k4_04}
+                ]
+            },
+            {
+                id: uuidv4(), 
+                color: '#C2CE96', 
+                imgs: [
+                    {id: uuidv4(), img: k5_01}, 
+                    {id: uuidv4(), img: k5_02}, 
+                    {id: uuidv4(), img: k5_03}, 
+                    {id: uuidv4(), img: k5_04}
+                ]
+            }
+            
+        ],
+        availableSizes: [
+            {id: uuidv4(), size: 25}, 
+            {id: uuidv4(), size: 30}, 
+            {id: uuidv4(), size: 26}, 
+            {id: uuidv4(), size: 35}
         ]
     },
 

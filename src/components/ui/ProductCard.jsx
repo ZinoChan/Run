@@ -1,43 +1,21 @@
 import React, { useRef, useState } from 'react';
-import nike1 from '../../assets/nike2.jpg'
-import nike2 from '../../assets/nike3.jpg'
-import nike3 from '../../assets/nike4.jpg'
-import nike4 from '../../assets/nike7.jpg';
-import shoe1 from '../../assets/shoe1.jpg'
-import shoe2 from '../../assets/shoe2.jpg'
-import shoe3 from '../../assets/shoe3.jpg'
-import shoe4 from '../../assets/shoe4.jpg';
 import ProductCardImg from './ProductCardImg';
 import ProductCardColor from './ProductCardColor';
 import ProductCardSize from './ProductCardSize';
 
 
 
-export default function ProductCard() {
-
-    const db = 
-        {
-            id: "jhqsddz",
-            title: "nike explosive",
-            price: 99.99,
-            collection: "Women",
-            colors: [
-                {id: "hgdhsgd", color: '#ddd', imgs: [{id: "hsg", img: nike4}, {id: "hfg", img:nike2}, {id: "hsh", img:nike3}, {id: "hvg", img:nike1}]},
-                {id: "hgdhsdd",  color: '#000', imgs: [{id: "husg", img: shoe2}, {id: "hfvg", img:shoe1}, {id: "hvvh", img:shoe3}, {id: "hxxvg", img:shoe4}]},
-              
-            ],
-            sizes: [{id: "kki", size: 39}, {id: "kli", size: 36}, {id: "lki", size: 45}, {id: "ski", size: 40}]
-        }
+export default function ProductCard({product}) {
 
     const imgRef = useRef();
 
-    const [currentProduct, setCurrentProduct] = useState(db.colors[0]); 
+    const [currentProduct, setCurrentProduct] = useState(product.availableColors[0]); 
 
-    const [currentSize, setCurrentSize] = useState(db.sizes[0].id);
+    const [currentSize, setCurrentSize] = useState(product.availableSizes[0].id);
 
-    const [currentColor, setCurrentColor] = useState(db.colors[0].id);
+    const [currentColor, setCurrentColor] = useState(product.availableColors[0].id);
 
-    const [currentImg, setCurrentImg] = useState(db.colors[0].imgs[0].id);
+    const [currentImg, setCurrentImg] = useState(product.availableColors[0].imgs[0].id);
 
     const handleImgClick = (e, id) => {
         imgRef.current.src = e.target.src;
@@ -45,9 +23,9 @@ export default function ProductCard() {
     }
 
     const handleColorClick = id => {
-       let product =  db.colors.find(color => color.id === id);
-       setCurrentProduct(product);
-       setCurrentImg(product.imgs[0].id);
+       let $product =  product.availableColors.find(color => color.id === id);
+       setCurrentProduct($product);
+       setCurrentImg($product.imgs[0].id);
        setCurrentColor(id);
     }
 
@@ -77,10 +55,10 @@ export default function ProductCard() {
                     <img ref={imgRef} src={currentProduct.imgs[0].img} alt="shoe" className="main-img"/>
                 </div>
                 <div className="product-card-info w-50">
-                    <div className="product-price">$99.99</div>
+                    <div className="product-price">${product.price}</div>
                     <div className="product-info">
-                        <h2>Nike EXplosive Collection</h2>
-                        <span>WOMEN COLLECTION</span>
+                        <h2>{product.title}</h2>
+                        <span>{product.collection} COLLECTION</span>
                         <h4>Product Info:</h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -92,7 +70,7 @@ export default function ProductCard() {
                         <div className="product-colors d-flex align-items-center">
                             <p>Colors:</p>
                            {
-                               db.colors.map(color => (
+                               product.availableColors.map(color => (
                                     <ProductCardColor 
                                         key={color.id}
                                         id={color.id} 
@@ -106,7 +84,7 @@ export default function ProductCard() {
                         <div className="product-sizes d-flex align-items-center">
                             <p>Sizes:</p>
                             {
-                                db.sizes.map(s => (
+                                product.availableSizes.map(s => (
                                     <ProductCardSize 
                                         key={s.id} 
                                         id={s.id} 

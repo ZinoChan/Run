@@ -1,10 +1,13 @@
 #header{
-    z-index: 99;
+    z-index: 10;
     width: 100vw;
+    top: 0;
+    &.light{color: $white;}
+    &.dark{color: $light-black;}
 
     .logo{
         font-size: 3rem;
-        color: $white;
+        color: inherit;
     }
 
     .navbar-nav{align-self: center;}
@@ -15,7 +18,7 @@
         margin: 0 1.5rem;
         .nav-link{
             font-size: 1.5rem;
-            color: $white;
+            color: inherit;
             font-weight: 600;
         }
     }
@@ -23,6 +26,6 @@
     .header-icon{
         font-size: 2rem;
         margin: 0 20px;
-        color: $general-color;
+        color: $light-black;
     }
 }

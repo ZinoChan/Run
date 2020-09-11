@@ -6,7 +6,7 @@ import * as  ROUTES from '../../constants/routes';
 
 export default function Header() {
     return (
-        <header id="header" className="position-fixed">
+        <header id="header" className="position-absolute">
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg">
                     <h1 className="logo">NIKE</h1>
