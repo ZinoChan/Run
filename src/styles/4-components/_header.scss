@@ -2,30 +2,37 @@
     z-index: 10;
     width: 100vw;
     top: 0;
+    overflow: hidden;
     &.light{color: $white;}
     &.dark{color: $light-black;}
 
+    .navbar{padding: 0!important;}
+
     .logo{
         font-size: 3rem;
-        a{color: inherit;}
-    }
-
-    .navbar-nav{align-self: center;}
-
-    .main-nav{margin-left: 10%;}
-
-    .nav-item{
-        margin: 0 1.5rem;
-        .nav-link{
-            font-size: 1.5rem;
-            color: inherit;
-            font-weight: 600;
-        }
+        a{color: inherit; padding-left: 0!important;}
     }
 
     .header-icon{
         font-size: 2rem;
-        margin: 0 20px;
         color: $light-black;
     }
+    
+
+    .navbar-nav{
+        // position: absolute;
+        // right: 10%;
+        // transform: translateY(-120%);
+        // @include transition();
+        // &.open{transform: translateY(0); @include transition();}
+
+        .nav-link{
+            font-size: 1.5rem;
+            color: $light-black;
+            font-weight: 600;
+        }
+       
+    }
+
+   
 }

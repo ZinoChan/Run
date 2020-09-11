@@ -2,6 +2,7 @@ export const HOME = '/';
 export const SHOP = '/shop';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
+export const CART = '/cart';
 export const CHECKOUT_STEP_1 = '/order-details';
 export const CHECKOUT_STEP_2 = '/billing-details';
 export const CHECKOUT_STEP_3 = '/payment';

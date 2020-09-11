@@ -47,7 +47,9 @@
 
     .form-header{
         margin-bottom: 2rem;
-        p{
+        p, a{
+            font-size: 1.6rem;
+            color: $general-color;
             font-weight: 600;
             cursor: pointer;
             &.active{color: $black; text-decoration: underline;}

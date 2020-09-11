@@ -1,4 +1,7 @@
 import React from 'react'
+import { LOGIN } from '../../constants/routes';
+import { NavLink } from 'react-router-dom';
+
 
 export default function Register() {
     return (
@@ -13,7 +16,7 @@ export default function Register() {
                     <div className="col-xl-6" style={{alignSelf: "center"}}>
                         <form className="auth-form">
                             <div className="form-header d-flex justify-content-between">
-                                <p>Login</p> <p className="active">Register</p>
+                            <NavLink to={LOGIN}>Login</NavLink> <p className="active">Register</p>
                             </div>
                             <div className="social-auth d-flex justify-content-between">
                                 <p>Facebook</p>
