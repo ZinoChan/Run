@@ -1,9 +1,5 @@
 export const HOME = '/';
-export const NEW_ARRIVALS = '/new-arrivals';
-export const MEN = '/men-collection';
-export const WOMEN = '/women-collection';
-export const BOYS = '/boys-collection';
-export const GIRLS = '/girls-collection';
+export const SHOP = '/shop';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
 export const CHECKOUT_STEP_1 = '/order-details';

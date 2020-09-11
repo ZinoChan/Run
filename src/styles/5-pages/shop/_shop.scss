@@ -1,0 +1,14 @@
+#shop{
+    min-height: 50vh;
+    height: auto;
+    width: 100vw;
+
+    .main-btn{
+        background-color: $black; 
+    }
+
+    .form-control{box-shadow: none;
+        height: 50px;
+        &:focus{border-color: $black;}
+    }
+}

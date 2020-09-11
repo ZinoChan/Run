@@ -2,11 +2,10 @@ import React, {useState} from 'react'
 import Filter from '../../components/ui/Filter';
 import ProductsList from '../../components/shop/ProductsList';
 import NewsLetter from '../../components/ui/NewsLetter';
-import Banner from '../../components/ui/Banner';
 import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 
-export default function NewArrivals() {
+export default function Shop() {
     const [isOpenModal, setOpenModal] = useState(false);
     const [isSelectedProduct, setSelectedProduct] = useState(null);
 
@@ -17,7 +16,7 @@ export default function NewArrivals() {
     const closeModal = () => setOpenModal(false);
 
     return (
-        <main id="new-arrivals">
+        <main id="shop">
             <Filter/>
             <ProductsList
                 openModal={openModal}

@@ -9,12 +9,12 @@ export default function PublicRoute({component: Component,path, ...rest}) {
                 
                     path === HOME ?
                     <> 
-                        <Header theme="dark"/>
+                        <Header theme="light"/>
                         <Component {...props}/>
                     </>  
                      : 
                     <>  
-                        <Header theme="light"/>
+                        <Header theme="dark"/>
                         <Component {...props}/>
                     </>
         
