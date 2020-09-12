@@ -7,7 +7,7 @@ export default function Register() {
     return (
         <section className="register">
             <div className="container-fluid">
-                <div className="row ">
+                <div className="row auth-row">
                     <div className="col-xl-6">
                         <div className="auth-img">
                             <h2>Register</h2>

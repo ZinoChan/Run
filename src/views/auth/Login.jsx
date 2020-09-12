@@ -7,8 +7,8 @@ export default function Login() {
     return (
         <section className="login">
             <div className="container-fluid">
-                <div className="row ">
-                    <div className="col-xl-6">
+                <div className="row auth-row">
+                    <div className="col-xl-6 ">
                         <div className="auth-img">
                             <h2>LOGIN</h2>
                         </div>

@@ -6,7 +6,9 @@
         width: 100%;
         min-height: 750px;
         background-image: url('../../../assets/register.jpg');
+        background-size: cover;
         background-repeat: no-repeat;
+        
 
         h2{
             position: absolute;
@@ -18,5 +20,12 @@
     }
     .social-auth{
         border-bottom: 1px solid #eee;
+    }
+}
+
+
+@include responsive_max(450px){
+    .register .auth-img{
+        background-position: center center;
     }
 }
