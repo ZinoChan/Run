@@ -14,3 +14,12 @@
         font-weight: 600;
     }
 }
+
+
+@include responsive_mobile{
+    .news-form{width: 80%!important;}
+}
+
+@include responsive_max(450px){
+    .news-form{width: 100%!important;}
+}

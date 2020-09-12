@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
+import m1_00 from './assets/shoes/m1_00.jpg';
 import m1_01 from './assets/shoes/m1_01.jpg';
 import m1_02 from './assets/shoes/m1_02.jpg';
 import m1_03 from './assets/shoes/m1_03.jpg';
@@ -8,6 +9,7 @@ import m2_01 from './assets/shoes/m2_01.jpg';
 import m2_02 from './assets/shoes/m2_02.jpg';
 import m2_03 from './assets/shoes/m2_03.jpg';
 import m2_04 from './assets/shoes/m2_04.jpg';
+import m4_00 from './assets/shoes/m4_00.jpg';
 import m4_01 from './assets/shoes/m4_01.jpg';
 import m4_02 from './assets/shoes/m4_02.jpg';
 import m4_03 from './assets/shoes/m4_03.jpg';
@@ -18,6 +20,7 @@ import m5_03 from './assets/shoes/m5_03.jpg';
 import m5_04 from './assets/shoes/m5_04.jpg';
 import m6_01 from './assets/shoes/m6_01.jpg';
 import m6_02 from './assets/shoes/m6_02.jpg';
+import m7_00 from './assets/shoes/m7_00.jpg';
 import m7_01 from './assets/shoes/m7_01.jpg';
 import m7_02 from './assets/shoes/m7_02.jpg';
 import m7_03 from './assets/shoes/m7_03.jpg';
@@ -35,6 +38,7 @@ import m10_02 from './assets/shoes/m10_02.jpg';
 import m10_03 from './assets/shoes/m10_03.jpg';
 import m10_04 from './assets/shoes/m10_04.jpg';
 
+import w1_00 from './assets/shoes/w1_00.jpg';
 import w1_01 from './assets/shoes/w1_01.jpg';
 import w1_02 from './assets/shoes/w1_02.jpg';
 import w1_03 from './assets/shoes/w1_03.jpg';
@@ -43,10 +47,12 @@ import w8_01 from './assets/shoes/w8_01.jpg';
 import w8_02 from './assets/shoes/w8_02.jpg';
 import w8_03 from './assets/shoes/w8_03.jpg';
 import w8_04 from './assets/shoes/w8_04.jpg';
+import w2_00 from './assets/shoes/w2_00.jpg';
 import w2_01 from './assets/shoes/w2_01.jpg';
 import w2_02 from './assets/shoes/w2_02.jpg';
 import w2_03 from './assets/shoes/w2_03.jpg';
 import w2_04 from './assets/shoes/w2_04.jpg';
+import w3_00 from './assets/shoes/w3_00.jpg';
 import w3_01 from './assets/shoes/w3_01.jpg';
 import w3_02 from './assets/shoes/w3_02.jpg';
 import w3_03 from './assets/shoes/w3_03.jpg';
@@ -59,6 +65,7 @@ import w5_01 from './assets/shoes/w5_01.jpg';
 import w5_02 from './assets/shoes/w5_02.jpg';
 import w5_03 from './assets/shoes/w5_03.jpg';
 import w5_04 from './assets/shoes/w5_04.jpg';
+import w6_00 from './assets/shoes/w6_00.jpg';
 import w6_01 from './assets/shoes/w6_01.jpg';
 import w6_02 from './assets/shoes/w6_02.jpg';
 import w6_03 from './assets/shoes/w6_03.jpg';
@@ -67,6 +74,7 @@ import w7_01 from './assets/shoes/w7_01.jpg';
 import w7_02 from './assets/shoes/w7_02.jpg';
 import w7_03 from './assets/shoes/w7_03.jpg';
 
+import k1_00 from './assets/shoes/k1_00.jpg';
 import k1_01 from './assets/shoes/k1_01.jpg';
 import k1_02 from './assets/shoes/k1_02.jpg';
 import k1_03 from './assets/shoes/k1_03.jpg';
@@ -76,6 +84,7 @@ import k2_03 from './assets/shoes/k2_03.jpg';
 import k3_01 from './assets/shoes/k3_01.jpg';
 import k3_02 from './assets/shoes/k3_02.jpg';
 import k3_03 from './assets/shoes/k3_03.jpg';
+import k4_00 from './assets/shoes/k4_00.jpg';
 import k4_01 from './assets/shoes/k4_01.jpg';
 import k4_02 from './assets/shoes/k4_02.jpg';
 import k4_03 from './assets/shoes/k4_03.jpg';
@@ -97,6 +106,7 @@ export const db = [
         title: "nike air max",
         price: 99.99,
         collection: "men",
+        item: m1_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -132,6 +142,7 @@ export const db = [
         title: "nike  react infinite",
         price: 99.99,
         collection: "men",
+        item: m4_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -174,6 +185,7 @@ export const db = [
         title: "nike  infinity sport",
         price: 99.99,
         collection: "men",
+        item: m7_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -229,6 +241,7 @@ export const db = [
         title: "nike lutus",
         price: 99.99,
         collection: "women",
+        item: w1_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -253,6 +266,7 @@ export const db = [
         title: "nike sport",
         price: 99.99,
         collection: "women",
+        item: w2_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -288,6 +302,7 @@ export const db = [
         title: "nike fantasy",
         price: 99.99,
         collection: "women",
+        item: w3_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -333,6 +348,7 @@ export const db = [
         title: "nike air max",
         price: 99.99,
         collection: "women",
+        item: w6_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -367,6 +383,7 @@ export const db = [
         title: "nike sport react",
         price: 99.99,
         collection: "kids",
+        item: k1_00,
         availableColors: [
             {
                 id: uuidv4(), 
@@ -409,6 +426,7 @@ export const db = [
         title: "nike sport react",
         price: 99.99,
         collection: "kids",
+        item: k4_00,
         availableColors: [
             {
                 id: uuidv4(), 

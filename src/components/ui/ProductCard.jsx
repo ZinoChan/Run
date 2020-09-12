@@ -82,7 +82,7 @@ export default function ProductCard({product}) {
                            }
                         </div>
                         <div className="product-sizes d-flex align-items-center">
-                            <p>Sizes:</p>
+                            <p className="mr-2">Sizes:</p>
                             {
                                 product.availableSizes.map(s => (
                                     <ProductCardSize 
@@ -97,7 +97,7 @@ export default function ProductCard({product}) {
                         </div>
                     </div>
                     <div className="text-center">
-                        <button className="btn btn-dark w-50 mb-2 mx-auto">ADD TO CART</button>
+                        <button className="btn btn-dark mb-2 mx-auto">ADD TO CART</button>
                         <p>Add To Whishlist</p>
                     </div>
                 </div>

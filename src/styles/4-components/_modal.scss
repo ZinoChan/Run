@@ -6,3 +6,22 @@
     top: 10px;
     right: 10px;
 }
+
+@include responsive_tab(){
+    .ReactModal__Content.ReactModal__Content--after-open{padding: 0!important;}
+}
+
+@include responsive_mobile(){
+    .ReactModal__Content.ReactModal__Content--after-open{
+        height: 85vh!important;
+        overflow: scroll!important;
+        width: 75%!important;
+    }
+}
+
+@include responsive_max(450px){
+    .ReactModal__Content.ReactModal__Content--after-open{
+        width: 100%!important;
+        height: 95vh!important;
+    }
+}

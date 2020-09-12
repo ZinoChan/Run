@@ -70,10 +70,11 @@
        }
 
        .product-sizes{
+           flex-wrap: wrap;
            margin-bottom: 3rem;
             p{font-weight: 600;color: $light-black;}
             span{
-                margin: 0 1rem; 
+                margin-right:1rem; 
                 font-size: 1.6rem; 
                 font-weight: 700;
                 border: 2px solid transparent;
@@ -116,5 +117,28 @@
                 }
             }
         }
+    }
+}
+
+
+
+@include responsive_tab{
+    .product-card{
+        flex-wrap: wrap;
+        .product-card-img{width: 100%!important;}
+        .product-card-info{
+            width: 100%!important;
+            span, p{margin-bottom: 1rem!important;}
+        }
+
+        .product-sizes{margin-bottom: 1rem!important;}
+    
+    }
+}
+
+@include responsive_max(450px){
+    .product-card-img  img.main-img{
+        max-height: 550px!important;
+        min-height: 550px!important;
     }
 }

@@ -13,14 +13,10 @@
             }
         }
 
-        img{margin-top: -150px;}
+        img{height: 170px;}
+
 
         .item-info{
-            position: absolute;
-            bottom: 10%;
-            left: 0;
-            right: 0;
-
             .item-colors{font-size: 1.3rem; color: $black;}
             .item-title{
                 color: $light-black;

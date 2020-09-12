@@ -8,7 +8,7 @@ export default function NewsLetter() {
                 <p>
                     Get updates about our new products <br/> and upcomming discounts
                 </p>
-                <div className="form-group d-flex w-50 mx-auto">
+                <div className="form-group d-flex w-50 mx-auto news-form">
                     <input 
                         className="form-control mr-4" 
                         type="text" 

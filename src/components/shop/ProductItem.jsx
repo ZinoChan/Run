@@ -13,11 +13,11 @@ export default function ProductItem({openModal, product, selectedProduct}) {
     
 
     return (
-        <div className="col-xl-4 mb-4" onClick={handleClick}>
+        <div className="col-xl-4 col-md-6 col-xs-12 mb-4" onClick={handleClick}>
             <div className="product-item text-center">
                 <div className="card position-relative">
                     <div className="item-view"><FontAwesomeIcon icon={faEye}/></div>
-                    <img  src={product.availableColors[0].imgs[0].img} className="card-img-top mx-auto" style={{width: "80%"}} />
+                    <img  src={product.item} className="card-img-top" />
                     <div className="card-body">
                        <div className="item-info">
                             <p className="item-colors">Colors: {product.availableColors.length}</p>
