@@ -5,6 +5,7 @@ h4{font-family: $heading-font;}
 
 body{
     font-family: $general-font;
+    overflow-x: hidden ;
 }
 
 a{&:hover{text-decoration: none;}}
@@ -35,3 +36,5 @@ label{font-weight: 600;}
 }
 
 img{width: 100%; height: 100%;}
+
+section,main, header{overflow-x: hidden;}

@@ -1,3 +1,33 @@
 @mixin transition($prop: all, $time: .3s, $type:linear) {
     transition: $prop $time $type;
 }
+
+
+
+//Media Mixins
+// mobile
+@mixin  responsive_mobile() {
+    @media only screen and (max-width: 769px) {
+        @content;
+    }
+}
+
+// tablet
+@mixin  responsive_tab() {
+    @media only screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+// variable
+@mixin  responsive_max ($max) {
+    @media only screen and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin  responsive_min ($min) {
+    @media only screen and (min-width: $min) {
+        @content;
+    }
+}

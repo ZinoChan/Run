@@ -104,3 +104,37 @@
         }
     }
 }
+
+
+@include responsive_tab(){
+    .home{
+        overflow-y: hidden;
+        background: linear-gradient(rgba(245, 237, 237,.9), rgba(245, 237, 237,.9)),
+         url('../../../assets/dunk.jpg');
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center center;
+        .home-overlay{display: none};
+        .home-text{width: 100%!important; padding: 0 15px!important;}
+        .shoe{
+            width: 90%!important; 
+            top: 50%!important; 
+            left: 6%!important;
+            height: 500px!important;
+            transform: initial!important;
+        }
+    }
+}
+
+@include responsive_mobile(){
+    .home{.shoe{top: 60%!important;}}
+}
+
+@include responsive_max(450px){
+    html{font-size: 13px;}
+    .home-text h1{font-size: 4.5rem!important;}
+}
+
+@include responsive_max(420px){
+    .home{.shoe{top: 70%!important; height: 405px!important;}}
+}

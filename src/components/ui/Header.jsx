@@ -27,13 +27,6 @@ export default function Header({theme}) {
                         <FontAwesomeIcon icon={faBars} />
                     </div> */}
 
-                   
-                    {/* <ul className="navbar-nav ml-auto sub-nav">
-                    <li className="header-icon"><FontAwesomeIcon icon={faSearch}/></li>
-                        <li className="header-icon"><FontAwesomeIcon icon={faShoppingCart} /></li>
-                        <li className="header-icon"><FontAwesomeIcon icon={faUser} /></li>
-                        <li><NavLink to={ROUTES.REGISTER} className="btn btn-dark ml-3">Register</NavLink></li>
-                    </ul> */}
                 </nav>
             </div>
         </header>
