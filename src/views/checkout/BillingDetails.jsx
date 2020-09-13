@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function BillingDetails() {
     return (
-        <div className="biling-details d-flex align-items-center min-vh-100">
-            <div className="container-fluid w-50">
+        <div className="billing-details d-flex align-items-center mx-auto w-50 min-vh-100">
+            <div className="container-fluid">
                 <h1 className="display-1 mb-5 text-center">Billing Details</h1>
                 <form className="details-form">
                     <div className="row">
