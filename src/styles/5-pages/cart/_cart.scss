@@ -1,8 +1,14 @@
 .cart{
     padding-bottom: 5rem;
-    .banner{
-        background-color: $cart-primary;
-    }
+    width: 70%;
+    margin: 0 auto;
 
     .checkout{background-color: $cart-secondary; color: $white;}
+}
+
+
+@include responsive_max(1024px){
+    .cart{
+        width: 100%!important;
+    }
 }

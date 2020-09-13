@@ -1,10 +1,25 @@
 .cart-list{
+    padding: 7rem 0;
     .cart-header{
         border-bottom: 1px solid #eee;
         padding: 1rem 0;
+
+        .row{display: none;}
+
+        .sm-device-header{ font-size: 2.5rem;}
     }
     h4{
         font-family: $general-font!important;
         font-weight: 700;
+    }
+}
+
+
+
+
+@include responsive_min(768px){
+    .sm-device-header{display: none!important;}
+    .cart-header .row{
+        display: flex!important;
     }
 }
