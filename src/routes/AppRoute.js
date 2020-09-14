@@ -12,6 +12,7 @@ import Cart from '../views/cart/Cart';
 import OrderDetails from '../views/checkout/OrderDetails';
 import BillingDetails from '../views/checkout/BillingDetails';
 import Payment from '../views/checkout/Payment';
+import AccountDetails from '../views/account/AccountDetails';
 
 export const history = createBrowserHistory();
 
@@ -27,6 +28,7 @@ export default function AppRoute() {
                 <PublicRoute path={ROUTES.CHECKOUT_STEP_1} component={OrderDetails}/>
                 <PublicRoute path={ROUTES.CHECKOUT_STEP_2} component={BillingDetails}/>
                 <PublicRoute path={ROUTES.CHECKOUT_STEP_3} component={Payment}/>
+                <PublicRoute path={ROUTES.ACCOUNT_DETAILS} component={AccountDetails}/>
             </Switch>
         </BrowserRouter>
     )

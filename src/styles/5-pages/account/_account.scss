@@ -1,0 +1,29 @@
+.account{
+    padding: 7rem 0;
+}
+
+
+.account-nav{
+    .nav-item{margin: 2rem 0;}
+    a{
+        font-size: 1.7rem;
+        display: inline-block;
+        color: $black;
+        font-weight: 600;
+        @include transition();
+
+
+        &.active{
+            text-decoration: underline;
+        }
+
+        &:hover{
+            transform: scale(1.1);
+            @include transition();
+        }
+    }
+}
+
+@include responsive_max(411px){
+    .account h1{font-size: 4rem!important;}
+}
