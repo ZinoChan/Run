@@ -8,6 +8,10 @@ body{
     overflow-x: hidden ;
 }
 
+html{
+    overflow-x: hidden!important;
+}
+
 a{&:hover{text-decoration: none;}}
 
 p {
@@ -37,4 +41,4 @@ label{font-weight: 600;}
 
 img{width: 100%; height: 100%;}
 
-section,main, header{overflow-x: hidden;}
+section,main, header{overflow-x: hidden!important;}

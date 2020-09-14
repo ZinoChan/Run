@@ -14,7 +14,7 @@ export default function CartItem() {
                            <span>size: 39 </span>
                            <span> color: orange</span>
                            </div>
-                           <div className="btn cart-btn">Costomize</div>
+                           <div className="btn btn-light">Costomize</div>
                        </div>
                    </div>
                    <div className="col-md-2  sm-device-flex justify-content-between">
@@ -24,9 +24,9 @@ export default function CartItem() {
                    <div className="col-md-2 sm-device-flex justify-content-between">
                         <span className="sm-device">Quantity:</span>
                         <div className="qty">
-                            <span>-</span>
+                            <span className="btn btn-secondary">-</span>
                             <span className="mx-3">1</span>
-                            <span>+</span>
+                            <span className="btn btn-secondary">+</span>
                         </div>
                    </div>
                    <div className="col-md-2 sm-device-flex justify-content-between">

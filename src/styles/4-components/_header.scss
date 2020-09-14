@@ -10,6 +10,7 @@
 
     .logo{
         font-size: 3rem;
+        line-height: initial;
         a{color: inherit; padding-left: 0!important;}
     }
 
@@ -20,11 +21,7 @@
     
 
     .navbar-nav{
-        // position: absolute;
-        // right: 10%;
-        // transform: translateY(-120%);
-        // @include transition();
-        // &.open{transform: translateY(0); @include transition();}
+        flex-direction: row!important;
 
         .nav-link{
             font-size: 1.5rem;
@@ -35,4 +32,10 @@
     }
 
    
+}
+
+@include responsive-max(450px){
+    .navbar-nav .nav-link{font-size: 1.2rem!important;}
+    .header-icon{font-size: 1.3rem!important;}
+    .logo{font-size: 2.2rem!important;}
 }

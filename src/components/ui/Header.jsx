@@ -15,14 +15,14 @@ export default function Header({theme}) {
     return (
         <header id="header" className={`position-absolute ${theme}`}>
             <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg align-items-baseline">
+                <nav className="navbar navbar-expand-lg align-items-center">
                     <h1 className="logo m-0"><NavLink to={ROUTES.HOME} className="nav-link">NIKE</NavLink></h1>
                     <ul className={`navbar-nav ml-auto ${openNav ? "open" : ""}`}>
                         <li className="nav-item"><NavLink to={ROUTES.HOME} className="nav-link">Home</NavLink ></li>
-                        <li className="nav-item"><NavLink to={ROUTES.SHOP} className="nav-link mx-5">Shop</NavLink ></li>
+                        <li className="nav-item"><NavLink to={ROUTES.SHOP} className="nav-link mx-3">Shop</NavLink ></li>
                     </ul>
                     <NavLink to={ROUTES.REGISTER} className="header-icon"><FontAwesomeIcon icon={faUser} /></NavLink>
-                    <NavLink to={ROUTES.CART} className="header-icon ml-5"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
+                    <NavLink to={ROUTES.CART} className="header-icon ml-3"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
                     {/* <div className="toggler header-icon" onClick={toggleNavbar}>
                         <FontAwesomeIcon icon={faBars} />
                     </div> */}

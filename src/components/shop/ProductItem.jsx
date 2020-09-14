@@ -17,7 +17,7 @@ export default function ProductItem({openModal, product, selectedProduct}) {
             <div className="product-item text-center">
                 <div className="card position-relative">
                     <div className="item-view"><FontAwesomeIcon icon={faEye}/></div>
-                    <img  src={product.item} class="card-img mx-auto"/>
+                    <img  src={product.item} className="card-img mx-auto"/>
                     <div className="card-body">
                        <div className="item-info">
                             <p className="item-colors">Colors: {product.availableColors.length}</p>
