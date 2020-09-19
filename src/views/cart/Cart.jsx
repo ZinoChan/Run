@@ -1,14 +1,27 @@
 import React from 'react';
 import CartList from '../../components/cart/CartList';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from '../../actions/cartActions'
+
 
 export default function Cart() {
+
+    const cart = useSelector(state => state.cart);
+
+    const dispatch = useDispatch();
+
+    const handleClearClick = () => dispatch(clearCart());
+
     return (
         <main className="cart">
             <div className="container-fluid">
-                <CartList/>
+                <CartList cart={cart}/>
                 <div className="row align-items-center">
                     <div className="col-md-8">
-                        <button className="btn btn-secondary mb-3">Clear Cart</button>
+                        <button 
+                            className="btn btn-secondary mb-3"
+                            onClick={handleClearClick}
+                        >Clear Cart</button>
                     </div>
                     <div className="col-md-4">
                         <div className="cart-totals">

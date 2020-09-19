@@ -1,25 +1,25 @@
 import React from 'react';
-import shoe from '../../assets/shoes/m1_00.jpg';
 
-export default function CartItem() {
+export default function CartItem({item}) {
+
     return (
         <div className="cart-item text-center">
            <div className="container-fluid">
                <div className="row align-items-center">
                    <div className="col-md-6 d-flex" style={{justifyContent: "space-evenly", flexWrap: "wrap"}}>
-                       <div className="col-lg-6  cart-item-img" style={{background: `url(${shoe})`}}></div>
+                       <div className="col-lg-6  cart-item-img" style={{background: `url(${item.img})`}}></div>
                        <div className="col-lg-6  cart-item-info mb-3">
-                           <h3>Nike Crazy implosive </h3>
+                           <h3>{item.title}</h3>
                            <div className="cart-item-details my-3">
-                           <span>size: 39 </span>
-                           <span> color: orange</span>
+                                <span>size: {item.size.size} </span> <br/>
+                                <span> color: <i className="color-box" style={{backgroundColor: `${item.color}`}}></i></span>
                            </div>
                            <div className="btn btn-light">Costomize</div>
                        </div>
                    </div>
                    <div className="col-md-2  sm-device-flex justify-content-between">
                        <span className="sm-device">Price:</span>
-                       <span className="price">$99.99</span>
+                       <span className="price">${item.price}</span>
                    </div>
                    <div className="col-md-2 sm-device-flex justify-content-between">
                         <span className="sm-device">Quantity:</span>

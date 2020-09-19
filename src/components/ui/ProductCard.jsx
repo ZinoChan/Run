@@ -2,10 +2,18 @@ import React, { useRef, useState } from 'react';
 import ProductCardImg from './ProductCardImg';
 import ProductCardColor from './ProductCardColor';
 import ProductCardSize from './ProductCardSize';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import { addToCart } from '../../actions/cartActions';
 
 
 
 export default function ProductCard({product}) {
+
+    const cart = useSelector(state => state.cart);
+
+    const dispatch  = useDispatch();
 
     const imgRef = useRef();
 
@@ -32,8 +40,22 @@ export default function ProductCard({product}) {
     const handleSizeClick = id => setCurrentSize(id);
     
 
+    const handleAddClick = () => {
+        const $size = product.availableSizes.find(i => i.id === currentSize);
+        const $img = currentProduct.imgs[0].img;
 
+        const item = {
+            id: currentProduct.id,
+            title: product.title,
+            price:  product.price,
+            color: currentProduct.color,
+            size: {size: $size.size, id: currentSize},
+            img: $img
+        }
+        dispatch(addToCart(item));
+    }
    
+    const inCart = cart.some(item => item.id === currentProduct.id && item.size.id === currentSize);
 
     return (
        <>
@@ -97,7 +119,10 @@ export default function ProductCard({product}) {
                         </div>
                     </div>
                     <div className="text-center">
-                        <button className="btn btn-dark mb-2 mx-auto">ADD TO CART</button>
+                        <button 
+                            className="btn btn-dark mb-2 mx-auto"
+                            onClick={handleAddClick}
+                        >{inCart ? 'In Cart' : 'Add To Cart'}</button>
                         <p>Add To Whishlist</p>
                     </div>
                 </div>

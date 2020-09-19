@@ -1,12 +1,12 @@
 import {
     createStore,
     applyMiddleware,
-    compose
 } from 'redux';
 
 import {persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from '../reducers';
+import logger from 'redux-logger';
 
 const authPersistConfig = {
     key: 'root',
@@ -16,7 +16,8 @@ const authPersistConfig = {
 
 export default () => {
     const store = createStore(
-        persistCombineReducers(authPersistConfig, rootReducer)
+        persistCombineReducers(authPersistConfig, rootReducer),
+        applyMiddleware(logger)
     );
 
     const persistor = persistStore(store);

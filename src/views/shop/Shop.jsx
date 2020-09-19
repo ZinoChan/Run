@@ -5,6 +5,7 @@ import NewsLetter from '../../components/ui/NewsLetter';
 import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 
+
 export default function Shop() {
     const [isOpenModal, setOpenModal] = useState(false);
     const [isSelectedProduct, setSelectedProduct] = useState(null);
@@ -15,6 +16,8 @@ export default function Shop() {
 
     const closeModal = () => setOpenModal(false);
 
+    
+    
     return (
         <main id="shop">
             <Filter/>
