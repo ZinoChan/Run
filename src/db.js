@@ -245,7 +245,7 @@ export const db = [
         availableColors: [
             {
                 id: uuidv4(), 
-                color: '#fafafa', 
+                color: '#ffffff', 
                 imgs: [
                     {id: uuidv4(), img: w1_01}, 
                     {id: uuidv4(), img: w1_02}, 

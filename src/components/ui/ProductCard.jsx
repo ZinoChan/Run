@@ -4,6 +4,7 @@ import ProductCardColor from './ProductCardColor';
 import ProductCardSize from './ProductCardSize';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { addToCart } from '../../actions/cartActions';
 import { NavLink } from 'react-router-dom';
@@ -57,6 +58,7 @@ export default function ProductCard({product}) {
             quantity: 1
         }
         dispatch(addToCart(item));
+        toast.success("item added to cart !");
     }
    
     const inCart = cart.some(item => item.id === currentProduct.id && item.size.id === currentSize);

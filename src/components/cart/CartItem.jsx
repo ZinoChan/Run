@@ -2,11 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { removeFromCart, minusQty, addQty } from '../../actions/cartActions';
+import { toast } from 'react-toastify';
+
 
 export default function CartItem({item, dispatch}) {
 
 
-    const onDeleteClick = () => dispatch(removeFromCart(item.id));
+    const onDeleteClick = () => {
+        dispatch(removeFromCart(item.id));
+        toast.warning("item removed from cart");
+    };
 
     const onMinusQtyClick = () => dispatch(minusQty(item.id));
 

@@ -13,12 +13,15 @@ import OrderDetails from '../views/checkout/OrderDetails';
 import BillingDetails from '../views/checkout/BillingDetails';
 import Payment from '../views/checkout/Payment';
 import AccountDetails from '../views/account/AccountDetails';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const history = createBrowserHistory();
 
 export default function AppRoute() {
     return (
         <BrowserRouter>
+        <ToastContainer autoClose={2000}/>
             <Switch>
                 <PublicRoute exact path={ROUTES.HOME} component={Home}/>
                 <PublicRoute  path={ROUTES.SHOP} component={Shop}/>

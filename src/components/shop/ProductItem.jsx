@@ -20,7 +20,16 @@ export default function ProductItem({openModal, product, selectedProduct}) {
                     <img  src={product.item} className="card-img mx-auto" alt="shoe"/>
                     <div className="card-body">
                        <div className="item-info">
-                            <p className="item-colors">Colors: {product.availableColors.length}</p>
+                            <p className="item-colors">Colors: 
+                                {
+                                    product.availableColors.map(item => (
+                                        <span 
+                                            className="item-circle-color ml-2"
+                                            style={{backgroundColor: `${item.color}`}}
+                                        ></span>
+                                    ))
+                                }
+                            </p>
                             <h3 className="item-title mb-1">{product.title}</h3>
                             <p className="item-price">Price: <span>${product.price}</span></p>
                        </div>
