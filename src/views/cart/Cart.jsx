@@ -12,10 +12,18 @@ export default function Cart() {
 
     const handleClearClick = () => dispatch(clearCart());
 
+    const grandTotal = items => {
+        return items.reduce((sum, i) => {
+          return sum + (i.price * i.quantity)
+        }, 0)
+    };
+
+    const subTotal = parseFloat(grandTotal(cart).toFixed(2));
+
     return (
         <main className="cart">
             <div className="container-fluid">
-                <CartList cart={cart}/>
+                <CartList cart={cart} dispatch={dispatch}/>
                 <div className="row align-items-center">
                     <div className="col-md-8">
                         <button 
@@ -25,9 +33,9 @@ export default function Cart() {
                     </div>
                     <div className="col-md-4">
                         <div className="cart-totals">
-                            <p>Subtotal: <span className="font-weight-bold text-dark">$299.99</span></p>
+                            <p>Subtotal: <span className="font-weight-bold text-dark">${subTotal}</span></p>
                             <p>shipping: <span className="font-weight-bold text-dark">$5</span></p>
-                            <p className="font-weight-bold text-dark">Total: $320.99</p>
+                            <p className="font-weight-bold text-dark">Total: ${subTotal + 5}</p>
                             <button className="btn btn-dark w-100">Checkout</button>
                         </div>
                     </div>

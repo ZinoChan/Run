@@ -6,6 +6,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { addToCart } from '../../actions/cartActions';
+import { NavLink } from 'react-router-dom';
+
+import {CART} from '../../constants/routes';
 
 
 
@@ -50,7 +53,8 @@ export default function ProductCard({product}) {
             price:  product.price,
             color: currentProduct.color,
             size: {size: $size.size, id: currentSize},
-            img: $img
+            img: $img,
+            quantity: 1
         }
         dispatch(addToCart(item));
     }
@@ -122,8 +126,13 @@ export default function ProductCard({product}) {
                         <button 
                             className="btn btn-dark mb-2 mx-auto"
                             onClick={handleAddClick}
-                        >{inCart ? 'In Cart' : 'Add To Cart'}</button>
-                        <p>Add To Whishlist</p>
+                            disabled={inCart}
+                        >{inCart ? 'In Cart' : 'Add To Cart'}</button><br/>
+                        {inCart ? 
+                            <NavLink to={CART} className="text-dark" style={{fontSize: "1.5rem"}}>View in cart</NavLink>
+                            :
+                            <p  className="text-dark">Add To Whishlist</p>
+                        }
                     </div>
                 </div>
                 

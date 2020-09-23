@@ -2,7 +2,7 @@ import React from 'react';
 import CartItem from './CartItem';
 
 
-export default function CartList({cart}) {
+export default function CartList({cart, dispatch}) {
 
     
 
@@ -19,7 +19,7 @@ export default function CartList({cart}) {
             </div>
             <div className="cart-items">
                { cart.length > 0 ? cart.map(item => (
-                   <CartItem item={item} key={item.id}/>
+                   <CartItem item={item} key={item.id} dispatch={dispatch}/>
                ))
                 : <h1>Your Cart is empty</h1>
                 }
