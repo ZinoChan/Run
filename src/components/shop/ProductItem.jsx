@@ -23,7 +23,7 @@ export default function ProductItem({openModal, product, selectedProduct}) {
                             <p className="item-colors">Colors: 
                                 {
                                     product.availableColors.map(item => (
-                                        <span 
+                                        <span key={item.id}
                                             className="item-circle-color ml-2"
                                             style={{backgroundColor: `${item.color}`}}
                                         ></span>
