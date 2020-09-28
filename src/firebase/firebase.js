@@ -15,5 +15,5 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
-export const signOut = firebase.auth().signOut();
+export const signOut = () => firebase.auth().signOut();
 export const signInWithGoogle = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());

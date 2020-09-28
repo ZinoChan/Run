@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, /*faUser*/ } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import * as  ROUTES from '../../constants/routes';
 import Badge from './Badge';
@@ -10,7 +10,7 @@ import { signInWithGoogle } from '../../actions/authActions';
 
 
 
-export default function Header({theme}) {
+export default function Header({theme, path}) {
 
     const auth = useSelector(state => state.auth.id && state.auth.type);
 
@@ -27,18 +27,22 @@ export default function Header({theme}) {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item"><NavLink to={ROUTES.HOME} className="nav-link">Home</NavLink ></li>
                         <li className="nav-item"><NavLink to={ROUTES.SHOP} className="nav-link mx-3">Shop</NavLink ></li>
+                        <NavLink to={ROUTES.CART} className="header-icon mr-3">
+                            <FontAwesomeIcon icon={faShoppingCart} />
+                            <Badge/>    
+                        </NavLink>
                     </ul>
                     {/* <NavLink to={ROUTES.REGISTER} className="header-icon"><FontAwesomeIcon icon={faUser} /></NavLink> */}
                     {
+                        path === ROUTES.REGISTER ? 
+                        ""
+                        :
                         auth ? 
                         <button className="btn btn-dark" onClick={handleSignOut}>SignOut</button>
                         :
                         <button className="btn btn-dark" onClick={handleSignIn}>Register</button>
                     }
-                    <NavLink to={ROUTES.CART} className="header-icon ml-3">
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                        <Badge/>    
-                    </NavLink>
+                    
 
                 </nav>
             </div>

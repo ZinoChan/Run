@@ -67,40 +67,8 @@
             background-color: $home-btn-color;
             color: $white;
             font-weight: 700;
-            font-size: 1.8rem;
-            margin-bottom: 6rem;
-        }
-
-        a{
-            display: block;
             font-size: 1.6rem;
-            color: $general-color;
-            font-weight: 700;
-
-            .arrow{
-                display: inline-block;
-                width: 100px;
-                height: 22px;
-                background: url('../../../assets/arrow.svg');
-                background-size: cover;
-                margin-left: .5rem;
-            }
-            
-        }
-    }
-
-    .social{
-        transform: rotate(-90deg) ;
-        transform-origin: right;
-        position: absolute;
-        bottom: 80%;
-        right: 2rem;
-        
-
-        p{
-            letter-spacing: 5px;
-            font-weight: 700;
-            margin: 0 3rem;
+            margin-bottom: 6rem;
         }
     }
 }

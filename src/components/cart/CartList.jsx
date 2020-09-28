@@ -21,7 +21,7 @@ export default function CartList({cart, dispatch}) {
                { cart.length > 0 ? cart.map(item => (
                    <CartItem item={item} key={item.id} dispatch={dispatch}/>
                ))
-                : <h1>Your Cart is empty</h1>
+                : <h1 className="my-5 text-center">Your Cart is empty</h1>
                 }
                 
             </div>

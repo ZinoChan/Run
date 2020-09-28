@@ -3,7 +3,8 @@ import CartList from '../../components/cart/CartList';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../../actions/cartActions'
 import { NavLink } from 'react-router-dom';
-import { CHECKOUT_STEP_1 } from '../../constants/routes';
+import { CHECKOUT_STEP_1, SHOP } from '../../constants/routes';
+import { toast } from 'react-toastify';
 
 
 
@@ -11,7 +12,10 @@ import { CHECKOUT_STEP_1 } from '../../constants/routes';
 export default function Cart() {
     
 
-    const cart = useSelector(state => state.cart);
+    const {cart, auth} = useSelector(state => ({
+        cart: state.cart,
+        auth: state.auth.id && state.auth.type === 'client'
+    }))
 
     const dispatch = useDispatch();
 
@@ -25,8 +29,7 @@ export default function Cart() {
 
     const subTotal = parseFloat(grandTotal(cart).toFixed(2));
 
-
-    
+    const handleCheckout = () => {if(!auth) toast.error("Sign in to checkout");}
 
     return (
         <main className="cart">
@@ -34,21 +37,31 @@ export default function Cart() {
                 <CartList cart={cart} dispatch={dispatch}/>
                 <div className="row align-items-center">
                     <div className="col-md-8">
-                        <button 
+                        {
+                            cart.length === 0 ?
+                            <NavLink to={SHOP} className="btn btn-dark">Back To Shop</NavLink>
+                            :
+                            <button 
                             className="btn btn-secondary mb-3"
                             onClick={handleClearClick}
-                        >Clear Cart</button>
+                        >Clear Cart</button>}
                     </div>
                     <div className="col-md-4">
-                        <div className="cart-totals">
-                            <p>Subtotal: <span className="font-weight-bold text-dark">${subTotal}</span></p>
-                            <p>shipping: <span className="font-weight-bold text-dark">$5</span></p>
-                            <p className="font-weight-bold text-dark">Total: ${subTotal + 5}</p>
-                            <NavLink 
-                            to={CHECKOUT_STEP_1}
-                                className="btn btn-dark w-100"
-                            >Checkout</NavLink>
-                        </div>
+                        {
+                            cart.length === 0 ?
+                            ""
+                            :
+                            <div className="cart-totals">
+                                <p>Subtotal: <span className="font-weight-bold text-dark">${subTotal}</span></p>
+                                <p>shipping: <span className="font-weight-bold text-dark">$5</span></p>
+                                <p className="font-weight-bold text-dark">Total: ${subTotal + 5}</p>
+                                <NavLink 
+                                to={CHECKOUT_STEP_1}
+                                    className="btn btn-dark w-100"
+                                    onClick={handleCheckout}
+                                >Checkout</NavLink>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -1,4 +1,7 @@
 import React from 'react'
+import { CHECKOUT_STEP_2 } from '../../constants/routes'
+import { NavLink } from 'react-router-dom'
+
 
 export default function Payment() {
     return (
@@ -19,7 +22,7 @@ export default function Payment() {
                         <input type="date" className="form-control"/>
                     </div>
                     <div className="d-flex justify-content-between mt-5">
-                        <button className="btn btn-dark">Back</button>
+                        <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">Back</NavLink>
                         <button className="btn btn-dark">Confirm</button>
                     </div>
                 </form>

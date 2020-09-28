@@ -18,6 +18,7 @@ import {
 } from '../actions/authActions';
 
 import { clearCart } from '../actions/cartActions';
+import { toast } from 'react-toastify';
 
 function* handleError(e) {
     yield put(isAuthenticating(false));
@@ -52,9 +53,10 @@ function* authSaga({ type, payload}) {
             try {
                 yield initRequest();
                 yield call(signOut);
-                yield put(clearCart);
+                yield put(clearCart());
                 yield put(signOutSuccess());
                 yield put(isAuthenticating(false));
+                yield call(toast.success, "successfully signed out");
             }
             catch(e) {
                 yield handleError(e);
@@ -62,6 +64,7 @@ function* authSaga({ type, payload}) {
             break;
         case ON_AUTHSTATE_SUCCESS:
             yield put(setAuthStatus({sucess: true, message: "successfully signed in."}))
+            yield call(toast.success, "successfully signed in");
             yield put(isAuthenticating(false));
             yield put(signInSuccess({ 
                 id: payload.uid, 

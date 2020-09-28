@@ -1,4 +1,6 @@
 import React from 'react'
+import { SHOP } from '../../constants/routes'
+import { NavLink } from 'react-router-dom'
 
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
                         <p>
                         we are taking nike to the next level, with our new 2020 collection more comfort and style ready to run.
                         </p>
-                        <button className="btn home-btn">Order Now</button>
+                        <NavLink to={SHOP} className="btn home-btn">Shop Now</NavLink>
                         {/* <a href="goo.com" className="d-flex align-items-center">New Arrivals <span className="arrow"></span></a> */}
                     </div>
                 

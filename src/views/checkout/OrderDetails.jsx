@@ -1,6 +1,8 @@
 import React from 'react';
 import CartList from '../../components/cart/CartList'
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { CART, CHECKOUT_STEP_2 } from '../../constants/routes';
 
 
 export default function OrderDetails() {
@@ -15,8 +17,8 @@ export default function OrderDetails() {
                 <h1>Order Details</h1>
                 <CartList cart={cart} dispatch={dispatch}/>
                 <div className="d-flex justify-content-between mt-3">
-                    <button className="btn btn-dark">Back</button>
-                    <button className="btn btn-dark">Continue</button>
+                    <NavLink to={CART} className="btn btn-dark">Back</NavLink>
+                    <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">Continue</NavLink>
                 </div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 import React from 'react'
+import { CHECKOUT_STEP_1, CHECKOUT_STEP_3 } from '../../constants/routes'
+import { NavLink } from 'react-router-dom'
+
 
 export default function BillingDetails() {
     return (
@@ -33,8 +36,8 @@ export default function BillingDetails() {
                         </div>
                     </div>
                     <div className="d-flex justify-content-between mt-5">
-                        <button className="btn btn-dark">Back</button>
-                        <button className="btn btn-dark">Continue</button>
+                    <NavLink to={CHECKOUT_STEP_1} className="btn btn-dark">Back</NavLink>
+                    <NavLink to={CHECKOUT_STEP_3} className="btn btn-dark">Continue</NavLink>
                     </div>
                 </form>
             </div>

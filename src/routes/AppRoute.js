@@ -15,6 +15,7 @@ import Payment from '../views/checkout/Payment';
 import AccountDetails from '../views/account/AccountDetails';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Register from '../views/auth/Register';
 
 export const history = createBrowserHistory();
 
@@ -26,6 +27,7 @@ export default function AppRoute() {
                 <PublicRoute exact path={ROUTES.HOME} component={Home}/>
                 <PublicRoute  path={ROUTES.SHOP} component={Shop}/>
                 <PublicRoute  path={ROUTES.CART} component={Cart}/>
+                <PublicRoute  path={ROUTES.REGISTER} component={Register}/>
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_1} component={OrderDetails}/>
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_2} component={BillingDetails}/>
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_3} component={Payment}/>
