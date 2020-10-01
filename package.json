@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/joshk.react-spinners-css.ripple": "^1.2.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -12,6 +13,7 @@
     "bootstrap": "^4.5.2",
     "firebase": "^7.21.0",
     "formik": "^2.1.5",
+    "framer-motion": "^2.7.6",
     "history": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

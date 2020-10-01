@@ -1,9 +1,27 @@
 import React from 'react';
 import CartItem from './CartItem';
+import { motion } from 'framer-motion';
 
 
 export default function CartList({cart, dispatch}) {
 
+    
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: 0.3,
+            //when: "beforeChildren",
+            staggerChildren: .8,
+            duration: .4
+        }
+        }
+    };
+
+    
+    
     
 
     return (
@@ -17,14 +35,21 @@ export default function CartList({cart, dispatch}) {
                     <div className="col-md-2"><h4>Total</h4></div>
                 </div>
             </div>
-            <div className="cart-items">
+            <motion.ul 
+                className="cart-items"
+                variants={container}
+                initial="hidden"
+                animate="visible"
+            >
                { cart.length > 0 ? cart.map(item => (
-                   <CartItem item={item} key={item.id} dispatch={dispatch}/>
-               ))
+                    
+                    <CartItem item={item} key={item.id}  dispatch={dispatch}/>
+                ))
+
                 : <h1 className="my-5 text-center">Your Cart is empty</h1>
                 }
                 
-            </div>
+            </motion.ul>
         </div>
     )
 }

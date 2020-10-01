@@ -5,6 +5,7 @@ import { clearCart } from '../../actions/cartActions'
 import { NavLink } from 'react-router-dom';
 import { CHECKOUT_STEP_1, SHOP } from '../../constants/routes';
 import { toast } from 'react-toastify';
+import PreLoader from '../../components/ui/PreLoader';
 
 
 
@@ -12,9 +13,10 @@ import { toast } from 'react-toastify';
 export default function Cart() {
     
 
-    const {cart, auth} = useSelector(state => ({
+    const {cart, auth, authenticating} = useSelector(state => ({
         cart: state.cart,
-        auth: state.auth.id && state.auth.type === 'client'
+        auth: state.auth.id && state.auth.type === 'client',
+        authenticating: !!state.app.isAuthenticating
     }))
 
     const dispatch = useDispatch();
@@ -33,6 +35,7 @@ export default function Cart() {
 
     return (
         <main className="cart">
+            {authenticating ? <PreLoader theme="light"/> : null}
             <div className="container-fluid">
                 <CartList cart={cart} dispatch={dispatch}/>
                 <div className="row align-items-center">

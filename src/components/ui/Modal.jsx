@@ -1,6 +1,8 @@
 import React from 'react';
 import AppModal from 'react-modal';
 
+
+
 const Modal = (props) => {
   const customStyles = {
     content: {

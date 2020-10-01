@@ -4,6 +4,8 @@ import ProductsList from '../../components/shop/ProductsList';
 import NewsLetter from '../../components/ui/NewsLetter';
 import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
+import PreLoader from '../../components/ui/PreLoader';
+import { useSelector } from 'react-redux';
 
 
 export default function Shop() {
@@ -16,10 +18,11 @@ export default function Shop() {
 
     const closeModal = () => setOpenModal(false);
 
-    
+    const authenticating =  useSelector(state => !!state.app.isAuthenticating )
     
     return (
         <main id="shop">
+            {authenticating ? <PreLoader theme="light"/> : null}
             <Filter/>
             <ProductsList
                 openModal={openModal}

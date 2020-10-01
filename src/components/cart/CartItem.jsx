@@ -3,10 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { removeFromCart, minusQty, addQty } from '../../actions/cartActions';
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 
 export default function CartItem({item, dispatch}) {
 
+    const child = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1
+        }
+        }
+    };
 
     const onDeleteClick = () => {
         dispatch(removeFromCart(item.id));
@@ -20,7 +31,7 @@ export default function CartItem({item, dispatch}) {
     
 
     return (
-        <div className="cart-item text-center">
+        <motion.div className="cart-item text-center" variants={child}>
             <span 
                 className="delete"
                 onClick={onDeleteClick}
@@ -61,6 +72,6 @@ export default function CartItem({item, dispatch}) {
                    </div>
                </div>
            </div>
-        </div>
+        </motion.div>
     )
 }

@@ -1,0 +1,13 @@
+.preloader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    &.red{
+        background-color: $main-color;
+    }
+
+    &.light{
+        background-color: rgba(255, 255, 255,.6);
+    }
+}

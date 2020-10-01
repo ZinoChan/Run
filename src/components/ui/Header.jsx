@@ -7,6 +7,7 @@ import Badge from './Badge';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '../../actions/authActions';
 import { signInWithGoogle } from '../../actions/authActions';
+import { motion } from 'framer-motion';
 
 
 
@@ -20,7 +21,19 @@ export default function Header({theme, path}) {
     const handleSignIn = () => dispatch(signInWithGoogle());
 
     return (
-        <header id="header" className={`position-absolute ${theme}`}>
+        <motion.header 
+            id="header" 
+            className={`position-absolute ${theme}`}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                duration: .3,
+                delay: .5
+            }}
+        >
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg align-items-center">
                     <h1 className="logo m-0"><NavLink to={ROUTES.HOME} className="nav-link">NIKE</NavLink></h1>
@@ -46,6 +59,6 @@ export default function Header({theme, path}) {
 
                 </nav>
             </div>
-        </header>
+        </motion.header>
     )
 }

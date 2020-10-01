@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-
+import { motion } from 'framer-motion';
 
 export default function ProductItem({openModal, product, selectedProduct}) {
 
@@ -10,10 +10,24 @@ export default function ProductItem({openModal, product, selectedProduct}) {
         selectedProduct(product);
     };
 
+    const child = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: .6
+        }
+        }
+    };
     
 
     return (
-        <div className="col-xl-4 col-md-6 col-xs-12 mb-4" onClick={handleClick}>
+        <motion.div 
+            className="col-xl-4 col-md-6 col-xs-12 mb-4" 
+            onClick={handleClick}
+            variants={child}
+        >
             <div className="product-item text-center">
                 <div className="card position-relative">
                     <div className="item-view"><FontAwesomeIcon icon={faEye}/></div>
@@ -36,6 +50,6 @@ export default function ProductItem({openModal, product, selectedProduct}) {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

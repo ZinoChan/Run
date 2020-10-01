@@ -10,6 +10,8 @@ import { addToCart } from '../../actions/cartActions';
 import { NavLink } from 'react-router-dom';
 
 import {CART} from '../../constants/routes';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -65,8 +67,15 @@ export default function ProductCard({product}) {
 
     return (
        <>
-           <div className="product-card d-flex align-items-center">
-                <div className="product-card-img w-50">
+            <div 
+                className="product-card d-flex align-items-center"
+            >
+                <motion.div 
+                    className="product-card-img w-50"
+                    initial={{x: -100, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{duration: .3}}
+                >
                     <div className="sub-imgs">
                         {
                             currentProduct.imgs.map(img => (
@@ -81,8 +90,13 @@ export default function ProductCard({product}) {
                         }
                     </div>
                     <img ref={imgRef} src={currentProduct.imgs[0].img} alt="shoe" className="main-img"/>
-                </div>
-                <div className="product-card-info w-50">
+                </motion.div>
+                <motion.div 
+                    className="product-card-info w-50"
+                    initial={{x: 100, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{duration: .3}}
+                >
                     <div className="product-price">${product.price}</div>
                     <div className="product-info">
                         <h2>{product.title}</h2>
@@ -136,7 +150,7 @@ export default function ProductCard({product}) {
                             <p  className="text-dark">Add To Whishlist</p>
                         }
                     </div>
-                </div>
+                </motion.div>
                 
            </div>
        </>

@@ -9,6 +9,7 @@ import configureStore from './store/index';
 import AppRoute from './routes/AppRoute';
 import { auth } from './firebase/firebase';
 import { onAuthStateSuccess, onAuthStateFail} from './actions/authActions'
+import PreLoader from './components/ui/PreLoader';
 
 const {store, persistor} = configureStore();
 
@@ -16,7 +17,7 @@ const {store, persistor} = configureStore();
 const AppRoot = () => (
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={""} persistor={persistor}>
+      <PersistGate loading={<PreLoader theme="red"/>} persistor={persistor}>
         <AppRoute/>
       </PersistGate>
     </Provider>
@@ -26,7 +27,7 @@ const AppRoot = () => (
 
 if (window.navigator.onLine) {
   // Render the preloader on initial load
-  //render(<Preloader />, document.getElementById('app'));
+  render(<PreLoader theme="red" />, document.getElementById('root'));
   
   auth.onAuthStateChanged((user) => {
     console.log(user);
