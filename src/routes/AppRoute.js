@@ -12,10 +12,10 @@ import Cart from '../views/cart/Cart';
 import OrderDetails from '../views/checkout/OrderDetails';
 import BillingDetails from '../views/checkout/BillingDetails';
 import Payment from '../views/checkout/Payment';
-import AccountDetails from '../views/account/AccountDetails';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from '../views/auth/Register';
+import NotFound from '../views/404/NotFound';
 
 export const history = createBrowserHistory();
 
@@ -31,7 +31,7 @@ export default function AppRoute() {
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_1} component={OrderDetails}/>
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_2} component={BillingDetails}/>
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_3} component={Payment}/>
-                <PublicRoute path={ROUTES.ACCOUNT_DETAILS} component={AccountDetails}/>
+                <PublicRoute component={NotFound}/>
             </Switch>
         </BrowserRouter>
     )

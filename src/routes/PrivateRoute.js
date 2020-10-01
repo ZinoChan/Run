@@ -19,7 +19,6 @@ export default function PrivateRoute({component: Component,path, ...rest}) {
                     <Component {...props}/>
                     :
                     <>
-                        toast.error("SIgn in to checkout")
                         <Redirect to={REGISTER}/>
                     </>
         
