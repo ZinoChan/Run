@@ -1,15 +1,22 @@
-import React from 'react'
-import { CHECKOUT_STEP_2 } from '../../constants/routes'
+import React, {useState} from 'react'
+import { CHECKOUT_STEP_2, SHOP } from '../../constants/routes'
 import { NavLink } from 'react-router-dom'
 import { Formik } from 'formik'
 import { paymentValidation } from '../../helpers/validation';
 import TextInput from '../../components/checkout/TextInput';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
-
+import ConfirmModal from '../../components/ui/ConfirmModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Payment() {
+
+    const [isOpenModal, setOpenModal] = useState(false);
+    const openModal = () => setOpenModal(true);
+
+    const closeModal = () => setOpenModal(false);
 
     const pageTransition = {
         in: {
@@ -41,7 +48,7 @@ export default function Payment() {
                     validationSchema={paymentValidation}
 
                     onSubmit={(values, { resetForm}) => {
-                        
+                        openModal();
                         toast.success('Order Successfully Confirmed');
                         resetForm();
                     }}
@@ -68,14 +75,26 @@ export default function Payment() {
                                 </div>
                             <div className="d-flex justify-content-between mt-5">
                                 <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">Back</NavLink>
-                                <button className="btn btn-dark" type="submit">Confirm</button>
+                                <button className="btn btn-dark" type="submit" >Confirm</button>
                             </div>
                         </form>
                     }
                 
 
                 </Formik>
-                
+                <ConfirmModal
+                    isOpen={isOpenModal}
+                    closeModal={closeModal}
+                    
+                >
+                    <FontAwesomeIcon icon={faCheckCircle} style={{color:"#28a745", fontSize: "3rem"}}/>
+                    <p className="confirm-para my-4">Order Successfully Confirmed</p>
+                    <NavLink to={SHOP} className="btn btn-success">Back to Shop</NavLink>
+                    <button 
+                        className="btn btn-light position-absolute modal-btn" 
+                        onClick={closeModal}
+                    >X</button>
+                </ConfirmModal>
             </div>
         </motion.div>
     )

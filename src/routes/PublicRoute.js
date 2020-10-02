@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/ui/Header';
 import { HOME, CART, REGISTER} from '../constants/routes';
 import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
 
 
 export default function PublicRoute({component: Component,path, ...rest}) {
