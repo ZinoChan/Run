@@ -10,6 +10,9 @@ import AppRoute from './routes/AppRoute';
 import { auth } from './firebase/firebase';
 import { onAuthStateSuccess, onAuthStateFail} from './actions/authActions'
 import PreLoader from './components/ui/PreLoader';
+import { ToastContainer} from 'react-toastify';
+import { BrowserRouter } from 'react-router-dom';
+
 
 const {store, persistor} = configureStore();
 
@@ -18,7 +21,10 @@ const AppRoot = () => (
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={<PreLoader theme="red"/>} persistor={persistor}>
+      <BrowserRouter>
+        <ToastContainer autoClose={2000}/>
         <AppRoute/>
+      </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>

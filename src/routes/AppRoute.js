@@ -1,7 +1,6 @@
 import React from 'react'
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Switch, useLocation } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
-import { createBrowserHistory } from 'history';
 
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
@@ -12,18 +11,20 @@ import Cart from '../views/cart/Cart';
 import OrderDetails from '../views/checkout/OrderDetails';
 import BillingDetails from '../views/checkout/BillingDetails';
 import Payment from '../views/checkout/Payment';
-import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from '../views/auth/Register';
 import NotFound from '../views/404/NotFound';
+import { AnimatePresence } from 'framer-motion';
 
-export const history = createBrowserHistory();
+
 
 export default function AppRoute() {
+
+    const location = useLocation();
+
     return (
-        <BrowserRouter>
-        <ToastContainer autoClose={2000}/>
-            <Switch>
+        <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
                 <PublicRoute exact path={ROUTES.HOME} component={Home}/>
                 <PublicRoute  path={ROUTES.SHOP} component={Shop}/>
                 <PublicRoute  path={ROUTES.CART} component={Cart}/>
@@ -33,6 +34,6 @@ export default function AppRoute() {
                 <PrivateRoute path={ROUTES.CHECKOUT_STEP_3} component={Payment}/>
                 <PublicRoute component={NotFound}/>
             </Switch>
-        </BrowserRouter>
+        </AnimatePresence>
     )
 }

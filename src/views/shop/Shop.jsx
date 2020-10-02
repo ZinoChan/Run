@@ -6,6 +6,7 @@ import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 import PreLoader from '../../components/ui/PreLoader';
 import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 
 export default function Shop() {
@@ -19,9 +20,24 @@ export default function Shop() {
     const closeModal = () => setOpenModal(false);
 
     const authenticating =  useSelector(state => !!state.app.isAuthenticating )
+
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
     
     return (
-        <main id="shop">
+        <motion.section 
+            id="shop"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition}
+        >
             {authenticating ? <PreLoader theme="light"/> : null}
             <Filter/>
             <ProductsList
@@ -39,6 +55,6 @@ export default function Shop() {
                 >X</button>
             </Modal>
             <NewsLetter/>
-        </main>
+        </motion.section>
     )
 }

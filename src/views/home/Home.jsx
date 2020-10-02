@@ -10,10 +10,27 @@ export default function Home() {
 
     const authenticating =  useSelector(state => !!state.app.isAuthenticating );
 
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
+
+    
+
     return (
         <>
         {authenticating ? <PreLoader theme="light"/> : null}
-        <section className="home position-relative d-flex align-items-center">
+        <motion.section
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition} 
+            className="home position-relative d-flex align-items-center"
+        >
             
                     <motion.div 
                         className="home-overlay"
@@ -111,7 +128,7 @@ export default function Home() {
                     </div>
                 
             
-        </section>
+        </motion.section>
         </>
     )
 }

@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { CHECKOUT_STEP_1, SHOP } from '../../constants/routes';
 import { toast } from 'react-toastify';
 import PreLoader from '../../components/ui/PreLoader';
+import { motion } from 'framer-motion';
 
 
 
@@ -33,8 +34,23 @@ export default function Cart() {
 
     const handleCheckout = () => {if(!auth) toast.error("Sign in to checkout");}
 
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
+
     return (
-        <main className="cart">
+        <motion.section 
+            className="cart"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition} 
+        >
             {authenticating ? <PreLoader theme="light"/> : null}
             <div className="container-fluid">
                 <CartList cart={cart} dispatch={dispatch}/>
@@ -68,6 +84,6 @@ export default function Cart() {
                     </div>
                 </div>
             </div>
-        </main>
+        </motion.section>
     )
 }

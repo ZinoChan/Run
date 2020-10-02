@@ -3,7 +3,7 @@ import CartList from '../../components/cart/CartList'
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { CART, CHECKOUT_STEP_2 } from '../../constants/routes';
-
+import { motion } from 'framer-motion';
 
 export default function OrderDetails() {
 
@@ -11,8 +11,23 @@ export default function OrderDetails() {
 
     const dispatch = useDispatch();
 
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
+
     return (
-        <div className="order-details mx-auto text-center d-flex align-items-center">
+        <motion.div 
+            className="order-details mx-auto text-center d-flex align-items-center"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition}
+        >
             <div className="container-fluid">
                 <h1>Order Details</h1>
                 <CartList cart={cart} dispatch={dispatch}/>
@@ -21,6 +36,6 @@ export default function OrderDetails() {
                     <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">Continue</NavLink>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -4,15 +4,30 @@ import { NavLink, withRouter } from 'react-router-dom'
 import TextInput from '../../components/checkout/TextInput';
 import { Formik } from 'formik';
 import { billingValidation } from '../../helpers/validation';
-//import { history } from '../../routes/AppRoute';
+import { motion } from 'framer-motion';
+
 
 
 
 const BillingDetails = ({history})  => {
 
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
 
     return (
-        <div className="billing-details d-flex align-items-center mx-auto w-50 min-vh-100">
+        <motion.div 
+            className="billing-details d-flex align-items-center mx-auto w-50 min-vh-100"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition}
+        >
             <div className="container-fluid">
                 <h1 className="display-1 mb-5 text-center">Billing Details</h1>
                 <Formik
@@ -73,7 +88,7 @@ const BillingDetails = ({history})  => {
 
                 </Formik>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

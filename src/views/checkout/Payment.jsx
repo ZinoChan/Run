@@ -4,10 +4,30 @@ import { NavLink } from 'react-router-dom'
 import { Formik } from 'formik'
 import { paymentValidation } from '../../helpers/validation';
 import TextInput from '../../components/checkout/TextInput';
+import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
+
+
 
 export default function Payment() {
+
+    const pageTransition = {
+        in: {
+            opacity: 1,
+        },
+        out: {
+            opacity: 0,
+        }
+    }
+
     return (
-        <div className="payment d-flex align-items-center w-50 mx-auto min-vh-100">
+        <motion.div 
+            className="payment d-flex align-items-center w-50 mx-auto min-vh-100"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={pageTransition}
+        >
             <div className="container-fluid">
                 <h1 className="display-1 mb-5 text-center">Payment</h1>
                 <Formik
@@ -22,7 +42,7 @@ export default function Payment() {
 
                     onSubmit={(values, { resetForm}) => {
                         
-                        console.log(values);
+                        toast.success('Order Successfully Confirmed');
                         resetForm();
                     }}
                 >
@@ -55,7 +75,8 @@ export default function Payment() {
                 
 
                 </Formik>
+                
             </div>
-        </div>
+        </motion.div>
     )
 }
