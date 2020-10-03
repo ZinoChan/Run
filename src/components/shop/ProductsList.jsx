@@ -1,10 +1,20 @@
 import React from 'react'
 import ProductItem from './ProductItem';
-import { db } from '../../db';
+//import { db } from '../../sdb';
 import { motion } from 'framer-motion';
+import { getProducts } from '../../actions/productsActions';
 
 
-export default function ProductsList({openModal, selectedProduct}) {
+export default function ProductsList({openModal, selectedProduct, products, dispatch}) {
+
+
+    React.useEffect(() => {
+        if(products.length === 0){
+            dispatch(getProducts());
+        }
+    }, []);   
+
+
     const container = {
         hidden: { opacity: 1, scale: 0 },
         visible: {
@@ -28,7 +38,7 @@ export default function ProductsList({openModal, selectedProduct}) {
                     animate="visible"
                 >
                     {
-                        db.map(product => (
+                        products.length > 0 && products.map(product => (
                             <ProductItem 
                                 product={product} 
                                 openModal={openModal}

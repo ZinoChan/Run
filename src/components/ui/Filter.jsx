@@ -10,7 +10,6 @@ export default function Filter() {
             <div className="container-fluid">
                 <div className=" filter-content">
                     <motion.div 
-                        className="filter-btn"
                         initial={{x: -100, opacity: 0}}
                         animate={{x: 0, opacity: 1}}
                         transition={{
@@ -21,7 +20,7 @@ export default function Filter() {
                             delay: .5
                         }}
                     >
-                        <button className="btn main-btn" >Filter  <FontAwesomeIcon className="ml-2" icon={faFilter}/></button>
+                        <button className="btn" >Filter  <FontAwesomeIcon className="ml-2" icon={faFilter}/></button>
                     </motion.div>
                 </div>
             </div>

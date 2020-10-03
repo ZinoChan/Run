@@ -1,13 +1,14 @@
 .filter{
     padding: 8rem 0 5rem 0;
 
-    .main-btn{
+    .btn{
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
         font-weight: 600;
         color: $white;
+        background-color: $main-color;
        
     }
 }

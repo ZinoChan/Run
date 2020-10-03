@@ -6,6 +6,7 @@ import PreLoader from '../../components/ui/PreLoader';
 import { useSelector } from 'react-redux';
 
 
+
 export default function Home() {
 
     const authenticating =  useSelector(state => !!state.app.isAuthenticating );
@@ -19,8 +20,8 @@ export default function Home() {
         }
     }
 
-    
-    
+     
+
 
     return (
         <>

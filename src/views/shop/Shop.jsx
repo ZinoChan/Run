@@ -5,7 +5,7 @@ import NewsLetter from '../../components/ui/NewsLetter';
 import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 import PreLoader from '../../components/ui/PreLoader';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 
 
@@ -19,7 +19,14 @@ export default function Shop() {
 
     const closeModal = () => setOpenModal(false);
 
-    const authenticating =  useSelector(state => !!state.app.isAuthenticating )
+    const {products, cart, authenticating, isLoading} = useSelector(state => ({
+        cart: state.cart,
+        products: state.products,
+        authenticating: !!state.app.isAuthenticating,
+        isLoading: state.app.isLoading
+    }))
+
+    const dispatch  = useDispatch();
 
     const pageTransition = {
         in: {
@@ -38,17 +45,23 @@ export default function Shop() {
             exit="out"
             variants={pageTransition}
         >
-            {authenticating ? <PreLoader theme="light"/> : null}
+            {authenticating || isLoading ? <PreLoader theme="light"/> : null}
             <Filter/>
             <ProductsList
                 openModal={openModal}
                 selectedProduct={selectedProduct}
+                products={products}
+                dispatch={dispatch}
             />
             <Modal
                 isOpen={isOpenModal}
                 closeModal={closeModal}
             >
-                <ProductCard product={isSelectedProduct}/>
+                <ProductCard 
+                    product={isSelectedProduct}
+                    cart={cart}
+                    dispatch={dispatch}
+                />
                 <button 
                     className="btn btn-dark position-absolute modal-btn" 
                     onClick={closeModal}

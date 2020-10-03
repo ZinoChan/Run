@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react';
 import ProductCardImg from './ProductCardImg';
 import ProductCardColor from './ProductCardColor';
 import ProductCardSize from './ProductCardSize';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { addToCart } from '../../actions/cartActions';
@@ -15,11 +13,7 @@ import { motion } from 'framer-motion';
 
 
 
-export default function ProductCard({product}) {
-
-    const cart = useSelector(state => state.cart);
-
-    const dispatch  = useDispatch();
+export default function ProductCard({product, dispatch, cart}) {
 
     const imgRef = useRef();
 

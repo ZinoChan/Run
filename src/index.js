@@ -14,6 +14,7 @@ import { ToastContainer} from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 
 
+
 const {store, persistor} = configureStore();
 
 
@@ -36,7 +37,6 @@ if (window.navigator.onLine) {
   render(<PreLoader theme="red" />, document.getElementById('root'));
   
   auth.onAuthStateChanged((user) => {
-    console.log(user);
     if (user) {
       store.dispatch(onAuthStateSuccess(user));
     } else {
