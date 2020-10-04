@@ -120,7 +120,7 @@ export const db = [
                 color: '#0082C4', 
                 imgs: [
                     {id: "8ba47dnh4-f9c2-495f-9c46-4ed697645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/m10_01.jpg?alt=media&token=b8f77fe1-924b-4e46-a071-753b1f46a543"}, 
-                    {id: "8ba47dlo-f9c2-495f-9c46-4ed697645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/m10_02.jpg?alt=media&token=2d37f73a-1bce-44da-8e75-b1df608fa894"}, 
+                    {id: "8bapmdlo-f9c2-495f-9c46-4ed697645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/m10_02.jpg?alt=media&token=2d37f73a-1bce-44da-8e75-b1df608fa894"}, 
                     {id: "8ba47dlo-f9c2-495f-9c46-4ed697645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/m10_03.jpg?alt=media&token=3070713b-e10b-4988-bd54-782485dfa347"}, 
                     {id: "8ba47dmp-f9c2-495f-9c46-4ed697645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/m10_04.jpg?alt=media&token=321277c6-0f99-4151-b5d3-a2c950cfa31f"}
                 ]

@@ -1,7 +1,5 @@
-import React, {useState} from 'react'
-import Filter from '../../components/ui/Filter';
+import React, {useState} from 'react';
 import ProductsList from '../../components/shop/ProductsList';
-import NewsLetter from '../../components/ui/NewsLetter';
 import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 import PreLoader from '../../components/ui/PreLoader';
@@ -46,7 +44,6 @@ export default function Shop() {
             variants={pageTransition}
         >
             {authenticating || isLoading ? <PreLoader theme="light"/> : null}
-            <Filter/>
             <ProductsList
                 openModal={openModal}
                 selectedProduct={selectedProduct}
@@ -67,7 +64,6 @@ export default function Shop() {
                     onClick={closeModal}
                 >X</button>
             </Modal>
-            <NewsLetter/>
         </motion.section>
     )
 }

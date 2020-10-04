@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/ui/Header';
 import { HOME, CART, REGISTER} from '../constants/routes';
 import { useSelector } from 'react-redux';
+import Footer from '../components/ui/Footer';
 
 
 export default function PublicRoute({component: Component,path, ...rest}) {
@@ -28,7 +29,7 @@ export default function PublicRoute({component: Component,path, ...rest}) {
                     <>  
                         <Header theme="dark" path={path}/>
                             <Component {...props}/>
-                        
+                        <Footer/>                        
                     </>
         
         )}

@@ -15,6 +15,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 
+
 const {store, persistor} = configureStore();
 
 
@@ -45,6 +46,7 @@ if (window.navigator.onLine) {
   
     render(<AppRoot/>, document.getElementById('root'));
   })
+ 
     
 } else {
   render((

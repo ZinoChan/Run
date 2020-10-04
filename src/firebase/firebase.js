@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/storage';
 
 
 var firebaseConfig = {
@@ -17,6 +18,8 @@ firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 const db = firebase.firestore();
+
+export const storage = firebase.storage();
 
 export const addProduct = (id, product) => db.collection('products').doc(id).set(product);
 //export const getProducts = () => db.collection('products').get();

@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductItem from './ProductItem';
-//import { db } from '../../sdb';
+import { isLoading } from '../../actions/appActions';
 import { motion } from 'framer-motion';
 import { getProducts } from '../../actions/productsActions';
 
@@ -12,6 +12,9 @@ export default function ProductsList({openModal, selectedProduct, products, disp
         if(products.length === 0){
             dispatch(getProducts());
         }
+
+        return () => dispatch(isLoading(false));
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);   
 
 

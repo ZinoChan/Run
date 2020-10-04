@@ -14,6 +14,7 @@ const OrderDetails = lazy(() => import('../views/checkout/OrderDetails'));
 const BillingDetails = lazy(() => import('../views/checkout/BillingDetails'));
 const Payment = lazy(() => import('../views/checkout/Payment'));
 const Register = lazy(() => import('../views/auth/Register'));
+const TermsOfUse = lazy(() => import('../views/terms/TermsOfUse'));
 const NotFound = lazy(() => import('../views/404/NotFound'));
 
 
@@ -29,6 +30,7 @@ export default function AppRoute() {
                     <PublicRoute  path={ROUTES.SHOP} component={Shop}/>
                     <PublicRoute  path={ROUTES.CART} component={Cart}/>
                     <PublicRoute  path={ROUTES.REGISTER} component={Register}/>
+                    <PublicRoute  path={ROUTES.TERMS_OF_USE} component={TermsOfUse}/>
                     <PrivateRoute path={ROUTES.CHECKOUT_STEP_1} component={OrderDetails}/>
                     <PrivateRoute path={ROUTES.CHECKOUT_STEP_2} component={BillingDetails}/>
                     <PrivateRoute path={ROUTES.CHECKOUT_STEP_3} component={Payment}/>
