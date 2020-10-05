@@ -13,8 +13,7 @@ export default function ProductsList({openModal, selectedProduct, products, disp
             dispatch(getProducts());
         }
 
-        return () => dispatch(isLoading(false));
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);   
 
 
