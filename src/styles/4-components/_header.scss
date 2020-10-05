@@ -3,16 +3,25 @@
     width: 100vw;
     top: 0;
     overflow: hidden;
-    &.light{color: $white;}
-    &.dark{color: $light-black;}
+
+    .logo a{
+        display: block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 50px;
+    }
+    &.light{
+        .logo a{background-image: url('../../assets/light-logo.png'); }
+
+    }
+    &.dark{
+        .logo a{background-image: url('../../assets/red-logo.png');}
+    }
 
     .navbar{padding: 0!important;}
 
-    .logo{
-        font-size: 3rem;
-        line-height: initial;
-        a{color: inherit; padding-left: 0!important;}
-    }
+    
 
     .header-icon{
         font-size: 2rem;
@@ -31,11 +40,31 @@
        
     }
 
+    .toggler{
+        display: none;
+        font-size: 2rem;
+        z-index: 999;
+        position: relative;
+    }
+
    
 }
 
 @include responsive-max(450px){
     .navbar-nav .nav-link{font-size: 1.2rem!important;}
     .header-icon{font-size: 1.3rem!important;}
-    .logo{font-size: 2.2rem!important;}
+    .logo a{
+        width: 100px!important;
+        height: 40px!important; 
+         background-image: url('../../assets/red-logo.png')!important;
+    }
 }
+
+@include responsive-max(360px){
+    .toggler{
+        display: block!important;
+    }
+
+    #header .navbar-nav{display: none;}
+}
+

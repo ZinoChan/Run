@@ -1,3 +1,12 @@
 .badge{
     font-size: 14px;
 }
+
+@include responsive-max (450px) {
+   .badge{
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    font-size: 12px!important;
+   }
+}

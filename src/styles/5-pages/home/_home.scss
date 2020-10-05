@@ -8,7 +8,7 @@
         width: 60%;
         height: 100%;
         min-height: 100vh;
-        background: linear-gradient($overlay-color, $overlay-color), url('../../../assets/overlay-bg.jpg');
+        background: linear-gradient($overlay-color, $overlay-color), url('../../../assets/overlay-bg.webp');
         background-size: cover;
         background-position: center center;
         position: relative;
@@ -60,7 +60,7 @@
         p{
             color: $general-color;
             font-size: 1.6rem;
-            margin-bottom: 3.5rem;;
+            margin-bottom: 2.5rem;;
         }
 
         .home-btn{
@@ -78,7 +78,7 @@
     .home{
         overflow-y: hidden;
         background: linear-gradient(rgba(245, 237, 237,.9), rgba(245, 237, 237,.9)),
-         url('../../../assets/dunk.jpg');
+         url('../../../assets/dunk.webp');
          background-repeat: no-repeat;
          background-size: cover;
          background-position: center center;
@@ -101,8 +101,9 @@
 @include responsive_max(450px){
     html{font-size: 13px;}
     .home-text h1{font-size: 4.5rem!important;}
+    .home{padding-top: 2rem;}
 }
 
 @include responsive_max(420px){
-    .home{.shoe{top: 70%!important; height: 405px!important;}}
+    .home{.shoe{top: 75%!important; height: 405px!important;}}
 }
