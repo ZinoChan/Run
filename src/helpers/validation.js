@@ -30,5 +30,8 @@ export const paymentValidation = Yup.object({
       .required("Required"),
     date: Yup.date()
         .min(new Date(), `Date must be later then ${new Date()}`)
+        .required('Required'),
+    terms: Yup.boolean()
         .required('Required')
+        .oneOf([true], 'You must accept the terms of use')
 });

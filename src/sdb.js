@@ -260,7 +260,7 @@ export const db = [
                 ]
             },
             {
-                id: "8ba47d54-f9c2-495f-9c46-4ed69764jikc6", 
+                id: "", 
                 color: '#76355B', 
                 imgs: [
                     {id: "8ba47d54-f9c2-495f-9c46-4ed6ki645ac6", img: "https://firebasestorage.googleapis.com/v0/b/nike-8cb98.appspot.com/o/w7_01.jpg?alt=media&token=f17be52f-ba7d-4777-8a69-70489c7cf046"}, 

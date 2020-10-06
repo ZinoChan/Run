@@ -1,6 +1,5 @@
 import React from 'react'
 import ProductItem from './ProductItem';
-import { isLoading } from '../../actions/appActions';
 import { motion } from 'framer-motion';
 import { getProducts } from '../../actions/productsActions';
 

@@ -10,11 +10,17 @@ import { signInWithGoogle } from '../../actions/authActions';
 import { NavLink } from 'react-router-dom';
 
 
-export default function MobileNav({openNav, path, dispatch, auth}) {
+export default function MobileNav({openNav, path, dispatch, auth, setOpenNav}) {
     
 
-    const handleSignOut = () => dispatch(signOut());
-    const handleSignIn = () => dispatch(signInWithGoogle());
+    const handleSignOut = () => {
+        dispatch(signOut())
+        setOpenNav(!openNav);
+    };
+    const handleSignIn = () => {
+        dispatch(signInWithGoogle());
+        setOpenNav(!openNav);
+    }
 
     
 

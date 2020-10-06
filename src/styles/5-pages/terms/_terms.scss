@@ -1,0 +1,12 @@
+.terms{
+    padding: 6rem 2rem;
+}
+
+@include responsive_mobile(){
+    .terms{
+        text-align: left!important;
+        p{
+            font-size: 1.4rem!important;
+        }
+    }
+}

@@ -45,7 +45,7 @@ export default function ProductCard({product, dispatch, cart}) {
         const $img = currentProduct.imgs[0].img;
 
         const item = {
-            id: currentProduct.id,
+            id: currentSize,
             title: product.title,
             price:  product.price,
             color: currentProduct.color,
@@ -57,7 +57,7 @@ export default function ProductCard({product, dispatch, cart}) {
         toast.success("item added to cart !");
     }
    
-    const inCart = cart.some(item => item.id === currentProduct.id && item.size.id === currentSize);
+    const inCart = cart.some(item => item.id === currentSize && item.size.id === currentSize);
 
     return (
        <>

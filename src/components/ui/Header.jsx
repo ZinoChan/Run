@@ -83,6 +83,7 @@ export default function Header({theme, path}) {
             dispatch={dispatch}
             auth={auth}
             path={path}
+            setOpenNav={setOpenNav}
         /> 
         </>
     )

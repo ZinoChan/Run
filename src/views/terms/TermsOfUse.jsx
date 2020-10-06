@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TermsOfUse() {
     return (
-        <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
+        <div className="terms min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
             <p className="text-dark font-weight-bold">
                 this site contains copyrighted images the use of which has not been authorized by the copyright owner. <br/>
                 we are using such images for educational purpose, <br/>
@@ -12,7 +12,7 @@ export default function TermsOfUse() {
             </p>            
             <br/><br/>
             <p className="text-danger font-weight-bold">
-                this is only a project for practice please use fake data to fill checkout forms.
+                this is only a project for practice and not a real ecommerce website.
             </p>
         </div>
     )

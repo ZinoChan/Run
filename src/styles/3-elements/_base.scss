@@ -21,7 +21,7 @@ p {
     margin-bottom: 0;
 }
 
-input {
+input:not([type="checkbox"]) {
     height: 50px!important; 
     background-color:$light-gray!important;
     &:focus{

@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import ConfirmModal from '../../components/ui/ConfirmModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import CheckBox from '../../components/checkout/CheckBox';
 
 
 export default function Payment() {
@@ -42,7 +43,8 @@ export default function Payment() {
                         cardName: '',
                         cardNumber: '',
                         cvvCode: '',
-                        date: ''
+                        date: '',
+                        terms: ''
                     }}
 
                     validationSchema={paymentValidation}
@@ -73,6 +75,7 @@ export default function Payment() {
                                 <div className="form-group mb-3">
                                     <TextInput label="Expirity Date*" name="date" type="date" className="form-control"/>
                                 </div>
+                                <CheckBox name="terms"/>
                             <div className="d-flex justify-content-between mt-5">
                                 <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">Back</NavLink>
                                 <button className="btn btn-dark" type="submit" >Confirm</button>
