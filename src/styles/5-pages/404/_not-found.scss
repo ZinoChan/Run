@@ -9,3 +9,7 @@
         h1{font-size: 6rem;}
     }
 }
+
+@include responsive-max(450px){
+    ._404{font-size: 9rem!important;}
+}

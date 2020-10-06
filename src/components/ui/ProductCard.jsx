@@ -141,7 +141,7 @@ export default function ProductCard({product, dispatch, cart}) {
                         {inCart ? 
                             <NavLink to={CART} className="text-dark" style={{fontSize: "1.5rem"}}>View in cart</NavLink>
                             :
-                            <p  className="text-dark">Add To Whishlist</p>
+                            null
                         }
                     </div>
                 </motion.div>

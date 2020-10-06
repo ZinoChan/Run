@@ -50,11 +50,11 @@ if (window.navigator.onLine) {
  
     
 } else {
-  render((
-    <div className="loader">
-      <h2>:( No internet connection.</h2>
+  render(
+    <div>
+      <h2> No internet connection.</h2>
     </div>
-  ), document.getElementById('app'));
+  , document.getElementById('root'));
 }
 
 // If you want your app to work offline and load faster, you can change

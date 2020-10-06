@@ -22,8 +22,6 @@ export default function ProductsList({openModal, selectedProduct, products, disp
         opacity: 1,
         scale: 1,
         transition: {
-            //delay: 0.3,
-            //when: "beforeChildren",
             duration: .4,
             staggerChildren: .8
         }

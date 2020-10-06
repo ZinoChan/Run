@@ -13,16 +13,11 @@ export default function CartList({cart, dispatch}) {
         scale: 1,
         transition: {
             delay: 0.3,
-            //when: "beforeChildren",
             staggerChildren: .8,
             duration: .4
         }
         }
     };
-
-    
-    
-    
 
     return (
         <div className="cart-list">

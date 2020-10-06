@@ -9,7 +9,7 @@ export default function Footer() {
            <div className="container text-center">
             <div className="row align-items-center">
                 <div className="col-xl-4 col-sm-12">
-                    <p >Developed by ZINO-CHAN</p>
+                    <p >Developed by Zino-chan</p>
                 </div>        
                 <div className="col-xl-4 col-sm-12 text-center">
                     <div className="logo mb-2">
