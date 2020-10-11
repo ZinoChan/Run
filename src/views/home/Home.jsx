@@ -111,7 +111,7 @@ export default function Home() {
                                  delay: 1.9,
                              }}
                         >
-                        we are taking nike to the next level, with our new 2020 collection more comfort and style ready to run.
+                        New level Designs, explore our 2020 collection with more comfort and style.
                         </motion.p>
                         <motion.div
                             initial={{ x: 100, opacity: 0}}
@@ -130,8 +130,6 @@ export default function Home() {
                             >Shop Now</NavLink>
                         </motion.div>
                     </div>
-                
-            
         </motion.section>
         </>
     )

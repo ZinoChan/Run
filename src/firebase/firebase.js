@@ -5,13 +5,13 @@ import 'firebase/storage';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDthbFlratL1j2wIIibITeyoDMuczcyw0s",
-  authDomain: "ruun-6501c.firebaseapp.com",
-  databaseURL: "https://ruun-6501c.firebaseio.com",
-  projectId: "ruun-6501c",
-  storageBucket: "ruun-6501c.appspot.com",
-  messagingSenderId: "618862620623",
-  appId: "1:618862620623:web:3fcfb8598b31469b8e6cba"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  databaseURL: FIREBASE_DB_URL,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MSG_SENDER_ID,
+  appId: FIREBASE_APP_ID
 };
 
 firebase.initializeApp(firebaseConfig);

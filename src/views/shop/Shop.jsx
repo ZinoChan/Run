@@ -43,12 +43,13 @@ export default function Shop() {
             exit="out"
             variants={pageTransition}
         >
-            {authenticating || isLoading ? <PreLoader theme="light"/> : null}
+            {authenticating ? <PreLoader theme="light"/> : null}
             <ProductsList
                 openModal={openModal}
                 selectedProduct={selectedProduct}
                 products={products}
                 dispatch={dispatch}
+                isLoading={isLoading}
             />
             <Modal
                 isOpen={isOpenModal}

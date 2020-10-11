@@ -43,8 +43,6 @@ const BillingDetails = ({history})  => {
                     validationSchema={billingValidation}
 
                     onSubmit={(values, { resetForm}) => {
-                        
-                        console.log(values);
                         resetForm();
                         history.push(CHECKOUT_STEP_3);
                         

@@ -2,9 +2,15 @@ import React from 'react'
 import ProductItem from './ProductItem';
 import { motion } from 'framer-motion';
 import { getProducts } from '../../actions/productsActions';
+import Skeleton from 'react-loading-skeleton';
 
-
-export default function ProductsList({openModal, selectedProduct, products, dispatch}) {
+export default function ProductsList({
+        openModal, 
+        selectedProduct, 
+        products, 
+        dispatch,
+        isLoading
+}) {
 
 
     React.useEffect(() => {
@@ -17,10 +23,9 @@ export default function ProductsList({openModal, selectedProduct, products, disp
 
 
     const container = {
-        hidden: { opacity: 1, scale: 0 },
+        hidden: { opacity: 1 },
         visible: {
         opacity: 1,
-        scale: 1,
         transition: {
             duration: .4,
             staggerChildren: .8
@@ -36,15 +41,21 @@ export default function ProductsList({openModal, selectedProduct, products, disp
                     initial="hidden"
                     animate="visible"
                 >
-                    {
-                        products.length > 0 && products.map(product => (
+                    { !isLoading  &&  products.length > 0 ?
+                        products.map(product => (
                             <ProductItem 
                                 product={product} 
                                 openModal={openModal}
                                 selectedProduct={selectedProduct}   
                                 key={product.id} 
                             />
-                        )) 
+                        )) :
+                        new Array(9).fill({}).map((item, index) => (
+                            <div className="col-xl-4 col-md-6 col-xs-12 mb-4" key={index}>
+                                <Skeleton height={200}/>
+                                <Skeleton count={3}/>
+                            </div>
+                        ))
                     }
                 </motion.div>
             </div>
