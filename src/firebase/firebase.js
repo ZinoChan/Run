@@ -5,13 +5,13 @@ import 'firebase/storage';
 
 
 const firebaseConfig = {
-  apiKey: FIREBASE_API_KEY,
-  authDomain: FIREBASE_AUTH_DOMAIN,
-  databaseURL: FIREBASE_DB_URL,
-  projectId: FIREBASE_PROJECT_ID,
-  storageBucket: FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: FIREBASE_MSG_SENDER_ID,
-  appId: FIREBASE_APP_ID
+  apiKey: `${process.env.REACT_APP_API_KEY}`,  
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
+  databaseURL: `${process.env.REACT_APP_DATABASE_URL}`,
+  projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+  storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.REACT_APP_MSG_SENDER_ID}`,
+  appId: `${process.env.REACT_APP_APP_ID}`
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Ripple from '@bit/joshk.react-spinners-css.ripple';
+import {Ripple} from 'react-spinners-css';
 
 
 export default function PreLoader({theme}) {
