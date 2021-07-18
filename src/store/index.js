@@ -5,7 +5,7 @@ import {
 
 import createSagaMiddleware from 'redux-saga';
 
-import {persistStore, persistCombineReducers } from 'redux-persist';
+import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas/rootSaga';
@@ -19,7 +19,7 @@ const authPersistConfig = {
     whitelist: ['cart']
 }
 
-export default () => {
+const store = () => {
     const store = createStore(
         persistCombineReducers(authPersistConfig, rootReducer),
         applyMiddleware(sagaMiddleware)
@@ -27,5 +27,7 @@ export default () => {
 
     const persistor = persistStore(store);
     sagaMiddleware.run(rootSaga);
-    return {store, persistor};
+    return { store, persistor };
 };
+
+export default store;

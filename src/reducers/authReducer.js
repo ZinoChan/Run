@@ -1,8 +1,8 @@
-import {  SIGNOUT_SUCCESS, SIGNIN_SUCCESS } from '../constants/constants';
+import { SIGNOUT_SUCCESS, SIGNIN_SUCCESS } from '../constants/constants';
 
 const initState = {};
 
-export default (state = initState, action) => {
+const authReducer = (state = initState, action) => {
   switch (action.type) {
     case SIGNIN_SUCCESS:
       return {
@@ -11,7 +11,9 @@ export default (state = initState, action) => {
       }
     case SIGNOUT_SUCCESS:
       return {};
-    default: 
+    default:
       return state;
   }
 };
+
+export default authReducer;

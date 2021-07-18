@@ -7,22 +7,20 @@ import {
 } from '../constants/constants';
 
 
-
-
-export default (state=[], action) => {
-    switch(action.type){
-        case ADD_TO_CART: 
+const cartReducer = (state = [], action) => {
+    switch (action.type) {
+        case ADD_TO_CART:
             return state.some(item => (
                 item.id === action.payload.id && item.size.id === action.payload.size.id
-            )) 
-            ? state : [...state, action.payload]
-        
+            ))
+                ? state : [...state, action.payload]
+
         case REMOVE_FROM_CART:
             return state.filter(item => item.id !== action.payload);
 
         case ADD_QTY:
             return state.map(item => {
-                if(item.id === action.payload){
+                if (item.id === action.payload) {
                     return {
                         ...item,
                         quantity: item.quantity + 1
@@ -33,7 +31,7 @@ export default (state=[], action) => {
 
         case MINUS_QTY:
             return state.map(item => {
-                if(item.id === action.payload){
+                if (item.id === action.payload) {
                     return {
                         ...item,
                         quantity: item.quantity - 1
@@ -42,10 +40,13 @@ export default (state=[], action) => {
                 return item;
             });
 
-        case CLEAR_CART: 
+        case CLEAR_CART:
             return []
 
         default:
             return state;
     }
 }
+
+
+export default cartReducer;
