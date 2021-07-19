@@ -1,0 +1,20 @@
+const VectorSvg = () => (
+    <svg width="1040" height="391" viewBox="0 0 1040 391" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d)">
+            <path d="M1020 0.999542L288.417 312.5C227.75 338.166 176.792 351.041 135.583 351.041C88.9165 351.041 55.0415 334.708 34.0415 302C20.8332 281 16.9582 254.375 22.3749 222.083C27.7915 189.791 42.2082 155.416 65.5415 118.833C84.9999 89.2496 116.875 50.3745 161.25 2.1662C146.198 25.8606 135.161 51.877 128.583 79.1662C116.917 128.958 127.417 165.5 160.083 188.833C175.625 199.708 197 205.166 224.25 205.166C246 205.166 270.5 201.666 297.75 194.666L1020 0.999542Z" fill="white" />
+        </g>
+        <defs>
+            <filter id="filter0_d" x="0.00762939" y="-0.000457764" width="1039.99" height="390.042" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                <feOffset dy="19" />
+                <feGaussianBlur stdDeviation="10" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+            </filter>
+        </defs>
+    </svg>
+)
+
+export default VectorSvg;

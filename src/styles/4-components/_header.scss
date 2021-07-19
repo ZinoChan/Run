@@ -11,22 +11,16 @@
         background-repeat: no-repeat;
         width: 150px;
         height: 50px;
+        background-image: url('../../assets/logo.png');
     }
-    &.light{
-        .logo a{background-image: url('../../assets/light-logo.png'); }
-
-    }
-    &.dark{
-        .logo a{background-image: url('../../assets/red-logo.png');}
-    }
-
+   
     .navbar{padding: 0!important;}
 
     
 
     .header-icon{
         font-size: 2rem;
-        color: $light-black;
+        color: #333;
     }
     
 
@@ -35,7 +29,7 @@
 
         .nav-link{
             font-size: 1.5rem;
-            color: $light-black;
+            color: #333;
             font-weight: 600;
         }
        
@@ -61,7 +55,7 @@
     }
 }
 
-@include responsive-max(360px){
+@include responsive-max(412px){
     .toggler{
         display: block!important;
     }
