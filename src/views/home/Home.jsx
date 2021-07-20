@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import nike from '../../assets/nike.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import VectorSvg from '../../components/ui/VectorSvg';
+
 
 
 
