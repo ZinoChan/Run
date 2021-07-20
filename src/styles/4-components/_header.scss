@@ -1,5 +1,5 @@
 #header{
-    z-index: 10;
+    z-index: 999;
     width: 100vw;
     top: 0;
     overflow: hidden;
@@ -51,7 +51,7 @@
     .logo a{
         width: 100px!important;
         height: 40px!important; 
-         background-image: url('../../assets/red-logo.png')!important;
+         
     }
 }
 

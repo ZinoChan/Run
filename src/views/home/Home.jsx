@@ -23,12 +23,6 @@ export default function Home() {
             opacity: 0,
         }
     }
-
-
-
-
-
-
     return (
         <>
             {authenticating ? <PreLoader theme="light" /> : null}
@@ -39,72 +33,68 @@ export default function Home() {
                 variants={pageTransition}
                 className="home position-relative d-flex align-items-center"
             >
+                <div className="container-fluid position-relative">
+                    <div className="vector">
+                        <h1>Nike</h1>
+                    </div>
 
-                <div className="vector">
-                    <VectorSvg />
-                </div>
+                    <div className="home-text">
+                        <motion.h1
+                            initial={{ x: -100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                duration: 1,
+                                delay: .9
 
-                <div className="container-fluid">
-                    <div className="home-content">
+                            }}
+                        > New Collection</motion.h1>
+                        <motion.p
+                            initial={{ x: 100, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                duration: 1,
+                                delay: .9,
+                            }}
+                        > New level Designs,<br /> explore our 2020 collection <br /> with more comfort and style.
 
-                        <div className="home-text">
-                            <motion.h1
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 260,
-                                    damping: 20,
-                                    duration: 1,
-                                    delay: .9
+                        </motion.p>
+                    </div>
 
-                                }}
-                            >2021 New Collection</motion.h1>
-                            <motion.p
-                                initial={{ x: 100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 260,
-                                    damping: 20,
-                                    duration: 1,
-                                    delay: .9,
-                                }}
-                            > New level Designs,<br /> explore our 2020 collection <br /> with more comfort and style.
-
-                            </motion.p>
-                        </div>
-
-
-
-
+                    <div className="shoe">
                         <motion.div
-                            className="shoe"
-                        // initial={{ scale: 0 }}
-                        // animate={{ scale: 1, rotate: -16, translateY: -300 }}
-                        // transition={{
-                        //     type: "spring",
-                        //     stiffness: 260,
-                        //     damping: 20,
-                        //     duration: 1,
-                        //     delay: .5
-                        // }}
-
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                duration: 1,
+                                delay: .5
+                            }}
                         >
                             <img src={nike} alt="shoe" className="inline-block shoe-img" />
+                        </motion.div>
 
+                        <div className="text-center">
                             <NavLink
                                 to={SHOP}
                                 className="btn home-btn"
                             >Shop Now</NavLink>
-                        </motion.div>
-
-                        <div className="socials">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                            <FontAwesomeIcon icon={faTwitter} />
-                            <FontAwesomeIcon icon={faInstagram} />
                         </div>
                     </div>
+
+                    <div className="socials">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                        <FontAwesomeIcon icon={faTwitter} />
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </div>
+
 
 
                 </div>
