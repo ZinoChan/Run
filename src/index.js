@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
@@ -8,53 +8,46 @@ import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './store/index';
 import AppRoute from './routes/AppRoute';
 import { auth } from './firebase/firebase';
-import { onAuthStateSuccess, onAuthStateFail} from './actions/authActions'
-import PreLoader from './components/ui/PreLoader';
-import { ToastContainer} from 'react-toastify';
+import { onAuthStateSuccess, onAuthStateFail } from './actions/authActions';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 
-
-
-
-
-const {store, persistor} = configureStore();
-
+const { store, persistor } = configureStore();
 
 const AppRoot = () => (
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={<PreLoader theme="red"/>} persistor={persistor}>
-      <BrowserRouter>
-        <ToastContainer autoClose={2000}/>
-        <AppRoute/>
-      </BrowserRouter>
+      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+        <BrowserRouter>
+          <ToastContainer autoClose={2000} />
+          <AppRoute />
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>
 );
 
+const root = createRoot(document.getElementById('root'));
 
 if (window.navigator.onLine) {
   // Render the preloader on initial load
-  render(<PreLoader theme="red" />, document.getElementById('root'));
-  
+  root.render(<div>Loading...</div>);
+
   auth.onAuthStateChanged((user) => {
     if (user) {
       store.dispatch(onAuthStateSuccess(user));
     } else {
       store.dispatch(onAuthStateFail('Failed to authenticate'));
     }
-  
-    render(<AppRoot/>, document.getElementById('root'));
-  })
- 
-    
+
+    root.render(<AppRoot />);
+  });
 } else {
-  render(
+  root.render(
     <div>
       <h2> No internet connection.</h2>
     </div>
-  , document.getElementById('root'));
+  );
 }
 
 // If you want your app to work offline and load faster, you can change
