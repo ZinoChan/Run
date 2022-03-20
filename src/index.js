@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './store/index';
 import AppRoute from './routes/AppRoute';
-import { auth } from './firebase/firebase';
 import { onAuthStateSuccess, onAuthStateFail } from './actions/authActions';
-import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
+import { auth } from './firebase/firebase';
+import { Toaster } from 'react-hot-toast';
 
 const { store, persistor } = configureStore();
 
@@ -19,7 +19,7 @@ const AppRoot = () => (
     <Provider store={store}>
       <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
         <BrowserRouter>
-          <ToastContainer autoClose={2000} />
+          <Toaster />
           <AppRoute />
         </BrowserRouter>
       </PersistGate>
