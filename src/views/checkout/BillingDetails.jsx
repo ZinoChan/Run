@@ -1,12 +1,13 @@
 import React from 'react';
 import { CHECKOUT_STEP_1, CHECKOUT_STEP_3 } from '../../constants/routes';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import TextInput from '../../components/checkout/TextInput';
 import { Formik } from 'formik';
 import { billingValidation } from '../../helpers/validation';
 import { motion } from 'framer-motion';
 
-const BillingDetails = ({ history }) => {
+const BillingDetails = () => {
+  const navigate = useNavigate();
   const pageTransition = {
     in: {
       opacity: 1,
@@ -38,7 +39,7 @@ const BillingDetails = ({ history }) => {
           validationSchema={billingValidation}
           onSubmit={(values, { resetForm }) => {
             resetForm();
-            history.push(CHECKOUT_STEP_3);
+            navigate(CHECKOUT_STEP_3, { replace: true });
           }}
         >
           {({ handleSubmit }) => (
@@ -115,4 +116,4 @@ const BillingDetails = ({ history }) => {
   );
 };
 
-export default withRouter(BillingDetails);
+export default BillingDetails;
