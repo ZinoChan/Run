@@ -5,7 +5,7 @@ import { GET_PRODUCTS, SET_REQUEST_STATUS } from '../constants/constants';
 import { getProductsSuccess } from '../actions/productsActions';
 import { isLoading } from '../actions/appActions';
 
-import { getProducts } from '../firebase/firebase';
+import firebaseInstance from '../firebase/firebase';
 
 function* initRequest() {
   yield put(isLoading(true));
@@ -22,7 +22,7 @@ function* productSaga({ type, payload }) {
     case GET_PRODUCTS:
       try {
         yield initRequest();
-        const products = yield call(getProducts);
+        const products = yield call(firebaseInstance.getProducts);
         yield put(getProductsSuccess(products));
         yield put(isLoading(false));
         yield put({ type: SET_REQUEST_STATUS, payload: null });

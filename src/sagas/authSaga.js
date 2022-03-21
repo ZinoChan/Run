@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { signInWithGoogle, signOut } from '../firebase/firebase';
+import firebaseInstance from '../firebase/firebase';
 import {
   ON_AUTHSTATE_FAIL,
   SIGNIN_WITH_GOOGLE,
@@ -45,7 +45,7 @@ function* authSaga({ type, payload }) {
     case SIGNIN_WITH_GOOGLE:
       try {
         yield initRequest();
-        yield call(signInWithGoogle);
+        yield call(firebaseInstance.signInWithGoogle);
       } catch (e) {
         yield handleError(e);
       }
@@ -53,7 +53,7 @@ function* authSaga({ type, payload }) {
     case SIGNOUT:
       try {
         yield initRequest();
-        yield call(signOut);
+        yield call(firebaseInstance.signOut);
         yield put(clearCart());
         yield put(signOutSuccess());
         yield put(isAuthenticating(false));
