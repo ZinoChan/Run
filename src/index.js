@@ -9,7 +9,7 @@ import configureStore from './store/index';
 import AppRoute from './routes/AppRoute';
 import { onAuthStateSuccess, onAuthStateFail } from './actions/authActions';
 import { BrowserRouter } from 'react-router-dom';
-import { auth } from './firebase/firebase';
+import firebaseInstance from './firebase/firebase';
 import { Toaster } from 'react-hot-toast';
 
 const { store, persistor } = configureStore();
@@ -33,7 +33,7 @@ if (window.navigator.onLine) {
   // Render the preloader on initial load
   root.render(<div>Loading...</div>);
 
-  auth.onAuthStateChanged((user) => {
+  firebaseInstance.auth.onAuthStateChanged((user) => {
     if (user) {
       store.dispatch(onAuthStateSuccess(user));
     } else {
