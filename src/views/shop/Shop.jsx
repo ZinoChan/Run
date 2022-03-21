@@ -83,11 +83,6 @@ export default function Shop() {
             <Skeleton count={3} />
           </div>
         ))}
-      {!isLoading && products.length === 0 && (
-        <div className="flex items-center justify-content-center">
-          no product was found
-        </div>
-      )}
     </motion.section>
   );
 }
