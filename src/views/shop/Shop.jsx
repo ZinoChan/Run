@@ -6,6 +6,7 @@ import PreLoader from '../../components/ui/PreLoader';
 import { useSelector, useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import { getProducts } from '../../actions/productsActions';
+import Skeleton from 'react-loading-skeleton';
 
 export default function Shop() {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -52,25 +53,41 @@ export default function Shop() {
       variants={pageTransition}
     >
       {authenticating ? <PreLoader theme="light" /> : null}
-      <ProductsList
-        openModal={openModal}
-        selectedProduct={selectedProduct}
-        products={products}
-        isLoading={isLoading}
-      />
-      <Modal isOpen={isOpenModal} closeModal={closeModal}>
-        <ProductCard
-          product={isSelectedProduct}
-          cart={cart}
-          dispatch={dispatch}
-        />
-        <button
-          className="btn btn-dark position-absolute modal-btn"
-          onClick={closeModal}
-        >
-          X
-        </button>
-      </Modal>
+
+      {!isLoading && products.length > 0 && (
+        <>
+          <ProductsList
+            openModal={openModal}
+            selectedProduct={selectedProduct}
+            products={products}
+          />
+          <Modal isOpen={isOpenModal} closeModal={closeModal}>
+            <ProductCard
+              product={isSelectedProduct}
+              cart={cart}
+              dispatch={dispatch}
+            />
+            <button
+              className="btn btn-dark position-absolute modal-btn"
+              onClick={closeModal}
+            >
+              X
+            </button>
+          </Modal>
+        </>
+      )}
+      {isLoading &&
+        new Array(9).fill({}).map((item, index) => (
+          <div className="col-xl-4 col-md-6 col-xs-12 mb-4" key={index}>
+            <Skeleton height={200} />
+            <Skeleton count={3} />
+          </div>
+        ))}
+      {!isLoading && products.length === 0 && (
+        <div className="flex items-center justify-content-center">
+          no product was found
+        </div>
+      )}
     </motion.section>
   );
 }
