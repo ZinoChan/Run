@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
@@ -27,11 +27,9 @@ const AppRoot = () => (
   </React.StrictMode>
 );
 
-const root = createRoot(document.getElementById('root'));
-
 if (window.navigator.onLine) {
   // Render the preloader on initial load
-  root.render(<div>Loading...</div>);
+  render(<div>Loading...</div>, document.getElementById('root'));
 
   firebaseInstance.auth.onAuthStateChanged((user) => {
     if (user) {
@@ -40,13 +38,14 @@ if (window.navigator.onLine) {
       store.dispatch(onAuthStateFail('Failed to authenticate'));
     }
 
-    root.render(<AppRoot />);
+    render(<AppRoot />, document.getElementById('root'));
   });
 } else {
-  root.render(
+  render(
     <div>
       <h2> No internet connection.</h2>
-    </div>
+    </div>,
+    document.getElementById('root')
   );
 }
 
