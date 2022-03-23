@@ -1,48 +1,89 @@
 h1,
 h2,
 h3,
-h4{font-family: $heading-font;}
-
-body{
-    font-family: $general-font;
-    overflow-x: hidden ;
+h4 {
+  font-family: $heading-font;
 }
 
-html{
-    overflow-x: hidden!important;
+body {
+  font-family: $general-font;
+  overflow-x: hidden;
 }
 
-a{&:hover{text-decoration: none;}}
+html {
+  overflow-x: hidden !important;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 p {
-    font-size: 1.6rem;
-    line-height: 1.6;
-    
-    margin-bottom: 0;
+  font-size: 1.6rem;
+  line-height: 1.6;
+
+  margin-bottom: 0;
 }
 
-input:not([type="checkbox"]) {
-    height: 50px!important; 
-    background-color:$light-gray!important;
-    &:focus{
-        box-shadow: none!important;
-        border-color: $black!important;
-    }
+input:not([type='checkbox']) {
+  height: 50px !important;
+  background-color: $light-gray !important;
+  &:focus {
+    box-shadow: none !important;
+    border-color: $black !important;
+  }
 }
 
-label{font-weight: 600;}
-
-li{list-style: none;}
-
-ul{padding: 0;}
-
-.container-fluid{max-width: 1600px; min-height: 100%;}
-
-.btn{
-    font-size: 1.3rem;
-    font-weight: 600;
+label {
+  font-weight: 600;
 }
 
-img{width: 100%; height: 100%;}
+li {
+  list-style: none;
+}
 
-section,main, header{overflow-x: hidden!important;}
+ul {
+  padding: 0;
+}
+
+.container-fluid {
+  max-width: 1600px;
+  min-height: 100%;
+}
+
+.btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+section,
+main,
+header {
+  overflow-x: hidden !important;
+}
+
+.circle {
+  position: absolute;
+  filter: blur(50px);
+  &.circle-1 {
+    top: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: #fffab3;
+  }
+  &.circle-2 {
+    top: 50px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: #efd4fd;
+  }
+}

@@ -1,10 +1,12 @@
-import { Outlet } from "react-router";
-import Header from "./Header";
-import Footer from "./Footer";
+import { Outlet } from 'react-router';
+import Header from './Header';
+import Footer from './Footer';
 
 const Layout = () => {
   return (
-    <main>
+    <main className="position-absolute">
+      <div className="circle circle-1"></div>
+      <div className="circle circle-2"></div>
       <Header />
       <div>
         <Outlet />

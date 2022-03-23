@@ -12,25 +12,6 @@
     backdrop-filter: blur(10px);
   }
 
-  .circle {
-    position: absolute;
-    filter: blur(50px);
-    &.circle-1 {
-      top: -150px;
-      left: -150px;
-      width: 600px;
-      height: 600px;
-      background: #fffab3;
-    }
-    &.circle-2 {
-      top: 50px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: #efd4fd;
-    }
-  }
-
   .shoe {
     position: absolute;
     z-index: 90;
