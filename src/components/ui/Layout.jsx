@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Layout = () => {
   return (
-    <main className="position-absolute">
+    <main className="position-relative">
       <div className="circle circle-1"></div>
       <div className="circle circle-2"></div>
       <Header />

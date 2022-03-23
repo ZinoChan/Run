@@ -72,6 +72,7 @@ header {
 .circle {
   position: absolute;
   filter: blur(50px);
+  z-index: 1;
   &.circle-1 {
     top: -150px;
     left: -150px;
