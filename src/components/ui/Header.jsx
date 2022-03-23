@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faShoppingCart,
+  faBagShopping,
   faBars,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
@@ -43,11 +43,11 @@ export default function Header({ theme = 'null', path }) {
         }}
       >
         <div className="container-fluid">
-          <nav className="navbar align-items-center">
+          <nav className="navbar align-items-center justify-content-between">
             <h1 className="logo m-0">
               <NavLink to={ROUTES.HOME} className="nav-link"></NavLink>
             </h1>
-            <div className="toggler ml-auto" onClick={onToggleNav}>
+            <div className="toggler" onClick={onToggleNav}>
               {openNav ? (
                 <FontAwesomeIcon icon={faTimes} className="text-white" />
               ) : (
@@ -55,39 +55,44 @@ export default function Header({ theme = 'null', path }) {
               )}
             </div>
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <NavLink to={ROUTES.HOME} className="nav-link">
+              <li className="nav-item mx-4">
+                <NavLink to={ROUTES.HOME} className="nav-link text-body">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to={ROUTES.SHOP} className="nav-link ml-3">
+                <NavLink to={ROUTES.SHOP} className="nav-link text-body">
                   Shop
                 </NavLink>
               </li>
-              <li className="nav-item mx-3 d-flex align-items-center">
-                <NavLink
-                  to={ROUTES.CART}
-                  className="header-icon position-relative"
-                >
-                  <FontAwesomeIcon icon={faShoppingCart} />
-                  <Badge />
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                {path === ROUTES.HOME || path === ROUTES.REGISTER ? (
-                  ''
-                ) : auth ? (
-                  <button className="btn btn-dark" onClick={handleSignOut}>
-                    SignOut
-                  </button>
-                ) : (
-                  <button className="btn btn-dark" onClick={handleSignIn}>
-                    Register
-                  </button>
-                )}
-              </li>
             </ul>
+            <div>
+              <NavLink
+                to={ROUTES.CART}
+                className="header-icon text-body mx-4 position-relative"
+              >
+                <FontAwesomeIcon icon={faBagShopping} />
+                <Badge />
+              </NavLink>
+
+              {path === ROUTES.HOME || path === ROUTES.REGISTER ? (
+                ''
+              ) : auth ? (
+                <button
+                  className="btn btn-outline-dark btn-sm text-body"
+                  onClick={handleSignOut}
+                >
+                  SignOut
+                </button>
+              ) : (
+                <button
+                  className="btn btn-outline-dark btn-sm "
+                  onClick={handleSignIn}
+                >
+                  Register
+                </button>
+              )}
+            </div>
           </nav>
         </div>
       </motion.header>
