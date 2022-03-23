@@ -24,8 +24,6 @@ export default function Home() {
         variants={pageTransition}
         className="home position-relative d-flex align-items-center"
       >
-        <div className="circle circle-1"></div>
-        <div className="circle circle-2"></div>
         <div className="glass position-absolute"></div>
         <div className="container-fluid position-relative min-vh-100">
           <div className="vector">
@@ -56,14 +54,6 @@ export default function Home() {
                 <span> Shop Now</span>
                 <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" />
               </NavLink>
-            </div>
-          </div>
-
-          <div className="position-absolute w-100 mx-auto px-4 pb-3 bottom-0 end-0 d-flex justify-content-between">
-            <div className="socials d-flex">
-              <p className=" text-body text-uppercase fs-6">Dribbble</p>
-              <p className=" mx-4 text-body text-uppercase fs-6">Github</p>
-              <p className=" text-body text-uppercase fs-6">LinkedIn</p>
             </div>
           </div>
         </div>
