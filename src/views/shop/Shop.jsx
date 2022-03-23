@@ -4,7 +4,6 @@ import Modal from '../../components/ui/Modal';
 import ProductCard from '../../components/ui/ProductCard';
 import PreLoader from '../../components/ui/PreLoader';
 import { useSelector, useDispatch } from 'react-redux';
-import { motion } from 'framer-motion';
 import { getProducts } from '../../actions/productsActions';
 import Skeleton from 'react-loading-skeleton';
 
@@ -35,23 +34,8 @@ export default function Shop() {
     }
   }, [dispatch, products.length]);
 
-  const pageTransition = {
-    in: {
-      opacity: 1,
-    },
-    out: {
-      opacity: 0,
-    },
-  };
-
   return (
-    <motion.section
-      id="shop"
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={pageTransition}
-    >
+    <section>
       {authenticating ? <PreLoader theme="light" /> : null}
 
       {!isLoading && products.length > 0 && (
@@ -83,6 +67,6 @@ export default function Shop() {
             <Skeleton count={3} />
           </div>
         ))}
-    </motion.section>
+    </section>
   );
 }
