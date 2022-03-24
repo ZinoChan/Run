@@ -35,7 +35,7 @@ export default function Shop() {
   }, [dispatch, products.length]);
 
   return (
-    <section>
+    <section id="shop">
       {authenticating ? <PreLoader theme="light" /> : null}
 
       {!isLoading && products.length > 0 && (
