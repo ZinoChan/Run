@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="footer position-absolute bottom-0 w-100 ">
+    <div className="footer  w-100 ">
       <div className=" w-100 mx-auto px-4 pb-3 d-flex justify-content-between">
         <div className="socials d-flex">
           <p className=" text-body text-uppercase fs-6">Dribbble</p>

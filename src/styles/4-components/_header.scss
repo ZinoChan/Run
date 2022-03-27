@@ -1,11 +1,8 @@
 #header {
-  z-index: 999;
-  width: 100vw;
-  top: 0;
-  overflow: hidden;
   padding: 0.5rem 0;
 
   .logo a {
+    z-index: 3;
     display: block;
     background-size: contain;
     background-repeat: no-repeat;

@@ -31,7 +31,7 @@ export default function Header({ theme = 'null', path }) {
     <>
       <motion.header
         id="header"
-        className={`position-absolute w-100 ${theme}`}
+        className={` w-100 ${theme}`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
