@@ -15,7 +15,7 @@ export default function ProductsList({ openModal, selectedProduct, products }) {
   };
   return (
     <div className="product-list" style={{ marginBottom: '6rem' }}>
-      <div className="container-fluid">
+      <div className="container-fluid items-stretch">
         <motion.div
           className="row"
           variants={container}
