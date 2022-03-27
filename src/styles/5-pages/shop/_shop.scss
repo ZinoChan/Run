@@ -1,16 +1,20 @@
-#shop{
-    min-height: 100vh;
-    height: auto;
-    width: 100vw;
-    padding: 12rem 0;
+#shop {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  padding-top: 12rem;
+  padding-bottom: 4rem;
 
-    .main-btn{
-        background-color: #ddd;
-        color: rgb(51, 50, 50); 
-    }
+  .main-btn {
+    background-color: #ddd;
+    color: rgb(51, 50, 50);
+  }
 
-    .form-control{box-shadow: none;
-        height: 50px;
-        &:focus{border-color: $black;}
+  .form-control {
+    box-shadow: none;
+    height: 50px;
+    &:focus {
+      border-color: $black;
     }
+  }
 }
