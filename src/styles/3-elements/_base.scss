@@ -49,7 +49,7 @@ ul {
 }
 
 .container-fluid {
-  max-width: 1600px;
+  max-width: 1200px;
   min-height: 100%;
 }
 
@@ -87,4 +87,18 @@ header {
     height: 500px;
     background: #efd4fd;
   }
+}
+
+main {
+  background: linear-gradient(to bottom, #fde8ff, #fffef0);
+}
+
+.glass {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 2;
 }
