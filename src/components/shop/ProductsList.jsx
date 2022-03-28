@@ -2,7 +2,7 @@ import React from 'react';
 import ProductItem from './ProductItem';
 import { motion } from 'framer-motion';
 
-export default function ProductsList({ openModal, selectedProduct, products }) {
+export default function ProductsList({ products }) {
   const container = {
     hidden: { opacity: 1 },
     visible: {
@@ -23,12 +23,7 @@ export default function ProductsList({ openModal, selectedProduct, products }) {
           animate="visible"
         >
           {products.map((product) => (
-            <ProductItem
-              product={product}
-              openModal={openModal}
-              selectedProduct={selectedProduct}
-              key={product.id}
-            />
+            <ProductItem product={product} key={product.id} />
           ))}
         </motion.div>
       </div>
