@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 
 const Home = lazy(() => import('../views/home/Home'));
 const Shop = lazy(() => import('../views/shop/Shop'));
+const ProductDetails = lazy(() => import('../views/product-details'));
 const Cart = lazy(() => import('../views/cart/Cart'));
 const Register = lazy(() => import('../views/auth/Register'));
 const OrderDetails = lazy(() => import('../views/checkout/OrderDetails'));
@@ -39,6 +40,15 @@ export default function AppRoute() {
               </Suspense>
             }
           />
+          <Route
+            path={ROUTES.PRODUCT_DETAILS}
+            element={
+              <Suspense fallback={<PreLoader />}>
+                <ProductDetails />
+              </Suspense>
+            }
+          />
+
           <Route
             path={ROUTES.CART}
             element={
