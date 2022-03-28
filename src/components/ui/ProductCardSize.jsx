@@ -1,10 +1,12 @@
-import React from 'react'
+export default function ProductCardSize({ size, active, setSelectedSize }) {
+  const handleClick = () => setSelectedSize(size);
 
-export default function ProductCardSize({size,id, active, handleSizeClick}) {
-    
-    const handleClick = () => handleSizeClick(id);
-
-    return (
-        <span className={active ? "current" : ""} onClick={handleClick}>{size}</span>
-    )
+  return (
+    <span
+      className={`btn ms-2 btn-sm ${active ? 'btn-dark' : 'btn-outline-dark'}`}
+      onClick={handleClick}
+    >
+      {size}
+    </span>
+  );
 }
