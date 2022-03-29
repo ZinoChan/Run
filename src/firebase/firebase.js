@@ -29,12 +29,12 @@ class Firebase {
     this.db = getFirestore(this.app);
     this.storage = getStorage(this.app);
     this.googleAuthProvider = new GoogleAuthProvider();
-    this.collectionRef = collection(this.db, 'products');
   }
 
   signOut = () => signOut(this.auth);
   signInWithGoogle = () => signInWithPopup(this.auth, this.googleAuthProvider);
   getProducts = () => {
+    const collectionRef = collection(this.db, 'products');
     let didTimeout = false;
 
     return new Promise(async (resolve, reject) => {
@@ -44,7 +44,7 @@ class Firebase {
       }, 15000);
 
       try {
-        const totalQuery = await getDocs(this.collectionRef);
+        const totalQuery = await getDocs(collectionRef);
 
         clearTimeout(timeout);
         if (!didTimeout) {
