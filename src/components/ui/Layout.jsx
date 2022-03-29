@@ -8,7 +8,7 @@ const Layout = () => {
       <div className="circle circle-1"></div>
       <div className="circle circle-2"></div>
       <Header />
-      <div className="position-relative" style={{ zIndex: 3 }}>
+      <div className="position-relative min-vh-100" style={{ zIndex: 3 }}>
         <Outlet />
       </div>
       <Footer />

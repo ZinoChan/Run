@@ -10,8 +10,10 @@ body {
   overflow-x: hidden;
 }
 
-html {
+html,
+main {
   overflow-x: hidden !important;
+  height: 100vh;
 }
 
 a {
@@ -101,4 +103,16 @@ main {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   z-index: 2;
+}
+
+.card-glass {
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.7035189075630253) 50%,
+    rgba(255, 255, 255, 0.19931722689075626) 100%
+  );
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
