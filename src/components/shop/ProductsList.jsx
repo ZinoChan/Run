@@ -1,31 +1,14 @@
-import React from 'react';
 import ProductItem from './ProductItem';
-import { motion } from 'framer-motion';
 
 export default function ProductsList({ products }) {
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        staggerChildren: 0.8,
-      },
-    },
-  };
   return (
     <div className="product-list" style={{ marginBottom: '6rem' }}>
       <div className="container-fluid items-stretch">
-        <motion.div
-          className="row"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="row">
           {products.map((product) => (
             <ProductItem product={product} key={product.id} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
