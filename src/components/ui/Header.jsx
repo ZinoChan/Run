@@ -11,14 +11,16 @@ import Badge from './Badge';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '../../actions/authActions';
 import { signInWithGoogle } from '../../actions/authActions';
-import { motion } from 'framer-motion';
 import MobileNav from './MobileNav';
 import { useState } from 'react';
 
 export default function Header({ theme = 'null', path }) {
   const [openNav, setOpenNav] = useState(false);
 
-  const auth = useSelector((state) => state.auth.id && state.auth.type);
+  const { auth, isAuthenticating } = useSelector((state) => ({
+    auth: state.auth.id && state.auth.type,
+    isAuthenticating: state.app.isAuthenticating,
+  }));
 
   const dispatch = useDispatch();
 
@@ -29,19 +31,7 @@ export default function Header({ theme = 'null', path }) {
 
   return (
     <>
-      <motion.header
-        id="header"
-        className={` w-100 ${theme}`}
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          type: 'spring',
-          stiffness: 260,
-          damping: 20,
-          duration: 0.3,
-          delay: 0.5,
-        }}
-      >
+      <header id="header" className={` w-100 ${theme}`}>
         <div className="container-fluid">
           <nav className="navbar align-items-center justify-content-between">
             <h1 className="logo m-0">
@@ -75,27 +65,36 @@ export default function Header({ theme = 'null', path }) {
                 <Badge />
               </NavLink>
 
-              {path === ROUTES.HOME || path === ROUTES.REGISTER ? (
-                ''
-              ) : auth ? (
-                <button
-                  className="btn btn-outline-dark btn-sm text-body"
-                  onClick={handleSignOut}
-                >
-                  SignOut
-                </button>
+              {!isAuthenticating ? (
+                auth ? (
+                  <button
+                    className="btn btn-outline-dark btn-sm"
+                    onClick={handleSignOut}
+                  >
+                    SignOut
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-outline-dark btn-sm "
+                    onClick={handleSignIn}
+                  >
+                    Register
+                  </button>
+                )
               ) : (
                 <button
-                  className="btn btn-outline-dark btn-sm "
-                  onClick={handleSignIn}
+                  className=" btn btn-outline-dark btn-sm"
+                  style={{ width: 80 }}
                 >
-                  Register
+                  <span className="spinner-border spinner-border-sm">
+                    <span className="visually-hidden">Loading...</span>
+                  </span>
                 </button>
               )}
             </div>
           </nav>
         </div>
-      </motion.header>
+      </header>
       <MobileNav
         openNav={openNav}
         dispatch={dispatch}
