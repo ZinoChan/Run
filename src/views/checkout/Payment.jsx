@@ -1,41 +1,33 @@
 import React, { useState } from 'react';
 import { CHECKOUT_STEP_2, SHOP } from '../../constants/routes';
-import { NavLink } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { paymentValidation } from '../../helpers/validation';
 import TextInput from '../../components/checkout/TextInput';
 import { toast } from 'react-hot-toast';
-import { motion } from 'framer-motion';
 import ConfirmModal from '../../components/ui/ConfirmModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import CheckBox from '../../components/checkout/CheckBox';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../../actions/cartActions';
 
 export default function Payment() {
   const [isOpenModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
   const openModal = () => setOpenModal(true);
 
-  const closeModal = () => setOpenModal(false);
-
-  const pageTransition = {
-    in: {
-      opacity: 1,
-    },
-    out: {
-      opacity: 0,
-    },
+  const closeModal = () => {
+    setOpenModal(false);
+    navigate(SHOP, { replace: true });
   };
 
+  const dispatch = useDispatch();
+
   return (
-    <motion.div
-      className="payment d-flex align-items-center w-50 mx-auto min-vh-100"
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={pageTransition}
-    >
+    <section className="d-flex align-items-center mx-auto min-vh-100">
       <div className="container-fluid">
-        <h1 className="display-1 mb-5 text-center">Payment</h1>
+        <h1 className="fs-2 fw-bold mb-3 text-center">Payment</h1>
         <Formik
           initialValues={{
             cardName: '',
@@ -49,11 +41,12 @@ export default function Payment() {
             openModal();
             toast.success('Order Successfully Confirmed');
             resetForm();
+            dispatch(clearCart());
           }}
         >
           {({ handleSubmit }) => (
             <form
-              className="details-form"
+              className="w-50 mx-auto"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
@@ -92,10 +85,10 @@ export default function Payment() {
                 />
               </div>
               <CheckBox name="terms" />
-              <div className="d-flex justify-content-between mt-5">
-                <NavLink to={CHECKOUT_STEP_2} className="btn btn-dark">
+              <div className="d-flex justify-content-between mt-2">
+                <Link to={CHECKOUT_STEP_2} className="btn btn-dark">
                   Back
-                </NavLink>
+                </Link>
                 <button className="btn btn-dark" type="submit">
                   Confirm
                 </button>
@@ -109,9 +102,9 @@ export default function Payment() {
             style={{ color: '#28a745', fontSize: '3rem' }}
           />
           <p className="confirm-para my-4">Order Successfully Confirmed</p>
-          <NavLink to={SHOP} className="btn btn-success">
+          <Link to={SHOP} className="btn btn-success">
             Back to Shop
-          </NavLink>
+          </Link>
           <button
             className="btn btn-light position-absolute modal-btn"
             onClick={closeModal}
@@ -120,6 +113,6 @@ export default function Payment() {
           </button>
         </ConfirmModal>
       </div>
-    </motion.div>
+    </section>
   );
 }

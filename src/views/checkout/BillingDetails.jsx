@@ -18,15 +18,16 @@ const BillingDetails = () => {
   };
 
   return (
-    <motion.div
-      className="billing-details d-flex align-items-center mx-auto w-50 min-vh-100"
+    <motion.section
+      className=" d-flex align-items-center mx-auto min-vh-100"
       initial="out"
       animate="in"
       exit="out"
       variants={pageTransition}
     >
+      <div className="glass"></div>
       <div className="container-fluid">
-        <h1 className="display-1 mb-5 text-center">Billing Details</h1>
+        <h1 className="fs-1 mb-5 text-center">Billing Details</h1>
         <Formik
           initialValues={{
             fullname: '',
@@ -44,7 +45,7 @@ const BillingDetails = () => {
         >
           {({ handleSubmit }) => (
             <form
-              className="details-form"
+              className="w-75 mx-auto"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
@@ -100,7 +101,7 @@ const BillingDetails = () => {
                   />
                 </div>
               </div>
-              <div className="d-flex justify-content-between mt-5">
+              <div className="d-flex justify-content-between mt-2">
                 <NavLink to={CHECKOUT_STEP_1} className="btn btn-dark">
                   Back
                 </NavLink>
@@ -112,7 +113,7 @@ const BillingDetails = () => {
           )}
         </Formik>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
