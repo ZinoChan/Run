@@ -1,29 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ImgLoader from '../ui/ImgLoader';
 
 export default function ProductItem({ product }) {
-  const child = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <motion.div className="col-xl-3 col-md-4 col-xs-12 mb-4" variants={child}>
+    <div className="col-xl-3 col-md-4 col-xs-12 mb-4">
       <Link to={`/${product.id}`}>
         <div className="product-item h-100 text-center">
           <div className="card h-100 position-relative">
-            <img
+            <ImgLoader
+              alt={product.title}
               src={product.item}
               className="card-img image-fluid mx-auto"
-              alt="shoe"
+              height={100}
             />
             <div className="card-body">
               <div className="item-info">
@@ -57,6 +47,6 @@ export default function ProductItem({ product }) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
