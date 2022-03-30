@@ -7,7 +7,11 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './store/index';
 import AppRoute from './routes/AppRoute';
-import { onAuthStateSuccess, onAuthStateFail } from './actions/authActions';
+import {
+  onAuthStateSuccess,
+  onAuthStateFail,
+  isAuthenticating,
+} from './actions/authActions';
 import { BrowserRouter } from 'react-router-dom';
 import firebaseInstance from './firebase/firebase';
 import { Toaster } from 'react-hot-toast';
@@ -34,8 +38,10 @@ if (window.navigator.onLine) {
   firebaseInstance.auth.onAuthStateChanged((user) => {
     if (user) {
       store.dispatch(onAuthStateSuccess(user));
+      store.dispatch(isAuthenticating(false));
     } else {
       store.dispatch(onAuthStateFail('Failed to authenticate'));
+      store.dispatch(isAuthenticating(false));
     }
 
     render(<AppRoot />, document.getElementById('root'));
