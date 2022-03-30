@@ -1,23 +1,17 @@
-import React from 'react';
 import CartList from '../../components/cart/CartList';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
-import { NavLink } from 'react-router-dom';
-import { CHECKOUT_STEP_1, SHOP } from '../../constants/routes';
-import { toast } from 'react-hot-toast';
-import PreLoader from '../../components/ui/PreLoader';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { CHECKOUT_STEP_1 } from '../../constants/routes';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 
 export default function Cart() {
-  const { cart, auth, authenticating } = useSelector((state) => ({
+  const { cart } = useSelector((state) => ({
     cart: state.cart,
-    auth: state.auth.id && state.auth.type === 'client',
-    authenticating: !!state.app.isAuthenticating,
   }));
 
   const dispatch = useDispatch();
-
-  const handleClearClick = () => dispatch(clearCart());
 
   const grandTotal = (items) => {
     return items.reduce((sum, i) => {
@@ -27,75 +21,47 @@ export default function Cart() {
 
   const subTotal = parseFloat(grandTotal(cart).toFixed(2));
 
-  const handleCheckout = () => {
-    if (!auth) toast.error('Sign in to checkout');
-  };
-
-  const pageTransition = {
-    in: {
-      opacity: 1,
-    },
-    out: {
-      opacity: 0,
-    },
-  };
-
   return (
-    <motion.section
-      className="cart"
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={pageTransition}
-    >
-      {authenticating ? <PreLoader theme="light" /> : null}
+    <section className="cart">
       <div className="container-fluid">
-        <CartList cart={cart} dispatch={dispatch} />
-        <div className="row align-items-center">
-          <div className="col-md-8">
-            {cart.length === 0 ? (
-              <NavLink to={SHOP} className="btn btn-dark">
-                Back To Shop
-              </NavLink>
-            ) : (
-              <button
-                className="btn btn-secondary mb-3"
-                onClick={handleClearClick}
-              >
-                Clear Cart
-              </button>
-            )}
-          </div>
-          <div className="col-md-4">
-            {cart.length === 0 ? (
-              ''
-            ) : (
-              <div className="cart-totals">
-                <p>
-                  Subtotal:{' '}
-                  <span className="font-weight-bold text-dark">
-                    ${subTotal}
-                  </span>
-                </p>
-                <p>
-                  shipping:{' '}
-                  <span className="font-weight-bold text-dark">$5</span>
-                </p>
-                <p className="font-weight-bold text-dark">
-                  Total: ${subTotal + 5}
-                </p>
-                <NavLink
-                  to={CHECKOUT_STEP_1}
-                  className="btn btn-dark w-100"
-                  onClick={handleCheckout}
-                >
-                  Checkout
-                </NavLink>
+        <h1 className="fs-2 fw-bold text-center mb-4">Your Basket</h1>
+
+        {cart.length > 0 && (
+          <>
+            <button
+              className="btn btn-outline-danger mb-2"
+              onClick={() => dispatch(clearCart())}
+            >
+              clean basket
+            </button>
+            <div className="row g-5 align-items-start">
+              <div className="col col-md-6">
+                <CartList cart={cart} dispatch={dispatch} />
               </div>
-            )}
-          </div>
-        </div>
+              <div className="col col-md-6 card-glass pt-3 pb-3">
+                <h3 className="fs-3 fw-bold mb-4 text-center">Order summary</h3>
+                <div className="d-flex align-items-center justify-content-between mb-4">
+                  <h4 className="fs-3 fw-bold">Total</h4>
+                  <p className="fs-2 fw-bold">{subTotal} $</p>
+                </div>
+                <Link to={CHECKOUT_STEP_1}>
+                  <button className="btn btn-dark btn-lg w-100 d-flex align-items-center justify-content-center">
+                    <span className="me-4">
+                      <FontAwesomeIcon icon={faCreditCard} />
+                    </span>
+                    Process To Checkout
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
+        {cart.length === 0 && (
+          <h2 className="fs-3 text-center text-capitalize">
+            Your cart is empty
+          </h2>
+        )}
       </div>
-    </motion.section>
+    </section>
   );
 }
