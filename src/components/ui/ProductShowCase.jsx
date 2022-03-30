@@ -7,10 +7,11 @@ const ProductShowCase = ({ imgs }) => {
   }));
   return (
     <ImageGallery
-      showFullscreenButton={false}
       showPlayButton={false}
       items={showCaseImages}
       thumbnailPosition="left"
+      lazyLoad
+      showNav={false}
     />
   );
 };
