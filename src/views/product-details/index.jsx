@@ -8,9 +8,11 @@ import { doc } from 'firebase/firestore';
 import { useDocumentOnce } from 'react-firebase-hooks/firestore';
 import firebaseInstance from '../../firebase/firebase';
 import ProductShowCase from '../../components/ui/ProductShowCase';
+import useCart from '../../hooks/useCart';
 
 const ProductDetails = () => {
   const { productId } = useParams();
+  const { addItemToCart } = useCart();
 
   const [value, loading, error] = useDocumentOnce(
     doc(firebaseInstance.db, 'products', `${productId}`)
@@ -24,7 +26,7 @@ const ProductDetails = () => {
     if (value) {
       setCurrentProduct(value.data());
       setSelectedColor(value.data().availableColors[0]);
-      setSelectedSize(value.data().availableSizes[0].size);
+      setSelectedSize(value.data().availableSizes[0]);
     }
   }, [value]);
 
@@ -87,18 +89,23 @@ const ProductDetails = () => {
                 </div>
                 <div className="d-flex align-items-center mb-5">
                   <span className="fs-6 text-body fw-bold me-2">Sizes:</span>
-                  {currentProduct.availableSizes.map(({ size, id }) => (
+                  {currentProduct.availableSizes.map((size) => (
                     <ProductCardSize
-                      key={id}
-                      size={size}
+                      key={size.id}
+                      selectedSize={size}
                       setSelectedSize={setSelectedSize}
-                      active={size === selectedSize}
+                      active={size.id === selectedSize.id}
                     />
                   ))}
                 </div>
               </div>
               <div className="d-flex items-center justify-content-between">
-                <button className="btn btn-dark btn-lg flex items-center justify-between">
+                <button
+                  onClick={() =>
+                    addItemToCart(currentProduct, selectedSize, selectedColor)
+                  }
+                  className="btn btn-dark btn-lg flex items-center justify-between"
+                >
                   <FontAwesomeIcon icon={faCartArrowDown} className="me-3" />
                   <span>Place order</span>
                 </button>
