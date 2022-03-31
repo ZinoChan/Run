@@ -7,57 +7,41 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-  const pageTransition = {
-    in: {
-      opacity: 1,
-    },
-    out: {
-      opacity: 0,
-    },
-  };
   return (
-    <>
-      <motion.section
-        initial="out"
-        animate="in"
-        exit="out"
-        variants={pageTransition}
-        className="home position-relative d-flex align-items-center"
-      >
-        <div className="glass position-absolute"></div>
-        <div className="container-fluid position-relative min-vh-100">
-          <div className="vector">
-            <h1>Nike</h1>
-          </div>
+    <section className="home position-relative d-flex align-items-center">
+      <div className="glass position-absolute"></div>
+      <div className="container-fluid position-relative min-vh-100">
+        <div className="vector">
+          <h1>Nike</h1>
+        </div>
 
-          <div className="shoe">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{
-                type: 'spring',
-                stiffness: 260,
-                damping: 20,
-                duration: 1,
-                delay: 0.5,
-              }}
-            >
-              <img src={nike} alt="shoe" className="inline-block shoe-img" />
-            </motion.div>
+        <div className="shoe">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 260,
+              damping: 20,
+              duration: 1,
+              delay: 0.5,
+            }}
+          >
+            <img src={nike} alt="shoe" className="inline-block shoe-img" />
+          </motion.div>
 
-            <div className="text-center">
-              <p className="mb-3 text-body mt-3 fs-6">
-                Explore the new collections designed with <br /> comfort and
-                style in mind
-              </p>
-              <NavLink to={SHOP} className="btn home-btn fs-6 ">
-                <span> Shop Now</span>
-                <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" />
-              </NavLink>
-            </div>
+          <div className="text-center">
+            <p className="mb-3 text-body mt-3 fs-6">
+              Explore the new collections designed with <br /> comfort and style
+              in mind
+            </p>
+            <NavLink to={SHOP} className="btn home-btn fs-6 ">
+              <span> Shop Now</span>
+              <FontAwesomeIcon icon={faArrowRightLong} className="ms-2" />
+            </NavLink>
           </div>
         </div>
-      </motion.section>
-    </>
+      </div>
+    </section>
   );
 }
