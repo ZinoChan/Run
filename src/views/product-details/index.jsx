@@ -9,6 +9,7 @@ import { useDocumentOnce } from 'react-firebase-hooks/firestore';
 import firebaseInstance from '../../firebase/firebase';
 import ProductShowCase from '../../components/ui/ProductShowCase';
 import useCart from '../../hooks/useCart';
+import PreLoader from '../../components/ui/PreLoader';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -34,7 +35,7 @@ const ProductDetails = () => {
     <section className="product-details position-relative">
       <div className="glass" />
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && <span>Document: Loading...</span>}
+      {loading && <PreLoader />}
       {currentProduct && (
         <div className="container-fluid">
           <div className="row g-5">

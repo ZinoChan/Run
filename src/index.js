@@ -15,6 +15,7 @@ import {
 import { BrowserRouter } from 'react-router-dom';
 import firebaseInstance from './firebase/firebase';
 import { Toaster } from 'react-hot-toast';
+import PreLoader from './components/ui/PreLoader';
 
 const { store, persistor } = configureStore();
 
@@ -33,7 +34,7 @@ const AppRoot = () => (
 
 if (window.navigator.onLine) {
   // Render the preloader on initial load
-  render(<div>Loading...</div>, document.getElementById('root'));
+  render(<PreLoader />, document.getElementById('root'));
 
   firebaseInstance.auth.onAuthStateChanged((user) => {
     if (user) {
