@@ -8,7 +8,8 @@ export default function PrivateRoute({ children }) {
     (state) => state.auth.id && state.auth.type === 'client'
   );
 
-  if (!auth) return <Navigate to={REGISTER} state={{ from: location }} />;
+  if (!auth)
+    return <Navigate to={REGISTER} state={{ from: location }} replace />;
 
   return children;
 }
