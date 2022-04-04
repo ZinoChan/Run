@@ -3,30 +3,13 @@ import CartList from '../../components/cart/CartList';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { CART, CHECKOUT_STEP_2 } from '../../constants/routes';
-import { motion } from 'framer-motion';
 
 export default function OrderDetails() {
   const cart = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
 
-  const pageTransition = {
-    in: {
-      opacity: 1,
-    },
-    out: {
-      opacity: 0,
-    },
-  };
-
   return (
-    <motion.div
-      className="order-details mx-auto text-center d-flex align-items-center"
-      initial="out"
-      animate="in"
-      exit="out"
-      variants={pageTransition}
-    >
+    <div className="order-details mx-auto text-center d-flex align-items-center">
       <div className="container-fluid">
         <h1 className="fs-2 fw-bold mb-4">Order Details</h1>
         <div className="w-50 mx-auto mb-5">
@@ -41,6 +24,6 @@ export default function OrderDetails() {
           </NavLink>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
