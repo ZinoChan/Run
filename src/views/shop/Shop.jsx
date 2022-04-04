@@ -7,7 +7,7 @@ import { getProducts } from '../../actions/productsActions';
 export default function Shop() {
   const { products, isLoading } = useSelector((state) => ({
     products: state.products,
-    isLoading: state.app.isLoading,
+    isLoading: state.app.loading,
   }));
 
   const dispatch = useDispatch();
