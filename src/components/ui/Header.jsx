@@ -39,7 +39,7 @@ export default function Header({ theme = 'null', path }) {
             </h1>
             <div className="toggler" onClick={onToggleNav}>
               {openNav ? (
-                <FontAwesomeIcon icon={faTimes} className="text-white" />
+                <FontAwesomeIcon icon={faTimes} />
               ) : (
                 <FontAwesomeIcon icon={faBars} />
               )}
@@ -55,43 +55,43 @@ export default function Header({ theme = 'null', path }) {
                   Shop
                 </NavLink>
               </li>
-            </ul>
-            <div>
-              <NavLink
-                to={ROUTES.CART}
-                className="header-icon text-body mx-4 position-relative"
-              >
-                <FontAwesomeIcon icon={faBagShopping} />
-                <Badge />
-              </NavLink>
+              <div>
+                <NavLink
+                  to={ROUTES.CART}
+                  className="header-icon text-body mx-4 position-relative"
+                >
+                  <FontAwesomeIcon icon={faBagShopping} />
+                  <Badge />
+                </NavLink>
 
-              {!isAuthenticating ? (
-                auth ? (
-                  <button
-                    className="btn btn-outline-dark btn-sm"
-                    onClick={handleSignOut}
-                  >
-                    SignOut
-                  </button>
+                {!isAuthenticating ? (
+                  auth ? (
+                    <button
+                      className="btn btn-outline-dark btn-sm"
+                      onClick={handleSignOut}
+                    >
+                      SignOut
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-outline-dark btn-sm "
+                      onClick={handleSignIn}
+                    >
+                      Register
+                    </button>
+                  )
                 ) : (
                   <button
-                    className="btn btn-outline-dark btn-sm "
-                    onClick={handleSignIn}
+                    className=" btn btn-outline-dark btn-sm"
+                    style={{ width: 80 }}
                   >
-                    Register
+                    <span className="spinner-border spinner-border-sm">
+                      <span className="visually-hidden">Loading...</span>
+                    </span>
                   </button>
-                )
-              ) : (
-                <button
-                  className=" btn btn-outline-dark btn-sm"
-                  style={{ width: 80 }}
-                >
-                  <span className="spinner-border spinner-border-sm">
-                    <span className="visually-hidden">Loading...</span>
-                  </span>
-                </button>
-              )}
-            </div>
+                )}
+              </div>
+            </ul>
           </nav>
         </div>
       </header>

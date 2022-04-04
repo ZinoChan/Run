@@ -1,5 +1,6 @@
 .mobile-nav{
-    background-color: $main-color;
+   background: rgba(255,255,255,.1);
+   backdrop-filter: blur(30px);
     z-index: 99;
     display: flex;
     transform: scale(0);
@@ -26,7 +27,7 @@
     .nav-link{
         font-size: 2rem!important;
         font-weight: 700;
-        color: $white;
+        color: #000;
         margin-bottom: 2rem;
         transform: translateY(20px);
         opacity: 0;
@@ -34,7 +35,7 @@
 
     .nav-icon{
         font-size: 2rem;
-        color: $white;
+        color: #000;
         margin-bottom: 2rem;
         display: inline-block;
         transform: translateY(20px);
@@ -42,7 +43,7 @@
     }
 
     .badge{
-        background-color: $black!important;
+        background-color: $main-color!important;
     }
 
 
