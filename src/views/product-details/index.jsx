@@ -39,10 +39,10 @@ const ProductDetails = () => {
       {currentProduct && (
         <div className="container-fluid">
           <div className="row g-5">
-            <div className="col col-md-6">
+            <div className="col-xl-6 col-sm-12">
               <ProductShowCase imgs={selectedColor?.imgs} />
             </div>
-            <div className="col col-md-6">
+            <div className="col-xl-6 col-sm-12">
               <div>
                 <h2 className="fs-1 text-capitalize fw-bold mb-5">
                   {currentProduct.title}
