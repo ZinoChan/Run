@@ -1,63 +1,66 @@
-.product-item{
-    .card{
-        overflow: hidden;
-        padding: 2rem 0;
-        border-radius: 0;
-        border-color: #f0f0f0;
-        cursor: pointer;
-        background-color: #F6F6F6;
-        &:hover{
-            .item-view{
-                transform: scale(1);
-                @include transition();
-            }
-        }
+.product-item {
+  &:hover {
+    transform: scale(1.1);
+    @include transition(all, 0.2s, ease-in);
+  }
+  .card {
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    background: rgb(255, 255, 255);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.7035189075630253) 50%,
+      rgba(255, 255, 255, 0.19931722689075626) 100%
+    );
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-        img{height: 170px;}
-
-
-        .item-info{
-            .item-colors{font-size: 1.3rem; color: $black;}
-            .item-title{
-                color: $light-black;
-                font-size: 2.5rem;
-            }
-            .item-price{
-                font-size: 1.6rem;
-                span{
-                    font-size: 1.8rem;
-                    font-weight: 700;
-                    color: $black;
-                }
-            }
-        }
-
-        .item-view{
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            transform: scale(0);
-            font-size: 2rem;
-            color: #008CFF;
-            @include transition();
-        }
-
-        
+    .card-body {
+      padding: 0 !important;
     }
 
-    .item-circle-color{
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        margin-right: 5px;
-        border-radius: 50%;;
+    img {
+      height: auto;
     }
 
+    .item-info {
+      .item-colors {
+        font-size: 1.3rem;
+        color: $black;
+      }
+      .item-title {
+        color: $light-black;
+        font-size: 2.5rem;
+      }
+      .item-price {
+        font-size: 1.6rem;
+        span {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: $black;
+        }
+      }
+    }
 
+    .item-view {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      transform: scale(0);
+      font-size: 2rem;
+      color: #008cff;
+      @include transition();
+    }
+  }
+
+  .item-circle-color {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 50%;
+  }
 }
-
-
-@include responsive_min(1024px){
-    .card-img{width: 80%!important;}
-}
-

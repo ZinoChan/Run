@@ -1,55 +1,52 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import ImgLoader from '../ui/ImgLoader';
 
-export default function ProductItem({openModal, product, selectedProduct}) {
-
-    const handleClick = () => {
-        openModal();
-        selectedProduct(product);
-    };
-
-    const child = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: .6
-        }
-        }
-    };
-    
-
-    return (
-        <motion.div 
-            className="col-xl-4 col-md-6 col-xs-12 mb-4" 
-            onClick={handleClick}
-            variants={child}
-        >
-            <div className="product-item text-center">
-                <div className="card position-relative">
-                    <div className="item-view"><FontAwesomeIcon icon={faEye}/></div>
-                    <img  src={product.item} className="card-img mx-auto" alt="shoe"/>
-                    <div className="card-body">
-                       <div className="item-info">
-                            <p className="item-colors">Colors: 
-                                {
-                                    product.availableColors.map(item => (
-                                        <span key={item.id}
-                                            className="item-circle-color ml-2"
-                                            style={{backgroundColor: `${item.color}`}}
-                                        ></span>
-                                    ))
-                                }
-                            </p>
-                            <h3 className="item-title mb-1">{product.title}</h3>
-                            <p className="item-price">Price: <span>${product.price}</span></p>
-                       </div>
-                    </div>
+export default function ProductItem({ product }) {
+  return (
+    <div className="col-xl-3 col-md-4 col-xs-12 mb-4">
+      <Link to={`/${product.id}`}>
+        <div className="product-item h-100 text-center">
+          <div className="card h-100 position-relative">
+            <ImgLoader
+              alt={product.title}
+              src={product.item}
+              className="card-img image-fluid mx-auto"
+              height={100}
+            />
+            <div className="card-body">
+              <div className="item-info">
+                <div className="d-flex items-center justify-content-between">
+                  <p className="item-title mb-1 fw-bold text-capitalize text-dark fs-6">
+                    {product.title}
+                  </p>
+                  <p className="item-title mb-1 fw-bold text-dark fs-6">
+                    ${product.price}
+                  </p>
                 </div>
+                <div className="d-flex items-center justify-content-between">
+                  <p className="item-title mb-1 fw-bold text-capitalize text-dark fs-6">
+                    {new Array(5).fill('').map((star, index) => (
+                      <FontAwesomeIcon
+                        key={`star-${index}`}
+                        icon={faStar}
+                        className={`fs-6 ${
+                          index === 5 ? 'text-muted' : 'text-dark'
+                        }`}
+                      />
+                    ))}
+                  </p>
+                  <p className="item-title mb-1 fw-bold text-muted fs-6">
+                    {product.availableColors.length}
+                    <span className="mx-1">COLORS</span>
+                  </p>
+                </div>
+              </div>
             </div>
-        </motion.div>
-    )
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
 }

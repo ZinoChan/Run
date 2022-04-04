@@ -1,12 +1,21 @@
-.badge{
-    font-size: 14px;
+.badge-circle {
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 1px;
+  right: -60%;
+  border-radius: 100%;
 }
 
-@include responsive-max (450px) {
-   .badge{
+@include responsive-max(450px) {
+  .badge {
     position: absolute;
     top: -6px;
     right: -10px;
-    font-size: 12px!important;
-   }
+    font-size: 8px !important;
+  }
 }

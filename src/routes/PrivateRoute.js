@@ -1,29 +1,15 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { REGISTER } from '../constants/routes';
+import { useLocation, Navigate } from 'react-router-dom';
 
+export default function PrivateRoute({ children }) {
+  const location = useLocation();
+  const auth = useSelector(
+    (state) => state.auth.id && state.auth.type === 'client'
+  );
 
+  if (!auth)
+    return <Navigate to={REGISTER} state={{ from: location }} replace />;
 
-
-export default function PrivateRoute({component: Component,path, ...rest}) {
-
-    
-    const auth = useSelector(state => state.auth.id && state.auth.type === 'client');
-    
-
-    return (
-        <Route {...rest} render={props => (
-                
-                   auth ?
-                    <Component {...props}/>
-                    :
-                    <>
-                        <Redirect to={REGISTER}/>
-                    </>
-        
-        )}
-       
-       />
-    )
+  return children;
 }

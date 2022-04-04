@@ -1,77 +1,62 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { removeFromCart, minusQty, addQty } from '../../actions/cartActions';
-import { toast } from 'react-toastify';
-import { motion } from 'framer-motion';
+import { toast } from 'react-hot-toast';
 
+export default function CartItem({ item, dispatch }) {
+  const onDeleteClick = () => {
+    dispatch(removeFromCart(item.id));
+    toast('item removed from cart', { icon: '🗑️' });
+  };
 
-export default function CartItem({item, dispatch}) {
+  const onMinusQtyClick = () => dispatch(minusQty(item.id));
 
-    const child = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 1
-        }
-        }
-    };
+  const onAddQtyClick = () => dispatch(addQty(item.id));
 
-    const onDeleteClick = () => {
-        dispatch(removeFromCart(item.id));
-        toast.warning("item removed from cart");
-    };
-
-    const onMinusQtyClick = () => dispatch(minusQty(item.id));
-
-    const onAddQtyClick = () => dispatch(addQty(item.id));
-
-    
-
-    return (
-        <motion.div className="cart-item text-center" variants={child}>
-            <span 
-                className="delete"
-                onClick={onDeleteClick}
-            ><FontAwesomeIcon icon={faTrashAlt}/></span>
-           <div className="container-fluid">
-               <div className="row align-items-center">
-                   <div className="col-md-6 d-flex" style={{justifyContent: "space-evenly", flexWrap: "wrap"}}>
-                       <div className="col-lg-6  cart-item-img" style={{background: `url(${item.img})`}}></div>
-                       <div className="col-lg-6  cart-item-info mb-3">
-                           <h3>{item.title}</h3>
-                           <div className="cart-item-details my-3">
-                                <span>size: <i className="font-weight-bold item-size">{item.size.size}</i> </span> <br/>
-                                <span> color: <i className="color-box" style={{backgroundColor: `${item.color}`}}></i></span>
-                           </div>
-                       </div>
-                   </div>
-                   <div className="col-md-2  sm-device-flex justify-content-between">
-                       <span className="sm-device">Price:</span>
-                       <span className="price">${item.price}</span>
-                   </div>
-                   <div className="col-md-2 sm-device-flex justify-content-between">
-                        <span className="sm-device">Quantity:</span>
-                        <div className="qty">
-                            <button 
-                                className="btn btn-secondary" disabled={item.quantity === 1}
-                                onClick={onMinusQtyClick}
-                            >-</button>
-                            <span className="mx-3">{item.quantity}</span>
-                            <button 
-                                className="btn btn-secondary"
-                                onClick={onAddQtyClick}    
-                            >+</button>
-                        </div>
-                   </div>
-                   <div className="col-md-2 sm-device-flex justify-content-between">
-                        <span className="sm-device">Total:</span>
-                       <span className="cart-item-total">${parseFloat((item.quantity * item.price).toFixed(2))}</span>
-                   </div>
-               </div>
-           </div>
-        </motion.div>
-    )
+  return (
+    <div className="p-2 card-glass mb-2">
+      <div className="d-flex items-center justify-content-between">
+        <div
+          className="cart-item-img"
+          style={{ background: `url(${item.img})` }}
+        />
+        <div>
+          <h3 className="fs-4 mb-2 text-capitalize fw-bold">{item.title}</h3>
+          <p className=" fs-6 ">
+            <span className="me-1">size:</span>
+            {item.size}
+          </p>
+          <p className="fs-6 d-flex align-items-center">
+            <span className="me-1">color:</span>
+            <i
+              className="color-circle"
+              style={{ backgroundColor: `${item.color}` }}
+            ></i>
+          </p>
+          <p className="fs-6">
+            <span className="me-1">price:</span>
+            {item.price}
+          </p>
+        </div>
+        <div className="d-flex flex-column align-items-end justify-content-between">
+          <span className="text-danger delete" onClick={onDeleteClick}>
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </span>
+          <div className="d-flex align-items-center justify-content-between">
+            <button
+              className="btn cart-btn"
+              disabled={item.quantity === 1}
+              onClick={onMinusQtyClick}
+            >
+              -
+            </button>
+            <span className="mx-3">{item.quantity}</span>
+            <button className="btn cart-btn" onClick={onAddQtyClick}>
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

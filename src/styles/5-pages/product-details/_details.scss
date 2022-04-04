@@ -1,0 +1,20 @@
+.product-details {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  padding: 4rem 0;
+
+  .product-colors {
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    border-radius: 50%;
+
+    &.active-color {
+      outline-style: solid;
+      outline-width: 2px;
+
+      outline-offset: 2px;
+    }
+  }
+}

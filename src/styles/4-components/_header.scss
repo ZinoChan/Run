@@ -1,65 +1,81 @@
-#header{
+#header {
+  padding: 0.5rem 0;
+
+  .logo {
+    z-index: 4;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 50px;
+    background-image: url('../../assets/logo.png');
+  }
+
+  .navbar {
+    padding: 0 !important;
+  }
+
+  .header-icon {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+
+    .nav-link {
+      font-size: 1.2rem;
+
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $main-dark;
+        transition: 0.2s linear;
+      }
+      &.active {
+        font-weight: 700;
+      }
+      &.active::after {
+        width: 50%;
+      }
+      &:hover::after {
+        width: 90%;
+      }
+    }
+  }
+
+  .toggler {
+    display: none;
+    font-size: 2rem;
     z-index: 999;
-    width: 100vw;
-    top: 0;
-    overflow: hidden;
-    padding: .5rem 0;
-
-    .logo a{
-        display: block;
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 150px;
-        height: 50px;
-        background-image: url('../../assets/logo.png');
-    }
-   
-    .navbar{padding: 0!important;}
-
-    
-
-    .header-icon{
-        font-size: 2rem;
-        color: #333;
-    }
-    
-
-    .navbar-nav{
-        flex-direction: row!important;
-
-        .nav-link{
-            font-size: 1.5rem;
-            color: #333;
-            font-weight: 600;
-        }
-       
-    }
-
-    .toggler{
-        display: none;
-        font-size: 2rem;
-        z-index: 999;
-        position: relative;
-    }
-
-   
+    position: relative;
+  }
 }
 
-@include responsive-max(450px){
-    .navbar-nav .nav-link{font-size: 1.2rem!important;}
-    .header-icon{font-size: 1.3rem!important;}
-    .logo a{
-        width: 100px!important;
-        height: 40px!important; 
-         
-    }
+@include responsive-max(450px) {
+  .navbar-nav .nav-link {
+    font-size: 1.2rem !important;
+  }
+  .header-icon {
+    font-size: 1.3rem !important;
+  }
+  .logo a {
+    width: 100px !important;
+    height: 40px !important;
+  }
 }
 
-@include responsive-max(412px){
-    .toggler{
-        display: block!important;
-    }
+@include responsive-max(412px) {
+  .toggler {
+    display: block !important;
+  }
 
-    #header .navbar-nav{display: none;}
+  #header .navbar-nav {
+    display: none;
+  }
 }
-

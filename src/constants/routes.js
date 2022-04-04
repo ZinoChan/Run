@@ -1,5 +1,6 @@
 export const HOME = '/';
 export const SHOP = '/shop';
+export const PRODUCT_DETAILS = '/:productId';
 export const LOGIN = '/login';
 export const REGISTER = '/register';
 export const CART = '/cart';

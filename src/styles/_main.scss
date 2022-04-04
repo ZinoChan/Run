@@ -2,18 +2,14 @@
 @import '1-settings/fonts';
 @import '1-settings/typography';
 
-
 @import '2-tools/mixins';
 
-
 @import '3-elements/base';
-@import '3-elements/toast';
 
 @import '4-components/header';
 @import '4-components/product-item';
 @import '4-components/cart-item';
 @import '4-components/cart-list';
-@import '4-components/product-card';
 @import '4-components/modal';
 @import '4-components/badge';
 @import '4-components/preloader';
@@ -22,7 +18,9 @@
 
 @import '5-pages/home/home';
 @import '5-pages/shop/shop';
+@import '5-pages/product-details/details';
 @import '5-pages/cart/cart';
 @import '5-pages/checkout/checkout';
 @import '5-pages/404/not-found';
 @import '5-pages/terms/terms';
+@import '~react-image-gallery/styles/scss/image-gallery.scss';
