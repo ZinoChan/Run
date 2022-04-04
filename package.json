@@ -44,5 +44,8 @@
   "devDependencies": {
     "node-sass": "^7.0.1",
     "redux-logger": "^3.0.6"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
