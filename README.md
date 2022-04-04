@@ -1,11 +1,14 @@
 # React and firebase shoes ecommerce webapp
 #Tools
-* React js
-* Bootstrapcss
+* React js 17
+* Bootstrap
 * Redux
-* Firebase
+* Firebase 9
 * Framer-motion
 * Redux saga
 
-#Demo
+#current version
+https://ruun.netlify.app/
+
+#Old version
 https://ruun-6501c.firebaseapp.com/
