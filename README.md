@@ -8,8 +8,6 @@
 * Framer-motion
 * Redux saga
 
-#current version
+#App Demo
 https://ruun.netlify.app/
 
-#Old version
-https://ruun-6501c.firebaseapp.com/
