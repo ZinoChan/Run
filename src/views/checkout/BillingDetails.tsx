@@ -1,7 +1,6 @@
-import React from 'react';
 import { CHECKOUT_STEP_1, CHECKOUT_STEP_3 } from '../../constants/routes';
 import { NavLink, useNavigate } from 'react-router-dom';
-import TextInput from '../../components/checkout/TextInput';
+import TextInput, { Label } from '../../components/checkout/TextInput';
 import { Form, Formik, FormikProps } from 'formik';
 import { billingValidation } from '../../helpers/validation';
 
@@ -12,7 +11,7 @@ type Values = {
   country: string;
   city: string;
   phone: string;
-}
+};
 
 const BillingDetails = () => {
   const navigate = useNavigate();
@@ -37,54 +36,48 @@ const BillingDetails = () => {
             navigate(CHECKOUT_STEP_3, { replace: true });
           }}
         >
-           {(props: FormikProps<Values>) => (
-            <Form
-              className="w-75 mx-auto"
-            >
+          {(props: FormikProps<Values>) => (
+            <Form className="w-75 mx-auto">
               <div className="row">
                 <div className="col-xl-6 form-group mb-3">
+                  <Label label="Full Name*" />
                   <TextInput
-                    label="Full Name*"
                     name="fullname"
                     type="text"
                     className="form-control"
                   />
                 </div>
                 <div className="col-xl-6 form-group mb-3">
+                  <Label label="Email*" />
                   <TextInput
-                    label="Email*"
                     name="email"
                     type="email"
                     className="form-control"
                   />
                 </div>
                 <div className="col-xl-6 form-group mb-3">
+                  <Label label="House Number And Street Name*" />
                   <TextInput
-                    label="House Number And Street Name*"
                     name="address"
                     type="text"
                     className="form-control"
                   />
                 </div>
                 <div className="col-xl-6 form-group mb-3">
+                  <Label label="Country*" />
                   <TextInput
-                    label="Country*"
                     name="country"
                     type="text"
                     className="form-control"
                   />
                 </div>
                 <div className="col-xl-6 form-group mb-3">
-                  <TextInput
-                    label="Town / City*"
-                    name="city"
-                    type="text"
-                    className="form-control"
-                  />
+                  <Label label="Town / City*" />
+                  <TextInput name="city" type="text" className="form-control" />
                 </div>
                 <div className="col-xl-6 form-group mb-3">
+                  <Label label="Phone*" />
                   <TextInput
-                    label="Phone*"
                     name="phone"
                     type="phone"
                     className="form-control"
