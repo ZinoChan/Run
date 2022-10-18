@@ -1,8 +1,8 @@
 import React from 'react';
-import { SHOP } from '../../constants/routes';
+import { SHOP } from '@/constants/routes';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import nike from '../../assets/nike.png';
+import nike from '@/assets/nike.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 

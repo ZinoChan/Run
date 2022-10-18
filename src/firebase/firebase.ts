@@ -2,27 +2,43 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 import {
+  Auth,
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
-import { getStorage } from 'firebase/storage';
+import {
+  collection,
+  Firestore,
+  getDocs,
+  getFirestore,
+  CollectionReference,
+  DocumentData,
+} from 'firebase/firestore';
+import { FirebaseApp, initializeApp } from 'firebase/app';
+import { FirebaseStorage, getStorage } from 'firebase/storage';
 import { toast } from 'react-hot-toast';
+import { IProductRes } from '@/types/products.interface';
+import { Fuego } from 'swr-firestore-v9';
 
 const firebaseConfig = {
-  apiKey: `${process.env.REACT_APP_API_KEY}`,
-  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
-  databaseURL: `${process.env.REACT_APP_DATABASE_URL}`,
-  projectId: `${process.env.REACT_APP_PROJECT_ID}`,
-  storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
-  messagingSenderId: `${process.env.REACT_APP_MSG_SENDER_ID}`,
-  appId: `${process.env.REACT_APP_APP_ID}`,
+  apiKey: `${import.meta.env.VITE_API_KEY}`,
+  authDomain: `${import.meta.env.VITE_AUTH_DOMAIN}`,
+  databaseURL: `${import.meta.env.VITE_DATABASE_URL}`,
+  projectId: `${import.meta.env.VITE_PROJECT_ID}`,
+  storageBucket: `${import.meta.env.VITE_STORAGE_BUCKET}`,
+  messagingSenderId: `${import.meta.env.VITE_MSG_SENDER_ID}`,
+  appId: `${import.meta.env.VITE_APP_ID}`,
 };
 
 class Firebase {
+  app: FirebaseApp;
+  db: Firestore;
+  auth: Auth;
+  storage: FirebaseStorage;
+  googleAuthProvider: GoogleAuthProvider;
+
   constructor() {
     this.app = initializeApp(firebaseConfig);
     this.auth = getAuth(this.app);
@@ -30,11 +46,14 @@ class Firebase {
     this.storage = getStorage(this.app);
     this.googleAuthProvider = new GoogleAuthProvider();
   }
+  createCollection = <T = DocumentData>(collectionName: string) => {
+    return collection(this.db, collectionName) as CollectionReference<T>;
+  };
 
   signOut = () => signOut(this.auth);
   signInWithGoogle = () => signInWithPopup(this.auth, this.googleAuthProvider);
   getProducts = () => {
-    const collectionRef = collection(this.db, 'products');
+    const collectionRef = this.createCollection<IProductRes>('products');
     let didTimeout = false;
 
     return new Promise(async (resolve, reject) => {
@@ -48,7 +67,7 @@ class Firebase {
 
         clearTimeout(timeout);
         if (!didTimeout) {
-          const products = [];
+          const products: IProductRes[] = [];
 
           totalQuery.forEach((doc) => products.push(doc.data()));
 
@@ -65,6 +84,8 @@ class Firebase {
     });
   };
 }
+
+export const fuego = new Fuego(firebaseConfig);
 
 const firebaseInstance = new Firebase();
 

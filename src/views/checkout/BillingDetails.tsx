@@ -2,8 +2,17 @@ import React from 'react';
 import { CHECKOUT_STEP_1, CHECKOUT_STEP_3 } from '../../constants/routes';
 import { NavLink, useNavigate } from 'react-router-dom';
 import TextInput from '../../components/checkout/TextInput';
-import { Formik } from 'formik';
+import { Form, Formik, FormikProps } from 'formik';
 import { billingValidation } from '../../helpers/validation';
+
+type Values = {
+  fullname: string;
+  email: string;
+  address: string;
+  country: string;
+  city: string;
+  phone: string;
+}
 
 const BillingDetails = () => {
   const navigate = useNavigate();
@@ -28,13 +37,9 @@ const BillingDetails = () => {
             navigate(CHECKOUT_STEP_3, { replace: true });
           }}
         >
-          {({ handleSubmit }) => (
-            <form
+           {(props: FormikProps<Values>) => (
+            <Form
               className="w-75 mx-auto"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
             >
               <div className="row">
                 <div className="col-xl-6 form-group mb-3">
@@ -94,7 +99,7 @@ const BillingDetails = () => {
                   Continue
                 </button>
               </div>
-            </form>
+            </Form>
           )}
         </Formik>
       </div>

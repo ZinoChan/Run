@@ -1,12 +1,11 @@
-import React from 'react';
 import CartList from '../../components/cart/CartList';
-import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { CART, CHECKOUT_STEP_2 } from '../../constants/routes';
+import { useAppDispatch, useAppSelector } from '@/store';
 
 export default function OrderDetails() {
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const cart = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
   return (
     <div className="order-details mx-auto text-center d-flex align-items-center">

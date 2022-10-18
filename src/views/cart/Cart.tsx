@@ -1,19 +1,20 @@
-import CartList from '../../components/cart/CartList';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../../actions/cartActions';
+import CartList from '@/components/cart/CartList';
 import { Link } from 'react-router-dom';
-import { CHECKOUT_STEP_1 } from '../../constants/routes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { ICart } from '@/types/cart.interface';
+import { clearCart } from '@/reducers/cartReducer';
+import { CHECKOUT_STEP_1 } from '@/constants/routes';
 
 export default function Cart() {
-  const { cart } = useSelector((state) => ({
+  const { cart } = useAppSelector((state) => ({
     cart: state.cart,
   }));
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const grandTotal = (items) => {
+  const grandTotal = (items: ICart[]) => {
     return items.reduce((sum, i) => {
       return sum + i.price * i.quantity;
     }, 0);

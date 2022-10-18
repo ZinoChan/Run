@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
-import ProductsList from '../../components/shop/ProductsList';
-import PreLoader from '../../components/ui/PreLoader';
-import { useSelector, useDispatch } from 'react-redux';
-import { getProducts } from '../../actions/productsActions';
+import ProductsList from '@/components/shop/ProductsList';
+import PreLoader from '@/components/ui/PreLoader';
+import { useAppSelector, useAppDispatch } from '@/store';
+import { getProductsStart } from '@/reducers/productsReducer';
 
 export default function Shop() {
-  const { products, isLoading } = useSelector((state) => ({
+  const { products, isLoading } = useAppSelector((state) => ({
     products: state.products,
     isLoading: state.app.loading,
   }));
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (products.length === 0) {
-      dispatch(getProducts());
+      dispatch(getProductsStart());
     }
   }, [dispatch, products.length]);
 

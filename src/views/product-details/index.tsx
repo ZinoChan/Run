@@ -1,46 +1,44 @@
 import { faStar, faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from 'react-router-dom';
-import ProductCardColor from '../../components/ui/ProductCardColor';
-import ProductCardSize from '../../components/ui/ProductCardSize';
+import ProductCardColor from '@/components/ui/ProductCardColor';
+import ProductCardSize from '@/components/ui/ProductCardSize';
 import { useEffect, useState } from 'react';
-import { doc } from 'firebase/firestore';
-import { useDocumentOnce } from 'react-firebase-hooks/firestore';
-import firebaseInstance from '../../firebase/firebase';
-import ProductShowCase from '../../components/ui/ProductShowCase';
-import useCart from '../../hooks/useCart';
-import PreLoader from '../../components/ui/PreLoader';
+import ProductShowCase from '@/components/ui/ProductShowCase';
+import useCart from '@/hooks/useCart';
+import PreLoader from '@/components/ui/PreLoader';
+import { Colors, IProductRes, Sizes } from '@/types/products.interface';
+import { useDocument } from 'swr-firestore-v9';
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const { addItemToCart } = useCart();
+  const { data, error } = useDocument<IProductRes>(`products/${productId}`);
 
-  const [value, loading, error] = useDocumentOnce(
-    doc(firebaseInstance.db, 'products', `${productId}`)
+  const [currentProduct, setCurrentProduct] = useState<IProductRes | undefined>(
+    undefined
   );
-
-  const [currentProduct, setCurrentProduct] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState<Colors | null>(null);
+  const [selectedSize, setSelectedSize] = useState<Sizes | null>(null);
 
   useEffect(() => {
-    if (value) {
-      setCurrentProduct(value.data());
-      setSelectedColor(value.data().availableColors[0]);
-      setSelectedSize(value.data().availableSizes[0]);
+    if (data) {
+      setCurrentProduct(data);
+      setSelectedColor(data.availableColors[0]);
+      setSelectedSize(data.availableSizes[0]);
     }
-  }, [value]);
+  }, [data]);
 
   return (
     <section className="product-details position-relative">
       <div className="glass" />
-      {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && <PreLoader />}
+      {error && <strong>An Error Acurred Please Try Again Later</strong>}
+      {!data && <PreLoader />}
       {currentProduct && (
         <div className="container-fluid">
           <div className="row g-5">
             <div className="col-xl-6 col-sm-12">
-              <ProductShowCase imgs={selectedColor?.imgs} />
+              {selectedColor && <ProductShowCase imgs={selectedColor.imgs} />}
             </div>
             <div className="col-xl-6 col-sm-12">
               <div>
@@ -83,7 +81,7 @@ const ProductDetails = () => {
                     <ProductCardColor
                       key={productColor.id}
                       productColor={productColor}
-                      active={productColor.color === selectedColor.color}
+                      active={productColor.color === selectedColor?.color}
                       setSelectedColor={setSelectedColor}
                     />
                   ))}
@@ -95,15 +93,22 @@ const ProductDetails = () => {
                       key={size.id}
                       selectedSize={size}
                       setSelectedSize={setSelectedSize}
-                      active={size.id === selectedSize.id}
+                      active={size.id === selectedSize?.id}
                     />
                   ))}
                 </div>
               </div>
               <div className="d-flex items-center justify-content-between">
                 <button
-                  onClick={() =>
-                    addItemToCart(currentProduct, selectedSize, selectedColor)
+                  onClick={
+                    selectedSize && selectedColor
+                      ? () =>
+                          addItemToCart(
+                            currentProduct,
+                            selectedSize,
+                            selectedColor
+                          )
+                      : undefined
                   }
                   className="btn btn-dark btn-lg flex items-center justify-between"
                 >

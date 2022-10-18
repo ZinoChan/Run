@@ -1,4 +1,3 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBagShopping,
@@ -8,23 +7,22 @@ import {
 import { NavLink } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import Badge from './Badge';
-import { useSelector, useDispatch } from 'react-redux';
-import { signOut } from '../../actions/authActions';
-import { signInWithGoogle } from '../../actions/authActions';
 import MobileNav from './MobileNav';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { signInWithGoogle, signOutStart } from '@/reducers/authReducer';
 
-export default function Header({ theme = 'null', path }) {
+export default function Header({ theme = 'null' }) {
   const [openNav, setOpenNav] = useState(false);
 
-  const { auth, isAuthenticating } = useSelector((state) => ({
-    auth: state.auth.id && state.auth.type,
+  const { auth, isAuthenticating } = useAppSelector((state) => ({
+    auth: !!state.auth.id && state.auth.type === 'client',
     isAuthenticating: state.app.isAuthenticating,
   }));
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const handleSignOut = () => dispatch(signOut());
+  const handleSignOut = () => dispatch(signOutStart());
   const handleSignIn = () => dispatch(signInWithGoogle());
 
   const onToggleNav = () => setOpenNav(!openNav);
@@ -35,7 +33,9 @@ export default function Header({ theme = 'null', path }) {
         <div className="container-fluid">
           <nav className="navbar align-items-center justify-content-between">
             <h1 className="logo m-0">
-              <NavLink to={ROUTES.HOME} className="nav-link"></NavLink>
+              <NavLink to={ROUTES.HOME} className="nav-link">
+                <span></span>
+              </NavLink>
             </h1>
             <div className="toggler" onClick={onToggleNav}>
               {openNav ? (
@@ -95,13 +95,7 @@ export default function Header({ theme = 'null', path }) {
           </nav>
         </div>
       </header>
-      <MobileNav
-        openNav={openNav}
-        dispatch={dispatch}
-        auth={auth}
-        path={path}
-        setOpenNav={setOpenNav}
-      />
+      <MobileNav openNav={openNav} auth={auth} setOpenNav={setOpenNav} />
     </>
   );
 }

@@ -1,6 +1,12 @@
 import CartItem from './CartItem';
+import { ICart } from '@/types/cart.interface';
 
-export default function CartList({ cart, dispatch }) {
+type Props = {
+  cart: ICart[];
+  dispatch: any;
+};
+
+export default function CartList({ cart, dispatch }: Props) {
   return (
     <>
       {cart.map((item) => (

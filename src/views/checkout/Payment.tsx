@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { CHECKOUT_STEP_2, SHOP } from '../../constants/routes';
+import { useState } from 'react';
+import { CHECKOUT_STEP_2, SHOP } from '@/constants/routes';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
-import { paymentValidation } from '../../helpers/validation';
-import TextInput from '../../components/checkout/TextInput';
+import { paymentValidation } from '@/helpers/validation';
+import TextInput, { Label } from '@/components/checkout/TextInput';
 import { toast } from 'react-hot-toast';
-import ConfirmModal from '../../components/ui/ConfirmModal';
+import ConfirmModal from '@/components/ui/ConfirmModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import CheckBox from '../../components/checkout/CheckBox';
-import { useDispatch } from 'react-redux';
-import { clearCart } from '../../actions/cartActions';
+import CheckBox from '@/components/checkout/CheckBox';
+import { useAppDispatch } from '@/store';
+import { clearCart } from '@/reducers/cartReducer';
 
 export default function Payment() {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -22,7 +22,7 @@ export default function Payment() {
     navigate(SHOP, { replace: true });
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <section className="d-flex align-items-center mx-auto min-vh-100">
@@ -53,36 +53,32 @@ export default function Payment() {
               }}
             >
               <div className="form-group mb-3">
+                <Label label="Name on Card*" />
                 <TextInput
-                  label="Name on Card*"
                   name="cardName"
                   type="text"
                   className="form-control"
                 />
               </div>
               <div className="form-group mb-3">
+                <Label label="Card Number*" />
                 <TextInput
-                  label="Card Number*"
                   name="cardNumber"
                   type="text"
                   className="form-control"
                 />
               </div>
               <div className="form-group mb-3">
+                <Label label="Cvv Code*" />
                 <TextInput
-                  label="Cvv Code*"
                   name="cvvCode"
                   type="text"
                   className="form-control"
                 />
               </div>
               <div className="form-group mb-3">
-                <TextInput
-                  label="Expirity Date*"
-                  name="date"
-                  type="date"
-                  className="form-control"
-                />
+                <Label label="Expirity Date*" />
+                <TextInput name="date" type="date" className="form-control" />
               </div>
               <CheckBox name="terms" />
               <div className="d-flex justify-content-between mt-2">

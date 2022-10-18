@@ -1,8 +1,16 @@
+import { Colors } from '@/types/products.interface';
+
+type Props = {
+  productColor: Colors;
+  active: boolean;
+  setSelectedColor: (color: Colors) => void;
+};
+
 export default function ProductCardColor({
   productColor,
   active,
   setSelectedColor,
-}) {
+}: Props) {
   const handleClick = () => {
     setSelectedColor(productColor);
   };

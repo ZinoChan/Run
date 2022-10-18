@@ -1,8 +1,16 @@
+import { Sizes } from '@/types/products.interface';
+
+type Props = {
+  selectedSize: Sizes;
+  active: boolean;
+  setSelectedSize: (size: Sizes) => void;
+};
+
 export default function ProductCardSize({
   selectedSize,
   active,
   setSelectedSize,
-}) {
+}: Props) {
   const handleClick = () => setSelectedSize(selectedSize);
 
   return (

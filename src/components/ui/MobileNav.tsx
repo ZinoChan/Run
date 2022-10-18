@@ -1,23 +1,21 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
-
 import * as ROUTES from '../../constants/routes';
 import Badge from './Badge';
-
-import { signOut } from '../../actions/authActions';
-import { signInWithGoogle } from '../../actions/authActions';
 import { NavLink } from 'react-router-dom';
+import { signInWithGoogle, signOutStart } from '@/reducers/authReducer';
+import { useAppDispatch } from '@/store';
 
-export default function MobileNav({
-  openNav,
-  path,
-  dispatch,
-  auth,
-  setOpenNav,
-}) {
+type Props = {
+  openNav: boolean;
+  auth: boolean;
+  setOpenNav: (open: boolean) => void;
+};
+
+export default function MobileNav({ openNav, auth, setOpenNav }: Props) {
+  const dispatch = useAppDispatch();
   const handleSignOut = () => {
-    dispatch(signOut());
+    dispatch(signOutStart());
     setOpenNav(!openNav);
   };
   const handleSignIn = () => {

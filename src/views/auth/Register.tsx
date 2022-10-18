@@ -1,11 +1,10 @@
-import React from 'react';
-import { signInWithGoogle } from '../../actions/authActions';
-import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 import UseAuth from '../../hooks/useAuth';
+import { useAppDispatch } from '@/store';
+import { signInWithGoogle } from '@/reducers/authReducer';
 
 export default function Register() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSignIn = () => dispatch(signInWithGoogle());
 

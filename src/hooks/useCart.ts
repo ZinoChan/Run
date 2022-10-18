@@ -1,25 +1,32 @@
+import { addToCart, removeFromCart } from '@/reducers/cartReducer';
+import { useAppSelector } from '@/store';
+import { Colors, IProductRes, Sizes } from '@/types/products.interface';
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import { useDispatch } from 'react-redux';
 
 const useCart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const isItemOncart = (id) => !!cart.find((item) => item.id === id);
+  const isItemOncart = (id: string) => !!cart.find((item) => item.id === id);
 
-  const addItemToCart = (item, selectedSize, selectedColor) => {
+  const addItemToCart = (
+    item: IProductRes,
+    selectedSize: Sizes,
+    selectedColor: Colors
+  ) => {
     if (isItemOncart(item.id)) {
       dispatch(removeFromCart(item.id));
       toast.success('Item removed from cart');
     } else {
       const purchasedItem = {
         title: item.title,
-        size: selectedSize.size,
+        size: selectedSize,
         color: selectedColor.color,
         img: selectedColor.imgs[0].img,
         id: item.id,
         price: item.price,
+        quantity: 1,
       };
       dispatch(addToCart(purchasedItem));
 

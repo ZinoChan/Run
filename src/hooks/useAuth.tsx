@@ -1,16 +1,16 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import PreLoader from '../components/ui/PreLoader';
+import PreLoader from '@/components/ui/PreLoader';
+import { useAppSelector } from '@/store';
 
-const UseAuth = ({ children }) => {
+const UseAuth = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const navigate = useNavigate();
-
+  /* @ts-ignore */
   const from = location?.state?.from?.pathname || '/';
 
-  const { isUser, isAuthenticating } = useSelector((state) => ({
+  const { isUser, isAuthenticating } = useAppSelector((state) => ({
     isUser: state.auth.id && state.auth.type === 'client',
     isAuthenticating: state.app.isAuthenticating,
   }));

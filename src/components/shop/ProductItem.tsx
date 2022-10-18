@@ -2,8 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import ImgLoader from '../ui/ImgLoader';
+import { IProductRes } from '@/types/products.interface';
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product }: { product: IProductRes }) {
   return (
     <div className="col-xl-3 col-md-4 col-xs-12 mb-4">
       <Link to={`/${product.id}`}>
@@ -13,7 +14,6 @@ export default function ProductItem({ product }) {
               alt={product.title}
               src={product.item}
               className="card-img image-fluid mx-auto"
-              height={100}
             />
             <div className="card-body">
               <div className="item-info">
