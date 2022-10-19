@@ -15,19 +15,22 @@ import * as serviceWorker from './serviceWorker';
 import { authSuccess, authFailed } from './reducers/authReducer';
 import { isAuthenticating } from './reducers/appReducer';
 import { FuegoProvider } from 'swr-firestore-v9';
+import ErrorBoundary from './modules/ErrorBoundary';
 
 const AppRoot = () => (
   <React.StrictMode>
-    <FuegoProvider fuego={fuego}>
-      <Provider store={store}>
-        <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
-          <BrowserRouter>
-            <Toaster />
-            <AppRoute />
-          </BrowserRouter>
-        </PersistGate>
-      </Provider>
-    </FuegoProvider>
+    <ErrorBoundary>
+      <FuegoProvider fuego={fuego}>
+        <Provider store={store}>
+          <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+            <BrowserRouter>
+              <Toaster />
+              <AppRoute />
+            </BrowserRouter>
+          </PersistGate>
+        </Provider>
+      </FuegoProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
