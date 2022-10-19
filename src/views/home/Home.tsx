@@ -1,4 +1,3 @@
-import React from 'react';
 import { SHOP } from '@/constants/routes';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
