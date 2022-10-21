@@ -22,7 +22,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public render() {
-    if (true) {
+    if (this.state.hasError) {
       return (
         <section className="relative py-6 min-vh-100 min-vw-100 d-flex align-items-center text-center justify-content-center">
           <div className="glass position-absolute"></div>
