@@ -14,6 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import rootReducer from '@/reducers';
 import rootSaga from '@/sagas/rootSaga';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { authSuccess } from '@/reducers/authReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -30,7 +31,15 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+          authSuccess.type,
+        ],
       },
     }).concat(sagaMiddleware),
 });
