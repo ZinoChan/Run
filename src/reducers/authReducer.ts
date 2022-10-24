@@ -8,7 +8,11 @@ const authReducer = createSlice({
   name: 'auth',
   initialState: initialState,
   reducers: {
-    signInStart() {},
+    signIn(
+      state,
+      action: PayloadAction<{ email: string; password: string }>
+    ) {},
+    createAccount() {},
     signInWithGoogle() {},
     authSuccess: (state, action: PayloadAction<User>) => {},
     signInSuccess: (state, action: PayloadAction<IUser>) => {
@@ -21,7 +25,8 @@ const authReducer = createSlice({
 });
 
 export const {
-  signInStart,
+  signIn,
+  createAccount,
   signInSuccess,
   signOutStart,
   signOutSuccess,
