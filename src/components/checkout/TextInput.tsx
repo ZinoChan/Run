@@ -7,7 +7,7 @@ export default function TextInput(props: FieldHookConfig<string>) {
 
   return (
     <>
-      <input className="text-input" {...field} />
+      <input className={props?.className || ''} {...field} type={props.type} />
       {meta.touched && meta.error ? (
         <div className="error text-danger">{meta.error}</div>
       ) : null}
