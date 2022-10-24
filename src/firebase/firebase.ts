@@ -3,10 +3,13 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 import {
   Auth,
+  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  UserCredential,
 } from 'firebase/auth';
 import {
   collection,
@@ -15,12 +18,16 @@ import {
   getFirestore,
   CollectionReference,
   DocumentData,
+  setDoc,
+  doc,
+  addDoc,
 } from 'firebase/firestore';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { FirebaseStorage, getStorage } from 'firebase/storage';
 import { toast } from 'react-hot-toast';
 import { IProductRes } from '@/types/products.interface';
 import { Fuego } from 'swr-firestore-v9';
+import { IUser, IUserProfile } from '@/types/auth.interface';
 
 const firebaseConfig = {
   apiKey: `${import.meta.env.VITE_API_KEY}`,
@@ -50,8 +57,14 @@ class Firebase {
     return collection(this.db, collectionName) as CollectionReference<T>;
   };
 
+  createAccount = (email: string, password: string) =>
+    createUserWithEmailAndPassword(this.auth, email, password);
+  signIn = (email: string, password: string) =>
+    signInWithEmailAndPassword(this.auth, email, password);
   signOut = () => signOut(this.auth);
   signInWithGoogle = () => signInWithPopup(this.auth, this.googleAuthProvider);
+  addUser = (id: string, user: IUserProfile) =>
+    setDoc(doc(this.db, 'users', id), user);
   getProducts = () => {
     const collectionRef = this.createCollection<IProductRes>('products');
     let didTimeout = false;
