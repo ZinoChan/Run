@@ -9,13 +9,15 @@ import {
   signInWithGoogle,
   signOutStart,
   signOutSuccess,
+  signIn,
+  createAccount,
 } from '@/reducers/authReducer';
 import { IAuthSaga } from '@/types/saga.interface';
 import { clearCart } from '@/reducers/cartReducer';
+import { UserCredential } from 'firebase/auth';
 
 function* handleError(e: any) {
   yield put(isAuthenticating(false));
-
   switch (e.code) {
     case 'auth/email-already-in-use':
       yield put(
@@ -71,6 +73,14 @@ function* initRequest() {
 
 function* authSaga({ type, payload }: IAuthSaga) {
   switch (type) {
+    case signIn.type:
+      try {
+        yield initRequest();
+        yield call(firebaseInstance.signIn, payload.email, payload.password);
+      } catch (e) {
+        yield handleError(e);
+      }
+      break;
     case signInWithGoogle.type:
       try {
         yield initRequest();
@@ -79,6 +89,33 @@ function* authSaga({ type, payload }: IAuthSaga) {
         yield handleError(e);
       }
       break;
+    case createAccount.type:
+      try {
+        yield initRequest();
+        const userCredential: UserCredential = yield call(
+          firebaseInstance.createAccount,
+          payload.email,
+          payload.password
+        );
+        let user = {
+          fullName: userCredential.user.displayName || 'user',
+          avatar: '',
+          email: userCredential.user.email || '',
+          address: '',
+          basket: [],
+          role: 'USER',
+          dateJoined:
+            userCredential.user.metadata.creationTime || new Date().getTime(),
+        };
+        yield call<typeof firebaseInstance.addUser>(
+          firebaseInstance.addUser,
+          userCredential.user.uid,
+          user
+        );
+        yield put(isAuthenticating(false));
+      } catch (e) {
+        yield handleError(e);
+      }
     case signOutStart.type:
       try {
         yield initRequest();
