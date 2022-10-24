@@ -17,6 +17,39 @@ function* handleError(e: any) {
   yield put(isAuthenticating(false));
 
   switch (e.code) {
+    case 'auth/email-already-in-use':
+      yield put(
+        setAuthStatus({
+          success: false,
+          message: 'Email is already in use. Please use another email',
+        })
+      );
+      break;
+    case 'auth/wrong-password':
+      yield put(
+        setAuthStatus({
+          success: false,
+          message: 'Incorrect email or password',
+        })
+      );
+      break;
+    case 'auth/user-not-found':
+      yield put(
+        setAuthStatus({
+          success: false,
+          message: 'Incorrect email or password',
+        })
+      );
+      break;
+    case 'auth/reset-password-error':
+      yield put(
+        setAuthStatus({
+          success: false,
+          message:
+            'Failed to send password reset email. Did you type your email correctly?',
+        })
+      );
+      break;
     case 'auth/network-request-failed':
       yield put(
         setAuthStatus({
