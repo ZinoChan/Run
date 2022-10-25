@@ -4,27 +4,23 @@ import {
   faBars,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import Badge from './Badge';
 import MobileNav from './MobileNav';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store';
-import { signInWithGoogle, signOutStart } from '@/reducers/authReducer';
+import { signOutStart } from '@/reducers/authReducer';
 
 export default function Header({ theme = 'null' }) {
   const [openNav, setOpenNav] = useState(false);
-
   const { auth, isAuthenticating } = useAppSelector((state) => ({
     auth: !!state.auth.id && state.auth.type === 'client',
     isAuthenticating: state.app.isAuthenticating,
   }));
 
   const dispatch = useAppDispatch();
-
   const handleSignOut = () => dispatch(signOutStart());
-  const handleSignIn = () => dispatch(signInWithGoogle());
-
   const onToggleNav = () => setOpenNav(!openNav);
 
   return (
@@ -73,12 +69,11 @@ export default function Header({ theme = 'null' }) {
                       SignOut
                     </button>
                   ) : (
-                    <button
-                      className="btn btn-outline-dark btn-sm "
-                      onClick={handleSignIn}
-                    >
-                      Register
-                    </button>
+                    <Link className="text-dark" to={ROUTES.REGISTER}>
+                      <button className="btn btn-outline-dark btn-sm ">
+                        Register
+                      </button>
+                    </Link>
                   )
                 ) : (
                   <button
