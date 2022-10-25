@@ -116,6 +116,7 @@ function* authSaga({ type, payload }: IAuthSaga) {
       } catch (e) {
         yield handleError(e);
       }
+      break;
     case signOutStart.type:
       try {
         yield initRequest();

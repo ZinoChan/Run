@@ -12,7 +12,14 @@ const authReducer = createSlice({
       state,
       action: PayloadAction<{ email: string; password: string }>
     ) {},
-    createAccount() {},
+    createAccount(
+      state,
+      action: PayloadAction<{
+        fullName: string;
+        email: string;
+        password: string;
+      }>
+    ) {},
     signInWithGoogle() {},
     authSuccess: (state, action: PayloadAction<User>) => {},
     signInSuccess: (state, action: PayloadAction<IUser>) => {
@@ -20,7 +27,9 @@ const authReducer = createSlice({
     },
     authFailed: () => {},
     signOutStart() {},
-    signOutSuccess: () => {},
+    signOutSuccess: () => {
+      return {} as IUser;
+    },
   },
 });
 
