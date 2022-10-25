@@ -1,6 +1,6 @@
 export interface IAuthSaga {
   type: string;
-  payload: { uid: string };
+  payload: any;
 }
 
 export interface IProductSaga {
