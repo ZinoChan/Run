@@ -1,6 +1,8 @@
 import { FieldHookConfig, useField } from 'formik';
 
-export const Label = ({ label }: { label: string }) => <label>{label}</label>;
+export const Label = ({ label }: { label: string }) => (
+  <label className="text-capitalize">{label}</label>
+);
 
 export default function TextInput(props: FieldHookConfig<string>) {
   const [field, meta] = useField(props);
