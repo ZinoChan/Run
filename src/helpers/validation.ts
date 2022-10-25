@@ -36,3 +36,15 @@ export const loginValidation = Yup.object().shape({
     .required('this field is required')
     .min(8, 'password must contain at least 8 characters'),
 });
+
+export const registerValidation = Yup.object().shape({
+  fullName: Yup.string()
+    .required('this field is required')
+    .min(3, 'name must contain at least 3 characters'),
+  email: Yup.string()
+    .required('this field is required')
+    .email('please enter a valid email'),
+  password: Yup.string()
+    .required('this field is required')
+    .min(8, 'password must contain at least 8 characters'),
+});
