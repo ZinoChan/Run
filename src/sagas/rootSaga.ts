@@ -1,6 +1,7 @@
 import {
   authFailed,
   authSuccess,
+  createAccount,
   signIn,
   signInWithGoogle,
   signOutStart,
@@ -13,6 +14,7 @@ import productsSaga from './productsSaga';
 function* rootSaga() {
   yield takeLatest(
     [
+      createAccount.type,
       signIn.type,
       signInWithGoogle.type,
       signOutStart.type,
