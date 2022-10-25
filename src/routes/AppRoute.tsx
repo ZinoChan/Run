@@ -6,6 +6,7 @@ import Layout from '../components/ui/Layout';
 import PreLoader from '../components/ui/PreLoader';
 import PrivateRoute from './PrivateRoute';
 
+const Login = lazy(() => import('@/views/auth/Login'));
 const Home = lazy(() => import('../views/home/Home'));
 const Shop = lazy(() => import('../views/shop/Shop'));
 const ProductDetails = lazy(() => import('../views/product-details'));
@@ -14,8 +15,7 @@ const Register = lazy(() => import('../views/auth/Register'));
 const OrderDetails = lazy(() => import('../views/checkout/OrderDetails'));
 const BillingDetails = lazy(() => import('../views/checkout/BillingDetails'));
 const Payment = lazy(() => import('../views/checkout/Payment'));
-
-// const NotFound = lazy(() => import('../views/404/NotFound'));
+const NotFound = lazy(() => import('../views/404/NotFound'));
 
 export default function AppRoute() {
   return (
@@ -63,6 +63,14 @@ export default function AppRoute() {
           }
         />
         <Route
+          path={ROUTES.LOGIN}
+          element={
+            <Suspense fallback={<PreLoader />}>
+              <Login />
+            </Suspense>
+          }
+        />
+        <Route
           path={ROUTES.CHECKOUT_STEP_1}
           element={
             <Suspense fallback={<PreLoader />}>
@@ -89,6 +97,14 @@ export default function AppRoute() {
               <PrivateRoute>
                 <Payment />
               </PrivateRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<PreLoader />}>
+              <NotFound />
             </Suspense>
           }
         />
