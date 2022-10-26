@@ -63,8 +63,11 @@ class Firebase {
     signInWithEmailAndPassword(this.auth, email, password);
   signOut = () => signOut(this.auth);
   signInWithGoogle = () => signInWithPopup(this.auth, this.googleAuthProvider);
-  addUser = (id: string, user: IUserProfile) =>
-    setDoc(doc(this.db, 'users', id), user);
+  addUser = (id: string, user: IUserProfile) => {
+    const userCol = this.createCollection<IUserProfile>('users');
+    addDoc(userCol, user);
+  };
+
   getProducts = () => {
     const collectionRef = this.createCollection<IProductRes>('products');
     let didTimeout = false;
