@@ -35,24 +35,13 @@ const AppRoot = () => (
 );
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
+let root;
+if (!root) root = createRoot(container!);
 
 if (window.navigator.onLine) {
-  // Render the preloader on initial load
-
   root.render(<PreLoader />);
 
-  firebaseInstance.auth.onAuthStateChanged((user) => {
-    if (user) {
-      store.dispatch(authSuccess(user));
-      store.dispatch(isAuthenticating(false));
-    } else {
-      store.dispatch(authFailed());
-      store.dispatch(isAuthenticating(false));
-    }
-
-    root.render(<AppRoot />);
-  });
+  root.render(<AppRoot />);
 } else {
   root.render(
     <div>
@@ -60,6 +49,8 @@ if (window.navigator.onLine) {
     </div>
   );
 }
+
+root.render(<AppRoot />);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

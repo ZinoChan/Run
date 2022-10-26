@@ -67,7 +67,7 @@ function* handleError(e: any) {
 }
 
 function* initRequest() {
-  yield put(isAuthenticating(false));
+  yield put(isAuthenticating(true));
   yield put(setAuthStatus(null));
 }
 
@@ -76,7 +76,17 @@ function* authSaga({ type, payload }: IAuthSaga) {
     case signIn.type:
       try {
         yield initRequest();
-        yield call(firebaseInstance.signIn, payload.email, payload.password);
+        const userCredential: UserCredential = yield call(
+          firebaseInstance.signIn,
+          payload.email,
+          payload.password
+        );
+        if (userCredential?.user) {
+          yield put(
+            signInSuccess({ id: userCredential.user.uid, type: 'client' })
+          );
+          toast.success('login successfully');
+        }
       } catch (e) {
         yield handleError(e);
       }
@@ -107,6 +117,12 @@ function* authSaga({ type, payload }: IAuthSaga) {
           dateJoined:
             userCredential.user.metadata.creationTime || new Date().getTime(),
         };
+        if (userCredential?.user) {
+          yield put(
+            signInSuccess({ id: userCredential.user.uid, type: 'client' })
+          );
+          toast.success('sign up successfully');
+        }
         yield call<typeof firebaseInstance.addUser>(
           firebaseInstance.addUser,
           userCredential.user.uid,
@@ -133,8 +149,6 @@ function* authSaga({ type, payload }: IAuthSaga) {
       yield put(
         setAuthStatus({ success: true, message: 'successfully signed in.' })
       );
-      yield call(toast.success, 'successfully signed in');
-      yield put(isAuthenticating(false));
       yield put(signInSuccess({ id: payload.uid, type: 'client' }));
       break;
 
