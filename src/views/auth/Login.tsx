@@ -7,6 +7,7 @@ import { loginValidation } from '@/helpers/validation';
 import TextInput, { Label } from '@/components/checkout/TextInput';
 import { Link } from 'react-router-dom';
 import { REGISTER } from '@/constants/routes';
+import PreLoader from '@/components/ui/PreLoader';
 
 type Values = {
   email: string;
@@ -15,13 +16,17 @@ type Values = {
 
 const Login = () => {
   const dispatch = useAppDispatch();
-  const authStatus = useAppSelector((state) => state.app.authStatus);
+  const { authStatus, isAuthenticating } = useAppSelector((state) => ({
+    authStatus: state.app.authStatus,
+    isAuthenticating: state.app.isAuthenticating,
+  }));
 
   const handleSignIn = () => dispatch(signInWithGoogle());
 
   return (
     <UseAuth>
       <section className="py-4">
+        {isAuthenticating && <PreLoader />}
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6 text-center mb-5">

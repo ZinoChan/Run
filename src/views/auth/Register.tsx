@@ -7,6 +7,7 @@ import { registerValidation } from '@/helpers/validation';
 import TextInput, { Label } from '@/components/checkout/TextInput';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '@/constants/routes';
+import PreLoader from '@/components/ui/PreLoader';
 
 type Values = {
   fullName: string;
@@ -16,13 +17,17 @@ type Values = {
 
 export default function Register() {
   const dispatch = useAppDispatch();
-  const authStatus = useAppSelector((state) => state.app.authStatus);
+  const { authStatus, isAuthenticating } = useAppSelector((state) => ({
+    authStatus: state.app.authStatus,
+    isAuthenticating: state.app.isAuthenticating,
+  }));
 
   const handleSignUp = () => dispatch(signInWithGoogle());
 
   return (
     <UseAuth>
       <section className="py-4">
+        {isAuthenticating && <PreLoader />}
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6 text-center mb-5">
