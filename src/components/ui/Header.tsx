@@ -60,30 +60,19 @@ export default function Header({ theme = 'null' }) {
                   <Badge />
                 </NavLink>
 
-                {!isAuthenticating ? (
-                  auth ? (
-                    <button
-                      className="btn btn-outline-dark btn-sm"
-                      onClick={handleSignOut}
-                    >
-                      SignOut
-                    </button>
-                  ) : (
-                    <Link className="text-dark" to={ROUTES.REGISTER}>
-                      <button className="btn btn-outline-dark btn-sm ">
-                        Register
-                      </button>
-                    </Link>
-                  )
-                ) : (
+                {auth ? (
                   <button
-                    className=" btn btn-outline-dark btn-sm"
-                    style={{ width: 80 }}
+                    className="btn btn-outline-dark btn-sm"
+                    onClick={handleSignOut}
                   >
-                    <span className="spinner-border spinner-border-sm">
-                      <span className="visually-hidden">Loading...</span>
-                    </span>
+                    SignOut
                   </button>
+                ) : (
+                  <Link className="text-dark" to={ROUTES.REGISTER}>
+                    <button className="btn btn-outline-dark btn-sm ">
+                      Register
+                    </button>
+                  </Link>
                 )}
               </div>
             </ul>
