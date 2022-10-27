@@ -28,9 +28,9 @@ export default function Header({ theme = 'null' }) {
       <header id="header" className={` w-100 ${theme}`}>
         <div className="container-fluid">
           <nav className="navbar align-items-center justify-content-between">
-            <h1 className="logo m-0">
-              <NavLink to={ROUTES.HOME} className="nav-link">
-                <span></span>
+            <h1 className="logo  m-0">
+              <NavLink to={ROUTES.HOME} className="nav-link text-dark">
+                <span>Run</span>
               </NavLink>
             </h1>
             <div className="toggler" onClick={onToggleNav}>
