@@ -14,9 +14,8 @@ import { signOutStart } from '@/reducers/authReducer';
 
 export default function Header({ theme = 'null' }) {
   const [openNav, setOpenNav] = useState(false);
-  const { auth, isAuthenticating } = useAppSelector((state) => ({
+  const { auth } = useAppSelector((state) => ({
     auth: !!state.auth.id && state.auth.type === 'client',
-    isAuthenticating: state.app.isAuthenticating,
   }));
 
   const dispatch = useAppDispatch();
