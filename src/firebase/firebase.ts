@@ -3,13 +3,18 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 import {
   Auth,
+  AuthCredential,
   createUserWithEmailAndPassword,
+  EmailAuthProvider,
   getAuth,
   GoogleAuthProvider,
+  reauthenticateWithCredential,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  UserCredential,
+  updateEmail,
+  updatePassword,
+  User,
 } from 'firebase/auth';
 import {
   collection,
@@ -18,9 +23,9 @@ import {
   getFirestore,
   CollectionReference,
   DocumentData,
-  setDoc,
   doc,
   addDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { FirebaseStorage, getStorage } from 'firebase/storage';
@@ -57,6 +62,7 @@ class Firebase {
     return collection(this.db, collectionName) as CollectionReference<T>;
   };
 
+  // Auth service
   createAccount = (email: string, password: string) =>
     createUserWithEmailAndPassword(this.auth, email, password);
   signIn = (email: string, password: string) =>
@@ -68,6 +74,17 @@ class Firebase {
     addDoc(userCol, user);
   };
 
+  // Profile Service
+  updateProfile = (id: string, updates: Partial<IUserProfile>) =>
+    updateDoc(doc(this.db, 'users', id), updates);
+
+  updateUserEmail = (user: User, newEmail: string) =>
+    updateEmail(user, newEmail);
+
+  updateUserPassword = (user: User, newPassword: string) =>
+    updatePassword(user, newPassword);
+
+  // Product Service
   getProducts = () => {
     const collectionRef = this.createCollection<IProductRes>('products');
     let didTimeout = false;
