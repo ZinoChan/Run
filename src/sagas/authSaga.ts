@@ -95,7 +95,32 @@ function* authSaga({ type, payload }: IAuthSaga) {
     case signInWithGoogle.type:
       try {
         yield initRequest();
-        yield call(firebaseInstance.signInWithGoogle);
+        const userCredential: UserCredential = yield call(
+          firebaseInstance.signInWithGoogle
+        );
+        let user = {
+          fullName: userCredential.user.displayName || 'user',
+          avatar: userCredential.user.photoURL || '',
+          email: userCredential.user.email || '',
+          address: '',
+          phone: '',
+          role: 'USER',
+          dateJoined:
+            userCredential.user.metadata.creationTime || new Date().getTime(),
+        };
+        if (userCredential?.user) {
+          yield put(
+            signInSuccess({ id: userCredential.user.uid, type: 'client' })
+          );
+          yield put(setProfile(user));
+          toast.success('sign up successfully');
+        }
+        yield call<typeof firebaseInstance.addUser>(
+          firebaseInstance.addUser,
+          userCredential.user.uid,
+          user
+        );
+        yield put(isAuthenticating(false));
       } catch (e) {
         yield handleError(e);
       }
@@ -113,7 +138,7 @@ function* authSaga({ type, payload }: IAuthSaga) {
           avatar: '',
           email: userCredential.user.email || '',
           address: '',
-          basket: [],
+          phone: '',
           role: 'USER',
           dateJoined:
             userCredential.user.metadata.creationTime || new Date().getTime(),
