@@ -15,6 +15,7 @@ import {
 import { IAuthSaga } from '@/types/saga.interface';
 import { clearCart } from '@/reducers/cartReducer';
 import { UserCredential } from 'firebase/auth';
+import { setProfile } from '@/reducers/profileReducer';
 
 function* handleError(e: any) {
   yield put(isAuthenticating(false));
@@ -121,6 +122,7 @@ function* authSaga({ type, payload }: IAuthSaga) {
           yield put(
             signInSuccess({ id: userCredential.user.uid, type: 'client' })
           );
+          yield put(setProfile(user));
           toast.success('sign up successfully');
         }
         yield call<typeof firebaseInstance.addUser>(
