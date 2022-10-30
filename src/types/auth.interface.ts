@@ -1,5 +1,3 @@
-import { ICart } from './cart.interface';
-
 export interface IUser {
   type: string;
   id: string;
@@ -20,7 +18,7 @@ export interface IUserProfile {
   avatar: File | string;
   email: string;
   address: string;
-  basket: ICart[];
+  phone: string;
   role: string;
   dateJoined: string | number;
 }
