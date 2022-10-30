@@ -15,6 +15,7 @@ const Register = lazy(() => import('../views/auth/Register'));
 const OrderDetails = lazy(() => import('../views/checkout/OrderDetails'));
 const BillingDetails = lazy(() => import('../views/checkout/BillingDetails'));
 const Payment = lazy(() => import('../views/checkout/Payment'));
+const Profile = lazy(() => import('../views/profile'));
 const NotFound = lazy(() => import('../views/404/NotFound'));
 
 export default function AppRoute() {
@@ -96,6 +97,17 @@ export default function AppRoute() {
             <Suspense fallback={<PreLoader />}>
               <PrivateRoute>
                 <Payment />
+              </PrivateRoute>
+            </Suspense>
+          }
+        />
+
+        <Route
+          path={ROUTES.PROFILE}
+          element={
+            <Suspense fallback={<PreLoader />}>
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             </Suspense>
           }

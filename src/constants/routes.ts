@@ -9,3 +9,4 @@ export const CHECKOUT_STEP_2 = '/checkout/step2';
 export const CHECKOUT_STEP_3 = '/checkout/step3';
 export const TERMS_OF_USE = '/termsOfUse';
 export const NOT_FOUND = '/404';
+export const PROFILE = '/profile';
