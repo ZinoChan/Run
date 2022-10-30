@@ -9,8 +9,7 @@ import * as ROUTES from '../../constants/routes';
 import Badge from './Badge';
 import MobileNav from './MobileNav';
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store';
-import { signOutStart } from '@/reducers/authReducer';
+import { useAppSelector } from '@/store';
 
 export default function Header({ theme = 'null' }) {
   const [openNav, setOpenNav] = useState(false);
@@ -18,8 +17,6 @@ export default function Header({ theme = 'null' }) {
     auth: !!state.auth.id && state.auth.type === 'client',
   }));
 
-  const dispatch = useAppDispatch();
-  const handleSignOut = () => dispatch(signOutStart());
   const onToggleNav = () => setOpenNav(!openNav);
 
   return (
@@ -60,12 +57,11 @@ export default function Header({ theme = 'null' }) {
                 </NavLink>
 
                 {auth ? (
-                  <button
-                    className="btn btn-outline-dark btn-sm"
-                    onClick={handleSignOut}
-                  >
-                    SignOut
-                  </button>
+                  <Link className="text-dark" to={ROUTES.PROFILE}>
+                    <button className="btn btn-outline-dark btn-sm ">
+                      profile
+                    </button>
+                  </Link>
                 ) : (
                   <Link className="text-dark" to={ROUTES.REGISTER}>
                     <button className="btn btn-outline-dark btn-sm ">
