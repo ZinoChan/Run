@@ -91,7 +91,7 @@ const Login = () => {
                     </Form>
                   )}
                 </Formik>
-                <p className="w-100 text-center my-2">— Or Sign In With —</p>
+                <p className="w-100 text-center my-2">— Or Login In With —</p>
                 <div className="social d-flex text-center">
                   <button
                     className="btn btn-dark d-flex w-100 justify-content-center align-items-center"
