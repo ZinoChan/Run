@@ -9,5 +9,5 @@
 * Redux saga
 
 #App Demo
-https://ruun.netlify.app/
+https://run-store.vercel.app/
 
