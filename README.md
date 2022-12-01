@@ -1,5 +1,5 @@
 # React and firebase shoes ecommerce webapp
-#Tools
+## Tools
 * React js 17
 * React router v6
 * Bootstrap
@@ -8,6 +8,6 @@
 * Framer-motion
 * Redux saga
 
-#App Demo
+## App Demo
 https://run-store.vercel.app/
 
