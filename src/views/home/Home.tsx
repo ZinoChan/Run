@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import nike from '@/assets/nike.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import ImgLoader from '@/components/ui/ImgLoader';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <section className="home position-relative d-flex align-items-center">
       <div className="glass position-absolute"></div>
@@ -26,7 +27,7 @@ export default function Home() {
               delay: 0.5,
             }}
           >
-            <img src={nike} alt="shoe" className="inline-block shoe-img" />
+            <ImgLoader src={nike} alt="shoe" className="inline-block shoe-img" />
           </motion.div>
 
           <div className="text-center">
