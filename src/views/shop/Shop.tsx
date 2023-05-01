@@ -4,7 +4,7 @@ import PreLoader from '@/components/ui/PreLoader';
 import { useAppSelector, useAppDispatch } from '@/store';
 import { getProductsStart } from '@/reducers/productsReducer';
 
-export default function Shop() {
+export default function Shop(): JSX.Element {
   const { products, isLoading } = useAppSelector((state) => ({
     products: state.products,
     isLoading: state.app.loading,
