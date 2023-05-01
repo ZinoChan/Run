@@ -10,11 +10,13 @@ export default function ProductItem({ product }: { product: IProductRes }) {
       <Link to={`/${product.id}`}>
         <div className="product-item h-100 text-center">
           <div className="card h-100 position-relative">
-            <ImgLoader
-              alt={product.title}
-              src={product.item}
-              className="card-img image-fluid mx-auto"
-            />
+            <div style={{ minHeight: "110px" }}>
+              <ImgLoader
+                alt={product.title}
+                src={product.item}
+                className="image-fluid mx-auto"
+              />
+            </div>
             <div className="card-body">
               <div className="item-info">
                 <div className="d-flex items-center justify-content-between">
@@ -31,9 +33,8 @@ export default function ProductItem({ product }: { product: IProductRes }) {
                       <FontAwesomeIcon
                         key={`star-${index}`}
                         icon={faStar}
-                        className={`fs-6 ${
-                          index === 5 ? 'text-muted' : 'text-dark'
-                        }`}
+                        className={`fs-6 ${index === 5 ? 'text-muted' : 'text-dark'
+                          }`}
                       />
                     ))}
                   </p>
