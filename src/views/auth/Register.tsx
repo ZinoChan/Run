@@ -2,7 +2,8 @@ import UseAuth from '../../hooks/useAuth';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { createAccount, signInWithGoogle } from '@/reducers/authReducer';
 import { GoogleOutlined } from '@ant-design/icons';
-import { Form, Formik, FormikProps } from 'formik';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { registerValidation } from '@/helpers/validation';
 import TextInput, { Label } from '@/components/checkout/TextInput';
 import { Link } from 'react-router-dom';
@@ -22,7 +23,25 @@ export default function Register() {
     isAuthenticating: state.app.isAuthenticating,
   }));
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Values>({
+    resolver: yupResolver(registerValidation),
+  });
+
   const handleSignUp = () => dispatch(signInWithGoogle());
+
+  const onSubmit = (values: Values) => {
+    dispatch(
+      createAccount({
+        fullName: values.fullName,
+        email: values.email,
+        password: values.password,
+      })
+    );
+  };
 
   return (
     <UseAuth>
@@ -43,70 +62,54 @@ export default function Register() {
               )}
 
               <div className="login-wrap p-0">
-                <Formik
-                  initialValues={{
-                    fullName: '',
-                    email: '',
-                    password: '',
-                  }}
-                  validationSchema={registerValidation}
-                  onSubmit={(values, { resetForm }) => {
-                    resetForm();
-                    dispatch(
-                      createAccount({
-                        fullName: values.fullName,
-                        email: values.email,
-                        password: values.password,
-                      })
-                    );
-                  }}
-                >
-                  {(props: FormikProps<Values>) => (
-                    <Form action="#" className="signin-form">
-                      <div className="form-group mb-4">
-                        <Label label="full name" />
-                        <TextInput
-                          name="fullName"
-                          type="text"
-                          className="form-control form-input mb-1"
-                        />
-                      </div>
-                      <div className="form-group mb-4">
-                        <Label label="email" />
-                        <TextInput
-                          name="email"
-                          type="text"
-                          className="form-control form-input mb-1"
-                        />
-                      </div>
-                      <div className="form-group mb-4">
-                        <Label label="password" />
-                        <TextInput
-                          type="password"
-                          className="form-control form-input mb-1"
-                          placeholder="Password"
-                          name="password"
-                        />
-                      </div>
-                      <div className="form-group mb-2">
-                        <button
-                          type="submit"
-                          className="form-control btn btn-danger submit px-3"
-                        >
-                          Sign Up
-                        </button>
-                      </div>
-                      <div className="form-group d-md-flex">
-                        <div>
-                          <span className="me-1">
-                            already have an account ?
-                          </span>
-                          <Link to={LOGIN}>Login</Link>
-                        </div>
-                      </div>
-                    </Form>
-                  )}
-                </Formik>
+                <form onSubmit={handleSubmit(onSubmit)} className="signin-form">
+                  <div className="form-group mb-4">
+                    <Label label="full name" />
+                    <TextInput
+                      name="fullName"
+                      type="text"
+                      className="form-control form-input mb-1"
+                      register={register}
+                      error={errors.fullName}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <Label label="email" />
+                    <TextInput
+                      name="email"
+                      type="text"
+                      className="form-control form-input mb-1"
+                      register={register}
+                      error={errors.email}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <Label label="password" />
+                    <TextInput
+                      name="password"
+                      type="password"
+                      className="form-control form-input mb-1"
+                      register={register}
+                      error={errors.password}
+                    />
+                  </div>
+                  <div className="form-group mb-2">
+                    <button
+                      type="submit"
+                      className="form-control btn btn-danger submit px-3"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                  <div className="form-group d-md-flex">
+                    <div>
+                      <span className="me-1">
+                        already have an account ?
+                      </span>
+                      <Link to={LOGIN}>Login</Link>
+                    </div>
+                  </div>
+                </form>
                 <p className="w-100 text-center my-2">— Or Sign Up With —</p>
                 <div className="social d-flex text-center">
                   <button
