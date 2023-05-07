@@ -1,50 +1,54 @@
-.ReactModal__Overlay.ReactModal__Overlay--after-open{
-    background-color: rgba(221, 221, 221,.8)!important;
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    background-color: rgba(221, 221, 221, .8) !important;
     z-index: 99;
 }
 
-.modal-btn{
+.modal-btn {
     top: 10px;
     right: 10px;
 }
 
-@include responsive_tab(){
-    .ReactModal__Content.ReactModal__Content--after-open{
-        padding: 0!important;
-        &.confirmation_modal{
-            height: auto!important;
-            padding: 2rem!important
+@include responsive_tab() {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        padding: 0 !important;
+
+        &.confirmation_modal {
+            height: auto !important;
+            padding: 2rem !important
         }
     }
 }
 
-@include responsive_mobile(){
-    .ReactModal__Content.ReactModal__Content--after-open{
-        height: 85vh!important;
-        overflow: scroll!important;
-        width: 75%!important;
-        &.confirmation_modal{
-            height: auto!important;
-            padding: 2rem!important
+@include responsive_mobile() {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        height: 85vh !important;
+        overflow: scroll !important;
+        width: 75% !important;
+
+        &.confirmation_modal {
+            height: auto !important;
+            padding: 2rem !important
         }
     }
 }
 
-@include responsive_max(450px){
-    .ReactModal__Content.ReactModal__Content--after-open{
-        width: 100%!important;
-        height: 95vh!important;
-        &.confirmation_modal{
-            height: auto!important;
-            padding: 2rem!important
+@include responsive_max(450px) {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        width: 100% !important;
+        height: 95vh !important;
+
+        &.confirmation_modal {
+            height: auto !important;
+            padding: 2rem !important
         }
     }
 }
 
 
-.confirmation_modal{
+.confirmation_modal {
     background-color: $white;
     border-radius: 10px;
     text-align: center;
-    border-color: transparent!important;
+    border-color: transparent !important;
+    position: absolute;
 }

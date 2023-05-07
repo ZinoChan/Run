@@ -32,6 +32,7 @@ p {
 input:not([type='checkbox']) {
   height: 50px !important;
   background-color: $light-gray !important;
+
   &:focus {
     box-shadow: none !important;
     border-color: $black !important;
@@ -74,7 +75,8 @@ header {
 .circle {
   position: absolute;
   filter: blur(50px);
-  z-index: 1;
+  z-index: 0;
+
   &.circle-1 {
     top: -150px;
     left: -150px;
@@ -82,6 +84,7 @@ header {
     height: 600px;
     background: #fffab3;
   }
+
   &.circle-2 {
     top: 50px;
     right: -100px;
@@ -109,10 +112,8 @@ main {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.7035189075630253) 50%,
-    rgba(255, 255, 255, 0.19931722689075626) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.7035189075630253) 50%,
+      rgba(255, 255, 255, 0.19931722689075626) 100%);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
