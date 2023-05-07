@@ -37,7 +37,7 @@ const ProductDetails = () => {
       {currentProduct && (
         <div className="container-fluid">
           <div className="row g-5">
-            <div className="col-xl-6 col-sm-12">
+            <div className="col-xl-6 col-sm-12" style={{ minHeight: "400px" }}>
               {selectedColor && <ProductShowCase imgs={selectedColor.imgs} />}
             </div>
             <div className="col-xl-6 col-sm-12">
@@ -63,9 +63,8 @@ const ProductDetails = () => {
                       <FontAwesomeIcon
                         key={`star-${index}`}
                         icon={faStar}
-                        className={`fs-6 ${
-                          index === 5 ? 'text-muted' : 'text-warning'
-                        }`}
+                        className={`fs-6 ${index === 5 ? 'text-muted' : 'text-warning'
+                          }`}
                       />
                     ))}
                   </span>
@@ -103,11 +102,11 @@ const ProductDetails = () => {
                   onClick={
                     selectedSize && selectedColor
                       ? () =>
-                          addItemToCart(
-                            currentProduct,
-                            selectedSize,
-                            selectedColor
-                          )
+                        addItemToCart(
+                          currentProduct,
+                          selectedSize,
+                          selectedColor
+                        )
                       : undefined
                   }
                   className="btn btn-dark btn-lg flex items-center justify-between"
