@@ -1,17 +1,26 @@
-import { useField, FieldHookConfig } from 'formik';
+// CheckBox.tsx
+import { UseFormRegister, FieldValues, Path } from 'react-hook-form';
 
-export default function CheckBox(props: FieldHookConfig<string>) {
-  const [field, meta] = useField(props);
+type CheckBoxProps<T extends FieldValues> = {
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  error: any;
+}
 
+const CheckBox = <T extends FieldValues>({ name, register, error }: CheckBoxProps<T>) => {
   return (
     <>
       <div className="form-check">
-        <input className="form-check-input" {...field} name={props.name} />
+        <input
+          className="form-check-input"
+          type="checkbox"
+          {...register(name)}
+        />
         <label className="form-check-label">I accept the terms of use</label>
+        {error ? <div className="error text-danger">{error.message}</div> : null}
       </div>
-      {meta.touched && meta.error ? (
-        <div className="error text-danger">{meta.error}</div>
-      ) : null}
     </>
   );
 }
+
+export default CheckBox;
